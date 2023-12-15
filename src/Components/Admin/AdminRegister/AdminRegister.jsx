@@ -19,8 +19,7 @@ const GetData=(e)=>{
 
 const SignUp=async()=>{
   const {password,confirmpassword}=val;
-
-  if(password!==confirmpassword){
+    if(password!==confirmpassword){
     alert('Password and Confirm Password do not match!');
   } else {
     const res=await axios.post("http://localhost:7000/sportstrack/addadmin")
