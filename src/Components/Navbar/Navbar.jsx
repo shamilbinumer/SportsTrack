@@ -3,7 +3,7 @@ import './Navbar.scss'
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='navbar-main'>
         <div className="superNav border-bottom py-2 bg-light">
       <div className="container">
         <div className="row">
@@ -30,17 +30,17 @@ const Navbar = () => {
     
         <div className="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
           <div className="input-group">
-            <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" className="form-control border-warning"  style={{ color: "#7a7a7a" }} />
-            <button className="btn btn-warning text-white">Search</button>
+            <span className=" input-group-text  text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" className="form-control"  style={{ color: "#7a7a7a" }} />
+            <button className="btn text-white">Search</button>
           </div>
         </div>
         <div className=" collapse navbar-collapse" id="navbarNavDropdown">
           <div className="ms-auto d-none d-lg-block">
             <div className="input-group">
-              <span className="border-warning input-group-text bg-warning text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
-              <input type="text" className="form-control border-warning" style={{color:"#7a7a7a"}} />
-              <button className="btn btn-warning text-white">Search</button>
+              <span className="sss input-group-text  text-white"><i className="fa-solid fa-magnifying-glass"></i></span>
+              <input type="text" className="form-control" style={{color:"#7a7a7a"}} />
+              <button className="btn text-white">Search</button>
             </div>
           </div>
           <ul className="navbar-nav ms-auto ">
