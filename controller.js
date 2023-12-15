@@ -9,7 +9,7 @@ export async function addAdmin(req,res){
     try {
         const {username,email,phone,password}=req.body;
         console.log(username,email,phone,password);
-        if(!(name&&username&&password))
+        if(!(username&&email&&phone&&password))
         return res.status(404).send("fields are empty")
     
         bcrypt.hash(password,10)    
