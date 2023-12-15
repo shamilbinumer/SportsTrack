@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt'
 export async function addAdmin(req,res){
     try {
         const {username,email,phone,password}=req.body;
-        console.log(name,username,password);
+        console.log(username,email,phone,password);
         if(!(name&&username&&password))
         return res.status(404).send("fields are empty")
     
