@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './AdminRegister.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const AdminRegister = () => {
+  const navigate=useNavigate()
 const[val,setVal]=useState({
   username:"",
   email:"",
@@ -17,14 +18,21 @@ const GetData=(e)=>{
   console.log(val);
 }
 
-const SignUp=async()=>{
+const SignUp=async(e)=>{
+  e.preventDefault();
   const {password,confirmpassword}=val;
     if(password!==confirmpassword){
     alert('Password and Confirm Password do not match!');
   } else {
-    const res=await axios.post("http://localhost:7000/sportstrack/addadmin")
-    console.log(res.data);
+    const res=await axios.post("http://localhost:7000/sportstrack/addadmin",{...val})
+    setVal(res.data)
+    console.log(val);
+    if(res.status==201){
+      alert("Successfully registered")
+      navigate("/admin")
+    }
   }
+
 };
 
   return (
@@ -57,7 +65,7 @@ const SignUp=async()=>{
       <path d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"></path></svg>
       <input id="logpass" placeholder="Confirm Password" className="input-field" name="confirmpassword" type="password" onChange={GetData}/>
     </div>
-    <Link><button className="btn" type="submit" onClick={SignUp} >Sign Up</button></Link>
+    <button className="btn" type="submit" onClick={SignUp} >Sign Up</button>
     {/* <a href="#" className="btn-link">Forgot your password?</a> */}
    <Link to='/admin'  className="btn-link">I Have an account</Link>
   </form>
