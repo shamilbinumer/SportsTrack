@@ -40,8 +40,10 @@ export async function AdminLogin(req, res) {
      if (usr === null) return res.status(404).send("email or password doesnot exist");
      const success =await bcrypt.compare(password, usr.password)
      console.log(success);
+     const {username}=usr
      if (success !== true) return res.status(404).send("email or password doesnot exist");
-     const token = await sign({ email }, process.env.JWT_KEY, { expiresIn: "24h" })
+     const token = await sign({ username }, process.env.JWT_KEY, { expiresIn: "24h" })
+     console.log(username);
      console.log(token);
      res.status(200).send({ msg: "successfullly login", token })
      res.end();
@@ -54,10 +56,11 @@ export async function AdminLogin(req, res) {
 export async function home(req,res)
 {
   try {
-    console.log(req.user);
-    const username=req.user.usr.user
+     const{username}=req.user;
     console.log(username);
+    
     res.status(200).send({msg:`${username}`})
+   
   } catch (error) {
     res.status(404).send(error)
   }
