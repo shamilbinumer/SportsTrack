@@ -66,13 +66,23 @@ export async function home(req,res)
 }
 
 
-export async function adminFrgtPwd(req, res) {
+// export async function forgotAdminpassword(req, res) {
+//   const phone = req.params.phone;
+//   const updatedPassword = req.body.password;
+//   const saltRounds = 10;
+//   const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
+//   let task = await admin_schema.updateOne({ phone }, { $set: { password: hashedPassword } });
+//   res.status(200).send(task);
+// }
+
+export async function forgotAdminpassword(req, res) {
+  // const phone = req.params.phone;
   console.log(req.params);
-  // const email = req.params.email;
   // const updatedPassword = req.body.password;
   // const saltRounds = 10;
   // const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
-  // let task = await admin_schema.updateOne({ email }, { $set: { password: hashedPassword } });
+  // let task = await admin_schema.updateOne({ phone }, { $set: { password: hashedPassword } });
+  
   // res.status(200).send(task);
   res.end()
 }
