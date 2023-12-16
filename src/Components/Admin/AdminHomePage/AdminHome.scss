@@ -1,0 +1,54 @@
+.adminHomePageMain{
+    .display-username{
+        // background-color: red;
+        text-align: right;
+        // padding-right: 10px;
+    }
+    .header-main{
+        display: flex;
+    }
+   .header-right{
+        width: 20%;
+        padding-top: 20px;
+    }
+    .header-left{
+        width: 80%;
+        padding-top: 20px;
+    }
+
+    .display-username span{
+        background-color: rgb(2, 7, 61);
+        color: white;
+        padding-right: 10px;
+        padding: 7px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 19px;
+        border-radius: 20px 0px 0px 20px;
+        // margin-left: 10px;
+    }
+    .display-username .fa-user{
+        margin-right: 10px;
+        background-color: white;
+        padding: 7px 10px;
+        color: rgb(2, 7, 61);
+        border-radius: 50%;
+    }
+    .back-btn{
+        border-radius: 0px 20px 20px 0px;
+        text-decoration: none;
+        background-color: rgb(2, 7, 61);
+        color: white;
+        font-weight: 700;
+        letter-spacing: 2px;
+        padding: 7px 30px;
+    }
+     .header-right button{
+        background-color: transparent;
+        color: rgb(2, 7, 61);
+        border: none;
+        padding: 2px 10px;
+        background-color: white;
+     }
+
+}

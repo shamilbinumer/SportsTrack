@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './AdminHome.scss'
 import axios from 'axios';
 import Navbar from '../../Navbar/Navbar';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const AdminHome = () => {
+    const navigate=useNavigate()
     const [msg,setMsg]=useState("")
     const value=JSON.parse(localStorage.getItem('admin_token'));
     const getName=async()=>{
@@ -18,12 +20,27 @@ const AdminHome = () => {
     useEffect(()=>{
         getName() 
     },[])
+
+    const Logout=(e)=>{
+        e.preventDefault();
+        const confirmed = window.confirm("Are you sure you want to logout?");
+        if (confirmed) {
+            localStorage.clear();
+           navigate("/admin")
+        }
+    }
   return (
     <div className='adminHomePageMain'>
-        {/* <h1>{msg}</h1>     */}
-        <div className="display-username">
-            <p>{msg}</p>
+      <div className="header-main">
+      <div className="header-left">
+        <Link to='/admin' className='back-btn'>Back</Link>
+      </div>
+       <div className="header-right">
+       <div className="display-username">
+            <span><i className="fa fa-user" aria-hidden="true"></i>{msg} <button onClick={Logout}><i className="fa fa-sign-out" aria-hidden="true"></i></button></span>
         </div>
+       </div>
+      </div>
 
     </div>
   )

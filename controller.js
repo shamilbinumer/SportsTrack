@@ -46,7 +46,7 @@ export async function AdminLogin(req, res) {
      console.log(username);
      console.log(token);
      res.status(200).send({ msg: "successfullly login", token })
-     res.end();
+    //  res.end();
      
     } catch (error) {
      console.log(error); 
@@ -56,6 +56,7 @@ export async function AdminLogin(req, res) {
 export async function home(req,res)
 {
   try {
+    
      const{username}=req.user;
     res.status(200).send({msg:`${username}`})
    } 
