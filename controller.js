@@ -66,32 +66,23 @@ export async function home(req,res)
 }
 
 
-// export async function forgotAdminpassword(req, res) {
-//   const phone = req.params.phone;
-//   const updatedPassword = req.body.password;
-//   const saltRounds = 10;
-//   const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
-//   let task = await admin_schema.updateOne({ phone }, { $set: { password: hashedPassword } });
-//   res.status(200).send(task);
-// }
-
-export async function forgotAdminPassword(req, res) {
-  try {
-    const phone = req.params.phone;
-    const updatedPassword = req.body.password;
-    const admin = await admin_schema.findOne({ phone });
-    if (!admin) {
-      return res.status(404).json({ error: 'Admin not found' });
-    }
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
-    const task = await admin_schema.updateOne({ phone }, { $set: { password: hashedPassword } });
-    if (task.nModified === 0) {
-      return res.status(500).json({ error: 'Failed to update password' });
-    }
-    res.status(200).json({ message: 'Password updated successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
+export async function forgotAdminpassword(req, res) {
+  const {email} = req.params;
+  const updatedPassword = req.body.password;
+  const saltRounds = 10;
+  const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
+  let task = await admin_schema.updateOne({ email }, { $set: { password: hashedPassword } });
+  res.status(200).send(task);
 }
+
+// export async function forgotAdminpwd(req, res) {
+//   console.log(req.params.email);
+//   // const {email} = req.params;
+//   // try {
+//   //     const updatedData = req.body;
+//   //     const value = await admin_schema.updateOne({email:email}, { $set: updatedData });
+//   //     res.status(200).send(value);
+//   // } catch (error) {
+//   //     res.status(404).send(error);
+//   // }
+// }
