@@ -19,8 +19,12 @@ const AdminHome = () => {
         getName() 
     },[])
   return (
-    <div>
+    <div className='adminHomePageMain'>
         {/* <h1>{msg}</h1>     */}
+        <div className="display-username">
+            <p>{msg}</p>
+        </div>
+
     </div>
   )
 }
