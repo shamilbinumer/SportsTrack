@@ -65,24 +65,44 @@ export async function home(req,res)
   }
 }
 
+export async function forgotUsername(req,res){
+  const {username}=req.params;
+  console.log(username);
+  let task=await admin_schema.findOne({username})
+  console.log(task);
+  res.status(200).send(task)
+}
 
-export async function forgotAdminpassword(req, res) {
-  const {email} = req.params;
-  const updatedPassword = req.body.password;
-  const saltRounds = 10;
-  const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
-  let task = await admin_schema.updateOne({ email }, { $set: { password: hashedPassword } });
+
+export async function forgotAdminpwd(req, res) {
+  // const {email} = req.params;
+  // const updatedPassword = req.body.password;
+  const {email,password}=req.body;
+  console.log(email);
+  const hashedPassword = await bcrypt.hash(password,10);
+  let task = await admin_schema.updateOne( {email} , { $set: { password: hashedPassword } });
+  console.log(task);
+  // if (task.modifiedCount === 0) {
+  //   return res.status(404).json({ error: 'Admin not found or password unchanged' });
+  // }
   res.status(200).send(task);
 }
 
 // export async function forgotAdminpwd(req, res) {
-//   console.log(req.params.email);
-//   // const {email} = req.params;
-//   // try {
-//   //     const updatedData = req.body;
-//   //     const value = await admin_schema.updateOne({email:email}, { $set: updatedData });
-//   //     res.status(200).send(value);
-//   // } catch (error) {
-//   //     res.status(404).send(error);
-//   // }
+//   const { email } = req.params;
+
+//   try {
+//     const admin = await admin_schema.findOne({ email });
+//     const updatedPassword = req.body.password;
+//     const saltRounds = 10;
+//     const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
+//     const updateResult = await admin_schema.updateOne({ email }, { $set: { password: hashedPassword } });
+//     if (updateResult.nModified === 0) {
+//       return res.status(500).json({ error: 'Failed to update password' });
+//     }
+//     res.status(200).json({ message: 'Password updated successfully' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
 // }
