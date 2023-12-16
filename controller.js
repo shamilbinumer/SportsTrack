@@ -75,15 +75,23 @@ export async function home(req,res)
 //   res.status(200).send(task);
 // }
 
-export async function forgotAdminpassword(req, res) {
-  // const phone = req.params.phone;
-  console.log(req.params);
-  // const updatedPassword = req.body.password;
-  // const saltRounds = 10;
-  // const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
-  // let task = await admin_schema.updateOne({ phone }, { $set: { password: hashedPassword } });
-  
-  // res.status(200).send(task);
-  res.end()
+export async function forgotAdminPassword(req, res) {
+  try {
+    const phone = req.params.phone;
+    const updatedPassword = req.body.password;
+    const admin = await admin_schema.findOne({ phone });
+    if (!admin) {
+      return res.status(404).json({ error: 'Admin not found' });
+    }
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
+    const task = await admin_schema.updateOne({ phone }, { $set: { password: hashedPassword } });
+    if (task.nModified === 0) {
+      return res.status(500).json({ error: 'Failed to update password' });
+    }
+    res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 }
-
