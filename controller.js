@@ -57,11 +57,9 @@ export async function home(req,res)
 {
   try {
      const{username}=req.user;
-    console.log(username);
-    
     res.status(200).send({msg:`${username}`})
-   
-  } catch (error) {
+   } 
+   catch (error) {
     res.status(404).send(error)
   }
 }
