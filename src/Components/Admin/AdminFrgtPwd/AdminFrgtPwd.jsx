@@ -26,7 +26,7 @@ const EditPwd=async(e)=>{
     const res= await axios.patch("http://localhost:7000/sportstrack/adminpassword",{ password : val.password })
     console.log(res.data);
     if(res==200){
-      alert("Successfully Updated")
+      alert("Successfully Updated..")
     }
   }
 }
