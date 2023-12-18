@@ -7,6 +7,7 @@ import AdminLogin from './Components/Admin/AdminLogin/AdminLogin'
 import AdminRegister from './Components/Admin/AdminRegister/AdminRegister'
 import AdminHome from './Components/Admin/AdminHomePage/AdminHome'
 import AdminFrgtPwd from './Components/Admin/AdminFrgtPwd/AdminFrgtPwd'
+import AddCategory from './Components/Admin/AddCategory/AddCategory'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <Route path='/adminResgiter' Component={AdminRegister}/>
     <Route path='/adminhome' Component={AdminHome}/>
     <Route path='/adminFrgtPwd' Component={AdminFrgtPwd}/>
+    <Route path='/addCategory' Component={AddCategory}/>
   </Routes>
   </BrowserRouter>
     </>

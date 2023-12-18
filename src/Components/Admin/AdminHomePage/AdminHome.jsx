@@ -70,7 +70,7 @@ const AdminHome = () => {
             </table>
           </div>
           <div className="add-cat-section">
-            <Link className='add-cat-btn'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
+            <Link className='add-cat-btn' to='/addCategory'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
           </div>
         </div>
         <div className="hero-right"></div>

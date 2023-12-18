@@ -1,4 +1,5 @@
 import admin_schema from './admin.model.js'
+import category_schema from './category.model.js'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
 import pkg from "jsonwebtoken";
@@ -77,26 +78,23 @@ export async function GetAdmin(req,res){
 export async function forgotAdminpwd(req, res) {
   const {email,password}=req.body;
   const hashedPassword = await bcrypt.hash(password,10);
-  let task = await admin_schema.updateOne( {email} , { $set: { password: hashedPassword } });
+  let task = await category_schema.updateOne( {email} , { $set: { password: hashedPassword } });
   console.log(task);
   res.status(200).send(task);
 }
 
-// export async function forgotAdminpwd(req, res) {
-//   const { email } = req.params;
+export async function AddCategory(req, res) {
+  try {
+    const { category, aboutCategory } = req.body;
+    console.log(category, aboutCategory);
+    if (!(category && aboutCategory)) {
+      return res.status(400).send("Fields are empty");
+    }
+    await category_schema.create({ category, aboutCategory });
 
-//   try {
-//     const admin = await admin_schema.findOne({ email });
-//     const updatedPassword = req.body.password;
-//     const saltRounds = 10;
-//     const hashedPassword = await bcrypt.hash(updatedPassword, saltRounds);
-//     const updateResult = await admin_schema.updateOne({ email }, { $set: { password: hashedPassword } });
-//     if (updateResult.nModified === 0) {
-//       return res.status(500).json({ error: 'Failed to update password' });
-//     }
-//     res.status(200).json({ message: 'Password updated successfully' });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// }
+    res.status(200).send("Category added successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+}

@@ -7,5 +7,6 @@ router.route("/adminlogin").post(controller.AdminLogin);
 router.route("/home").get(Auth,controller.home);
 router.route("/getemail/:email").get(controller.GetAdmin);
 router.route("/adminpassword").patch(controller.forgotAdminpwd)
+router.route("/addCategory").post(controller.AddCategory)
 
 export default router;
