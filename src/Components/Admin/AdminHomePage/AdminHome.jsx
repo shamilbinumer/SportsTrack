@@ -42,6 +42,40 @@ const AdminHome = () => {
        </div>
       </div>
 
+      <div className="hero">
+        <div className="hero-left">
+          <h4>Category</h4>
+          <div className="cat-ithems">
+            <table>
+              <tr>
+                <th><span>Category 1</span></th>
+                <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
+              </tr>
+            </table>
+          </div>
+          <div className="cat-ithems">
+          <table>
+              <tr>
+                <th><span>Category 2</span></th>
+                <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
+              </tr>
+            </table>
+          </div>
+          <div className="cat-ithems">
+          <table>
+              <tr>
+                <th><span>Category 3</span></th>
+                <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
+              </tr>
+            </table>
+          </div>
+          <div className="add-cat-section">
+            <Link className='add-cat-btn'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
+          </div>
+        </div>
+        <div className="hero-right"></div>
+      </div>
+
     </div>
   )
 }

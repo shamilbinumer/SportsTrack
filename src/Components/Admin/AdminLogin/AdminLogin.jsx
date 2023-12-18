@@ -1,6 +1,6 @@
 import  {React, useState } from 'react'
 import './AdminLogin.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const AdminLogin = () => {
@@ -42,7 +42,7 @@ if(res.status!==404){
       <input id="logpass" placeholder="Password" className="input-field" name="password" type="password" onChange={(e)=>setPassword(e.target.value)} />
     </div>
     <button className="btn" type="submit" onClick={Login}>Login</button>
-    <Link to='/adminFrgtPwd' className="btn-link">Forgot your password?</Link>
+    <Link to={`/adminFrgtPwd`}className="btn-link">Forgot your password?</Link>
    <Link to='/adminResgiter'  className="btn-link">Register</Link>
   </form>
 </div>

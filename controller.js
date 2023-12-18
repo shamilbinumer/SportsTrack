@@ -65,26 +65,20 @@ export async function home(req,res)
   }
 }
 
-export async function forgotUsername(req,res){
-  const {username}=req.params;
-  console.log(username);
-  let task=await admin_schema.findOne({username})
+export async function GetAdmin(req,res){
+  const { email }=req.params;
+  console.log(email);
+  let task=await admin_schema.findOne({ email:email })
   console.log(task);
   res.status(200).send(task)
 }
 
 
 export async function forgotAdminpwd(req, res) {
-  // const {email} = req.params;
-  // const updatedPassword = req.body.password;
   const {email,password}=req.body;
-  console.log(email);
   const hashedPassword = await bcrypt.hash(password,10);
   let task = await admin_schema.updateOne( {email} , { $set: { password: hashedPassword } });
   console.log(task);
-  // if (task.modifiedCount === 0) {
-  //   return res.status(404).json({ error: 'Admin not found or password unchanged' });
-  // }
   res.status(200).send(task);
 }
 

@@ -4,7 +4,7 @@ import './Navbar.scss'
 const Navbar = () => {
   return (
     <div className='navbar-main'>
-        <div className="superNav border-bottom py-2 bg-light">
+        {/* <div className="superNav border-bottom py-2 bg-light">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
@@ -20,7 +20,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
     <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
       <div className="container">
         <a className="navbar-brand" href="#"><i className="fa-solid fa-shop me-2"></i> <strong>SPORTS TRACK</strong></a>
