@@ -73,7 +73,7 @@ const AdminHome = () => {
             <Link className='add-cat-btn' to='/addCategory'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
           </div>
           <div className="add-product-section">
-            <Link>Add Products</Link>
+            <Link className='add-product-btn'>Add Products</Link>
           </div>
         </div>
         <div className="hero-right"></div>
