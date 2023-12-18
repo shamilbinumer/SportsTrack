@@ -120,7 +120,6 @@ export async function AddProduct(req, res) {
 
 export async function images(req,res){
   console.log(req.file);
-  
   res.end()
   }
 
