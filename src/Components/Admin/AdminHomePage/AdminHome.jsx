@@ -67,27 +67,11 @@ const AdminHome = () => {
           )
           }
           </div>
-          {/* <div className="cat-ithems">
-          <table>
-              <tr>
-                <th><span>Category 2</span></th>
-                <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
-              </tr>
-            </table>
-          </div>
-          <div className="cat-ithems">
-          <table>
-              <tr>
-                <th><span>Category 3</span></th>
-                <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
-              </tr>
-            </table>
-          </div> */}
           <div className="add-cat-section">
             <Link className='add-cat-btn' to='/addCategory'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
           </div>
           <div className="add-product-section">
-            <Link className='add-product-btn'>Add Products</Link>
+            <Link className='add-product-btn' to='/addProduct'>Add Products</Link>
           </div>
         </div>
         <div className="hero-right"></div>
