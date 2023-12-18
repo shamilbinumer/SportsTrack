@@ -7,8 +7,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const AdminHome = () => {
+
     const navigate=useNavigate()
     const [msg,setMsg]=useState("")
+    const [getCat,setCat]=useState([])
     const value=JSON.parse(localStorage.getItem('admin_token'));
     const getName=async()=>{
         const res=await axios.get("http://localhost:7000/sportstrack/home",{
@@ -29,6 +31,15 @@ const AdminHome = () => {
            navigate("/admin")
         }
     }
+
+    const getCategory=async()=>{
+      const res=await axios.get("http://localhost:7000/sportstrack/getcategory")
+      setCat(res.data)
+      console.log(getCat);
+    }
+    useEffect(()=>{
+      getCategory()
+    },[])
   return (
     <div className='adminHomePageMain'>
       <div className="header-main">
@@ -46,14 +57,18 @@ const AdminHome = () => {
         <div className="hero-left">
           <h4>Category</h4>
           <div className="cat-ithems">
-            <table>
-              <tr>
-                <th><span>Category 1</span></th>
-                <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
-              </tr>
-            </table>
+            {
+            getCat.map((data,index)=>
+            <table key={index}>
+            <tr>
+              <th><span>{data.category}</span></th>
+              <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
+            </tr>
+          </table>
+          )
+          }
           </div>
-          <div className="cat-ithems">
+          {/* <div className="cat-ithems">
           <table>
               <tr>
                 <th><span>Category 2</span></th>
@@ -68,7 +83,7 @@ const AdminHome = () => {
                 <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
               </tr>
             </table>
-          </div>
+          </div> */}
           <div className="add-cat-section">
             <Link className='add-cat-btn' to='/addCategory'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
           </div>

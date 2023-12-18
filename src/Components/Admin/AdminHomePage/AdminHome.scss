@@ -87,6 +87,7 @@
      }
      .cat-ithems span{
         font-size: 20px;
+        letter-spacing: 1px;
         font-weight: 700;
         margin-right: 20px;
         color: rgb(2, 7, 61);
@@ -98,7 +99,9 @@
         color: rgb(255, 255, 255);
         padding: 2px 10px;
         border-radius: 4px;
-        font-weight: 700;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
      }
      .cat-ithems th{
         height: 60px !important;
