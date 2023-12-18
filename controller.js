@@ -90,9 +90,9 @@ export async function AddCategory(req, res) {
     if (!(category && aboutCategory)) {
       return res.status(400).send("Fields are empty");
     }
-    await category_schema.create({ category, aboutCategory });
+    const task=await category_schema.create({ category, aboutCategory });
 
-    res.status(200).send("Category added successfully");
+    res.status(200).send(task);
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
