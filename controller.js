@@ -98,3 +98,8 @@ export async function AddCategory(req, res) {
     res.status(500).send("Internal Server Error");
   }
 }
+
+export async function getCategory(req,res){
+  let task=await category_schema.find()
+  res.status(200).send(task)
+}
