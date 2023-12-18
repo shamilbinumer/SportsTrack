@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as controller from "./controller.js"
-import Auth from "./Auth.js";
+import Auth from "./middleware/Auth.js";
 const router=Router();
 router.route("/addadmin").post(controller.AddAdmin);
 router.route("/adminlogin").post(controller.AdminLogin);
