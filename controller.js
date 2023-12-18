@@ -2,7 +2,7 @@ import admin_schema from './admin.model.js'
 import category_schema from './category.model.js'
 import product_schema from './product.model.js'
 import bcrypt from 'bcrypt'
-import jsonwebtoken from 'jsonwebtoken'
+// import jsonwebtoken from 'jsonwebtoken'
 import pkg from "jsonwebtoken";
 const {sign}=pkg
 
@@ -105,7 +105,7 @@ export async function getCategory(req,res){
   res.status(200).send(task)
 }
 
-export async function AddProduct(req, res) {
+export async function AddProducts(req, res) {
   try {
     const { ...products } = req.body;
     const task=await product_schema.create({ ...products });
@@ -117,10 +117,5 @@ export async function AddProduct(req, res) {
   }
 }
 
-
-export async function images(req,res){
-  console.log(req.file);
-  res.end()
-  }
 
 

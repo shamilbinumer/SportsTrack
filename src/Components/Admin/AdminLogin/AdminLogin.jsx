@@ -1,6 +1,6 @@
 import  {React, useState } from 'react'
 import './AdminLogin.scss'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, } from 'react-router-dom'
 import axios from 'axios'
 
 const AdminLogin = () => {
