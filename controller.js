@@ -108,10 +108,6 @@ export async function getCategory(req,res){
 export async function AddProduct(req, res) {
   try {
     const { ...products } = req.body;
-    // console.log(category, aboutCategory);
-    // if (!(category && aboutCategory)) {
-    //   return res.status(400).send("Fields are empty");
-    // }
     const task=await product_schema.create({ ...products });
 
     res.status(200).send(task);
