@@ -1,5 +1,6 @@
 import admin_schema from './admin.model.js'
 import category_schema from './category.model.js'
+import product_schema from './product.model.js'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
 import pkg from "jsonwebtoken";
@@ -103,3 +104,21 @@ export async function getCategory(req,res){
   let task=await category_schema.find()
   res.status(200).send(task)
 }
+
+export async function AddProduct(req, res) {
+  try {
+    const { ...products } = req.body;
+    // console.log(category, aboutCategory);
+    // if (!(category && aboutCategory)) {
+    //   return res.status(400).send("Fields are empty");
+    // }
+    const task=await product_schema.create({ ...products });
+
+    res.status(200).send(task);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+
