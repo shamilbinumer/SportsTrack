@@ -68,7 +68,7 @@
      }
      .hero-left h4{
         padding-left: 13%;
-        background-color: rgb(2, 7, 61);
+        background:linear-gradient(rgb(2, 7, 61),rgb(6, 17, 139));
         color: white;
         text-align: center;
         padding: 10px;
@@ -105,7 +105,8 @@
         width: 170px;
      }
      .add-cat-section{
-        background-color: rgb(2, 7, 61);
+        // background-color: rgb(2, 7, 61);
+        background:linear-gradient(rgb(2, 7, 61),rgb(6, 17, 139));
         padding: 10px;
         text-align: center;
      }
