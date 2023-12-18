@@ -10,6 +10,7 @@ router.route("/adminpassword").patch(controller.forgotAdminpwd)
 router.route("/addCategory").post(controller.AddCategory)
 router.route("/getcategory").get(controller.getCategory);
 router.route("/addProduct").post(controller.AddProducts);
+router.route("/delcategory/:id").delete(controller.delCategory);
 
 
 export default router;

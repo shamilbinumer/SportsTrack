@@ -39,6 +39,17 @@ const AdminHome = () => {
     useEffect(()=>{
       getCategory()
     },[])
+
+    const deletecategory=async(id)=>{
+      const res=await axios.delete(`http://localhost:7000/sportstrack/delcategory/${id}`)
+      console.log(res.data);
+      if(res.status!=404){
+        alert("deleted")
+      }else{
+        alert("not deleted")
+      }
+      getCategory()
+    }
   return (
     <div className='adminHomePageMain'>
       <div className="header-main">
@@ -61,7 +72,7 @@ const AdminHome = () => {
             <table key={index}>
             <tr>
               <th><span>{data.category}</span></th>
-              <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'>Delete</Link></td>
+              <td><Link className='edit-btn'>Edit</Link><Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}>Delete</Link></td>
             </tr>
           </table>
           )

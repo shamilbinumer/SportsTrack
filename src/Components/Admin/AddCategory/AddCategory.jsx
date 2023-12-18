@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './Addcategory.scss'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const AddCategory = () => {
+  const navigate=useNavigate()
     const [val,setVal]=useState({
         category:"",
         aboutCategory:""
@@ -17,6 +18,7 @@ const AddCategory = () => {
         const res=await axios.post("http://localhost:7000/sportstrack/addCategory",{...val}) 
         if(res.status!=404){
             alert("Category Added Successfully")
+            navigate("/adminhome")
         }
       }
   return (

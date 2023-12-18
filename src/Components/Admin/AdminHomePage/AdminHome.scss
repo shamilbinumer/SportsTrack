@@ -82,11 +82,8 @@
         // padding-left: 30px;
         text-align: center;
      }
-     .cat-ithems{
-        padding-left: 30px;
-     }
      .cat-ithems span{
-        font-size: 20px;
+        font-size: 18px;
         letter-spacing: 1px;
         font-weight: 700;
         margin-right: 20px;
@@ -106,6 +103,10 @@
      .cat-ithems th{
         height: 60px !important;
         width: 170px;
+        padding-left: 20px;
+     }
+     .cat-ithems tr{
+      border-bottom: 1px solid rgba(2, 7, 61, 0.551);
      }
      .add-cat-section{
         // background-color: rgb(2, 7, 61);

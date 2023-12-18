@@ -117,5 +117,16 @@ export async function AddProducts(req, res) {
   }
 }
 
+export function delCategory(req,res)
+{
+    const{id}=req.params;
+    const data=category_schema.deleteOne({_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)          
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}
+
 
 

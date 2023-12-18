@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './AddProduct.scss'
 import convertToBase64 from '../../../../base64'
 import axios from 'axios'
 
 const AddProduct = () => {
   let Photo=""
+  const [getCat,setCat]=useState([])
   const [val,setVal]=useState({
     product_name:"",
     category:"",
@@ -25,6 +26,15 @@ const AddProduct = () => {
     Photo=await convertToBase64(e.target.files[0])
     console.log(Photo);
   }
+
+  const getCategory=async()=>{
+    const res=await axios.get("http://localhost:7000/sportstrack/getcategory")
+    setCat(res.data)
+    console.log(getCat);
+  }
+  useEffect(()=>{
+    getCategory()
+  },[])
 
   const addProduct=async(e)=>{
    try {
@@ -48,7 +58,14 @@ const AddProduct = () => {
       <input id="prodname" placeholder="Product Name" className="input-field" name="product_name" type="text" onChange={GetData} />
     </div>
     <div className="field">
-      <input id="category" placeholder="Category" className="input-field" name="category" type="text" onChange={GetData} />
+    <select name="category" id="category"  className="input-field" onChange={GetData}  >
+      {/* <input id="category" placeholder="Category" className="input-field" name="category" type="text" onChange={GetData} /> */}
+     {
+      getCat.map((data,index)=>
+        <option value={data.category} key={index}>{data.category}</option>
+     )
+     }
+      </select>
     </div>
     <div className="field">
       <input id="description" placeholder="Description About Product" className="input-field" name="description" type="text" onChange={GetData}/>
