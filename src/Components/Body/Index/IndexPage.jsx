@@ -31,9 +31,6 @@ const IndexPage = () => {
         <div className="ctgry-images"><img src="../../../../public/winter.jpg" alt="" /></div>
         <div className="ctgry-images"><img src="../../../../public/women.jpg" alt="" /></div>
       </div>
-      {/* <div className="ctgry-list">
-        
-      </div> */}
        
     </div>
 
