@@ -79,7 +79,7 @@ const AdminHome = () => {
       </div>
        <div className="header-right">
        <div className="display-username">
-            <span><i className="fa fa-user" aria-hidden="true"></i>{msg} <butt on onClick={Logout}><i className="fa fa-sign-out" aria-hidden="true"></i></button></span>
+            <span><i className="fa fa-user" aria-hidden="true"></i>{msg} <button onClick={Logout}><i className="fa fa-sign-out" aria-hidden="true"></i></button></span>
         </div>
        </div>
       </div>
