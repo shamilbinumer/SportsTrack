@@ -1,4 +1,5 @@
 // import React from 'react'
+import { Link } from 'react-router-dom'
 import './Navbar.scss'
 
 const Navbar = () => {
@@ -65,7 +66,8 @@ const Navbar = () => {
               <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-cart-shopping me-1"></i> Cart</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-circle-user me-1"></i> Account</a>
+              <Link className="nav-link mx-2 text-uppercase" to='/custemerReg'>Account</Link>
+              {/* <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-circle-user me-1"></i> Account</a> */}
             </li>
           </ul>
         </div>

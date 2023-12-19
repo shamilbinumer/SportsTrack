@@ -10,6 +10,7 @@ import AdminFrgtPwd from './Components/Admin/AdminFrgtPwd/AdminFrgtPwd'
 import AddCategory from './Components/Admin/AddCategory/AddCategory'
 import AddProduct from './Components/Admin/AddProduct/AddProduct'
 import EditCategory from './Components/Admin/EditCategory/EditCategory'
+import CustomerReg from './Components/Customer/CustomerReg/CustomerReg'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <Route path='/addCategory' Component={AddCategory}/>
     <Route path='/addProduct' Component={AddProduct}/>
     <Route path='/editCategory/:id' Component={EditCategory}/>
+    <Route path='/custemerReg' Component={CustomerReg}/>
   </Routes>
   </BrowserRouter>
     </>
