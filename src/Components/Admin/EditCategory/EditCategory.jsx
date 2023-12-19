@@ -11,6 +11,7 @@ const EditCategory = () => {
         setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
         console.log(val);
     }
+    
   return (
     <div className='Edit-Category-main'>
         <div className="header-main">

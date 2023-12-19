@@ -128,6 +128,14 @@ export function delCategory(req,res)
     })
 }
 
+export async function getCatDetails(req,res){
+  const{id}=req.params;
+  // console.log(id);
+  let task=await category_schema.findOne({_id:id})
+  console.log(task);
+  res.status(200).send(task)
+}
+
 
 export async function editCategory(req, res) {
   const { id } = req.params;
@@ -139,6 +147,8 @@ export async function editCategory(req, res) {
       res.status(404).send(error);
   }
 }
+
+
 
 
 

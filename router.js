@@ -12,6 +12,7 @@ router.route("/getcategory").get(controller.getCategory);
 router.route("/addProduct").post(controller.AddProducts);
 router.route("/delcategory/:id").delete(controller.delCategory);
 router.route("/editCategory/:id").patch(controller.editCategory);
+router.route("/getCatDetails/:id").post(controller.getCatDetails);
 
 
 export default router;
