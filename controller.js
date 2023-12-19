@@ -148,6 +148,11 @@ export async function editCategory(req, res) {
   }
 }
 
+export async function getProduct(req,res){
+  let task=await product_schema.find()
+  res.status(200).send(task)
+}
+
 
 
 

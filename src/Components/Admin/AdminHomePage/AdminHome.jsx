@@ -45,16 +45,32 @@ const AdminHome = () => {
       getCategory()
     },[])
 
-    const deletecategory=async(id)=>{
-      const res=await axios.delete(`http://localhost:7000/sportstrack/delcategory/${id}`)
-      console.log(res.data);
-      if(res.status!=404){
-        alert("deleted")
-      }else{
-        alert("not deleted")
+    const deletecategory = async (id) => {
+      // Display a confirmation dialog before making the delete request
+      const userConfirmed = window.confirm("Are you sure you want to delete this category?");
+    
+      if (userConfirmed) {
+        try {
+          const res = await axios.delete(`http://localhost:7000/sportstrack/delcategory/${id}`);
+          console.log(res.data);
+    
+          if (res.status !== 404) {
+            alert("Category deleted successfully");
+          } else {
+            alert("Category not deleted");
+          }
+    
+          // Refresh the category list after deletion
+          getCategory();
+        } catch (error) {
+          console.error("Error deleting category:", error);
+          alert("An error occurred while deleting the category");
+        }
+      } else {
+        alert("Deletion canceled by user");
       }
-      getCategory()
-    }
+    };
+    
   return (
     <div className='adminHomePageMain'>
       <div className="header-main">
