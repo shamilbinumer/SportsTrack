@@ -2,6 +2,8 @@ import  {React, useEffect, useState } from 'react'
 import './AdminHome.scss'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { FcEditImage } from "react-icons/fc";
+import { FcEmptyTrash } from "react-icons/fc";
 
 
 
@@ -72,7 +74,7 @@ const AdminHome = () => {
             <table key={index}>
             <tr>
               <th><span>{data.category}</span></th>
-              <td><Link className='edit-btn' to={`/editCategory/${data._id}`}>Edit</Link><Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}>Delete</Link></td>
+              <td><Link className='edit-btn' to={`/editCategory/${data._id}`}><FcEditImage /></Link><Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}><FcEmptyTrash /></Link></td>
             </tr>
           </table>
           )
