@@ -9,6 +9,7 @@ import AdminHome from './Components/Admin/AdminHomePage/AdminHome'
 import AdminFrgtPwd from './Components/Admin/AdminFrgtPwd/AdminFrgtPwd'
 import AddCategory from './Components/Admin/AddCategory/AddCategory'
 import AddProduct from './Components/Admin/AddProduct/AddProduct'
+import EditCategory from './Components/Admin/EditCategory/EditCategory'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Route path='/adminFrgtPwd' Component={AdminFrgtPwd}/>
     <Route path='/addCategory' Component={AddCategory}/>
     <Route path='/addProduct' Component={AddProduct}/>
+    <Route path='/editCategory' Component={EditCategory}/>
   </Routes>
   </BrowserRouter>
     </>
