@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../../Navbar/Navbar'
+import Footer from '../../Footer/Footer'
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
     <span className="visually-hidden">Next</span>
   </button>
 </div>
+<Footer/>
     </div>
   )
 }
