@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './AddProduct.scss'
 import convertToBase64 from '../../../../base64'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const AddProduct = () => {
   let Photo=""
@@ -50,6 +51,16 @@ const AddProduct = () => {
   }
   return (
     <div className='add-products-main'>
+      <div className="header-main">
+      <div className="header-left">
+        <Link to='/adminhome' className='back-btn'>Back</Link>
+      </div>
+       {/* <div className="header-right">
+       <div className="display-username">
+            <span><i className="fa fa-user" aria-hidden="true"></i>{msg} <button onClick={Logout}><i className="fa fa-sign-out" aria-hidden="true"></i></button></span>
+        </div>
+       </div> */}
+      </div>
        <div className="card">
   <h4 className="title">Add New Product!</h4>
   <form onSubmit={addProduct}>
