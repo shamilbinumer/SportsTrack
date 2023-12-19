@@ -25,7 +25,7 @@ function App() {
     <Route path='/adminFrgtPwd' Component={AdminFrgtPwd}/>
     <Route path='/addCategory' Component={AddCategory}/>
     <Route path='/addProduct' Component={AddProduct}/>
-    <Route path='/editCategory' Component={EditCategory}/>
+    <Route path='/editCategory/:id' Component={EditCategory}/>
   </Routes>
   </BrowserRouter>
     </>
