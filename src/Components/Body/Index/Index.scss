@@ -2,6 +2,7 @@
     .banner{
         background-image: linear-gradient(rgba(0, 0, 0, 0.624),rgba(0, 0, 0, 0.617)),url(../../../../public/young-woman-orange-jacket-poses-roof-building-city-center.jpg);
         height: 91vh;
+        background-attachment: fixed;
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -46,8 +47,12 @@
     }
     .ctgry-images{
         width: 25%;
-        height: 280px;
+        height: 200px;
         background-color: rgb(176, 55, 55);
         overflow: hidden;
+    }
+    .ctgry-list img{
+        width: 100%;
+        filter: brightness(100%);
     }
 }

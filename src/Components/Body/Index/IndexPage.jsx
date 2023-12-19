@@ -20,14 +20,14 @@ const IndexPage = () => {
 
     <div className="category-main">
       <div className="ctgry-list">
-        <div className="ctgry-images"></div>
-        <div className="ctgry-images"></div>
-        <div className="ctgry-images"></div>
+        <div className="ctgry-images"><img src="../../../../public/men (1).jpg" alt="" /></div>
+        <div className="ctgry-images"><img src="../../../../public/gym.jpg" alt="" /></div>
+        <div className="ctgry-images"><img src="../../../../public/kids.jpg" alt="" /></div>
       </div>
       <div className="ctgry-list">
-        <div className="ctgry-images"></div>
-        <div className="ctgry-images"></div>
-        <div className="ctgry-images"></div>
+        <div className="ctgry-images"><img src="../../../../public/sports.jpg" alt="" /></div>
+        <div className="ctgry-images"><img src="../../../../public/winter.jpg" alt="" /></div>
+        <div className="ctgry-images"><img src="../../../../public/women.jpg" alt="" /></div>
       </div>
        
     </div>
