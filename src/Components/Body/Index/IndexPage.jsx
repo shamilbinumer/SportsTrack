@@ -1,11 +1,37 @@
 import React from 'react'
 import Navbar from '../../Navbar/Navbar'
 import Footer from '../../Footer/Footer'
+import './Index.scss'
+import { Link } from 'react-router-dom'
+// import './index.js'
 
-const Index = () => {
+const IndexPage = () => {
   return (
-    <div>
+    <div className='index-page-main'>
         <Navbar/>
+        <div className="banner">
+        <div className="banner-content">
+          <h1>Sports Track.</h1>
+          <div className="ul"></div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis nemo nobis quasi vel! Vel in, iste pariatur odio inventore hic officia eius et. Sit suscipit quaerat, ex quis vitae blanditiis.</p>
+          <Link className='order-btn'>Order Now</Link>
+        </div>
+        </div>
+
+    <div className="category-main">
+      <div className="ctgry-list">
+        <div className="ctgry-images"></div>
+        <div className="ctgry-images"></div>
+        <div className="ctgry-images"></div>
+      </div>
+      <div className="ctgry-list">
+        <div className="ctgry-images"></div>
+        <div className="ctgry-images"></div>
+        <div className="ctgry-images"></div>
+      </div>
+       
+    </div>
+
         <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">
@@ -28,8 +54,9 @@ const Index = () => {
   </button>
 </div>
 <Footer/>
+ {/* <script src='./index.js'></script> */}
     </div>
   )
 }
 
-export default Index
+export default IndexPage

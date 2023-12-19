@@ -2,7 +2,7 @@
 import './App.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 // import Navbar from './Components/Navbar/Navbar'
-import Index from './Components/Body/Index/Index'
+import IndexPage from './Components/Body/Index/IndexPage'
 import AdminLogin from './Components/Admin/AdminLogin/AdminLogin'
 import AdminRegister from './Components/Admin/AdminRegister/AdminRegister'
 import AdminHome from './Components/Admin/AdminHomePage/AdminHome'
@@ -19,7 +19,7 @@ function App() {
     <>
   <BrowserRouter>
   <Routes>
-    <Route path='/' Component={Index}/>
+    <Route path='/' Component={IndexPage}/>
     <Route path='/admin' Component={AdminLogin}/>
     <Route path='/adminResgiter' Component={AdminRegister}/>
     <Route path='/adminhome' Component={AdminHome}/>
