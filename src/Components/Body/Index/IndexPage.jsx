@@ -19,6 +19,10 @@ const IndexPage = () => {
         </div>
 
     <div className="category-main">
+      <div className="cat-heading">
+        <h3>Lets Choose Your Choice</h3>
+        <div className="cat-ul"></div>
+      </div>
       <div className="ctgry-list">
         <div className="ctgry-images"><img src="../../../../public/men (1).jpg" alt="" /></div>
         <div className="ctgry-images"><img src="../../../../public/gym.jpg" alt="" /></div>
