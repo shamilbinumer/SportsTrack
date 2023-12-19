@@ -129,7 +129,7 @@ export function delCategory(req,res)
 }
 
 
-export async function editStaff(req, res) {
+export async function editCategory(req, res) {
   const { id } = req.params;
   try {
       const updatedData = req.body;
