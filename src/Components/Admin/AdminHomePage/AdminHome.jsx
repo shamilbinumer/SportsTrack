@@ -93,7 +93,8 @@ const AdminHome = () => {
             <table key={index}>
             <tr>
               <th><span>{data.category}</span></th>
-              <td><Link className='edit-btn' to={`/editCategory/${data._id}`}><FcEditImage /></Link><Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}><FcEmptyTrash /></Link></td>
+              <td><Link className='edit-btn' to={`/editCategory/${data._id}`}><FcEditImage /></Link>
+              <Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}><FcEmptyTrash /></Link></td>
             </tr>
           </table>
           )
