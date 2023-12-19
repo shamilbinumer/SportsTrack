@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcEditImage } from "react-icons/fc";
 import { FcEmptyTrash } from "react-icons/fc";
+import { FcAddDatabase } from "react-icons/fc";
+import { FcComboChart } from "react-icons/fc";
+import { FcOnlineSupport } from "react-icons/fc";
 
 
 
@@ -80,14 +83,30 @@ const AdminHome = () => {
           )
           }
           </div>
-          <div className="add-cat-section">
+          {/* <div className="add-cat-section">
             <Link className='add-cat-btn' to='/addCategory'>Add New Category <i className="fa fa-plus" aria-hidden="true"></i></Link>
           </div>
           <div className="add-product-section">
             <Link className='add-product-btn' to='/addProduct'>Add Products</Link>
-          </div>
+          </div> */}
         </div>
-        <div className="hero-right"></div>
+        {/* <div className="line"></div> */}
+        <div className="hero-right">
+      <div className="upper-btn">
+      <div className="add-cat-button">
+       <Link className='add-cat-btn-right' to='/addCategory'>Add New Category <FcAddDatabase className='add-icon'/> </Link>
+       </div>
+       <div className="add-prdct-button">
+       <Link className='add-product-btn-right' to='/addProduct'>Add Products <FcAddDatabase className='add-icon'/></Link>
+       </div>
+       <div className="sales-button">
+       <Link className='sales-btn-right'>Sales <FcComboChart className='add-icon'/></Link>
+       </div>
+       <div className="services-button">
+       <Link className='service-btn-right'>Service <FcOnlineSupport className='add-icon'/></Link>
+       </div>
+      </div>
+        </div>
       </div>
 
     </div>
