@@ -1,20 +1,22 @@
 .index-page-main{
     .banner{
-        background-image: linear-gradient(rgba(0, 0, 0, 0.624),rgba(0, 0, 0, 0.617)),url(../../../../public/young-woman-orange-jacket-poses-roof-building-city-center.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.624),rgba(0, 0, 0, 0.617)),url(../../../../public/front-view-woman-with-basketball-ball.jpg);
         height: 91vh;
         background-attachment: fixed;
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
-        padding-top: 9%;
+        // padding-top: 9%;
     }
     .banner-content{
-        background-color: rgba(255, 255, 255, 0.546);
-        color: rgb(2, 8, 80);
+        background-color: rgba(255, 255, 255, 0.38);
+        color: rgb(255, 255, 255);
         width: 30%;
         margin-left: 6%;
         padding: 36px;
+        padding-top: 12%;
         padding-bottom: 35px;
+        border-bottom: 6px solid yellow;
     }
     .banner-content h1{
         font-size: 60px;
@@ -25,15 +27,21 @@
         margin-bottom: 35px !important;
     }
     .ul{
-        width: 9%;
+        width: 16%;
         border-bottom: 6px solid yellow;
         margin-top: 20px;
         margin-bottom: 20px;
     }
+    .angle{
+        font-size: 40px;
+        background-color: white;
+        color: rgb(2, 8, 80);
+        padding: 10px;
+    }
     .order-btn{
         text-decoration: none;
-        color: rgb(2, 8, 80);
-        border: 2px solid rgb(2, 8, 80);
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(255, 255, 255);
         padding: 5px 25px;
     }
     .ctgry-list{
