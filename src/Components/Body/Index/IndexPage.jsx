@@ -121,7 +121,7 @@ const IndexPage = () => {
      </div>
      <div className="collection-cards">
      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"> <img src="../../../../public/sports.jpg" alt="" /></div>
+      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
      <div className="card-details">
      <p className='item-title'>Title</p>
      <div><span className="prdct-description">Description of the product</span></div>
