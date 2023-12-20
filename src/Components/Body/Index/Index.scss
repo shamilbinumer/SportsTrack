@@ -85,13 +85,88 @@
         border-bottom: 5px solid rgb(2, 8, 80);
         margin-bottom: 50px;
     }
-    .cat-kids{
+    .cat-product-heading{
         padding-left: 5%;
     }
-    .cat-kids-heading h3{
+    .cat-product-heading h3{
         color: rgb(2, 8, 80);
         font-weight: 700;
         font-size: 30px;
         padding-top: 40px;
+    }
+    .collection-cards{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 30px;
+        gap: 20px;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+    .collection-cards::-webkit-scrollbar{
+        display: none;
+    }
+    .Card{
+        width: 20%;
+        height: 320px;
+        border: 1px solid rgba(0, 0, 0, 0.33);
+        border-radius: 5px;
+    }
+    .prdct-thumnalil{
+        width: 100%;
+        height: 200px;
+        background-color: blue;
+        overflow: hidden;
+        border-radius: 5px 5px 0px 0px;
+    }
+    .card-details{
+        padding: 10px 0px 0px 10px;
+      
+        // padding-left: 20px;
+    }
+    .prdct-thumnalil img{
+        width: 100%;
+    }
+    .link{
+        text-decoration: none;
+    }
+    .item-title{
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: 1px;
+        margin-bottom: 0 !important; 
+        color: black;
+    }
+    .prdct-description{
+        margin-top: 0 !important;
+        color: rgb(77, 76, 76);
+        // padding-bottom: 20px !important;
+    }
+    .prices{
+        display: flex;
+        // padding: 4px;
+    }
+    .price{
+        font-weight: 900;
+        background-color: yellow;
+        width: 60px;
+        padding: 4px;
+        font-size: 18px;
+        color: black;
+        margin-top: 10px !important;
+        letter-spacing: 1px;
+
+        // font-size: 18px;
+    }
+    strike{
+        color: black;
+    }
+    .og-price{
+        // padding-top: 1px;
+        padding: 15px;
+        // background-color: red;
+        color: black;
     }
 }

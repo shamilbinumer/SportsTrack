@@ -15,6 +15,7 @@ const AdminHome = () => {
     const navigate=useNavigate()
     const [msg,setMsg]=useState("")
     const [getCat,setCat]=useState([])
+    
     const value=JSON.parse(localStorage.getItem('admin_token'));
     const getName=async()=>{
         const res=await axios.get("http://localhost:7000/sportstrack/home",{

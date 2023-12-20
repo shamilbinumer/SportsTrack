@@ -51,13 +51,13 @@ const IndexPage = () => {
       </div>
       <div className="ctgry-list">
         <div className="ctgry-images">
-          <img src="../../../../public/men (1).jpg" alt="" />
+          <img src="../../../../public/kids.jpg" alt="" />
           </div>
         <div className="ctgry-images">
           <img src="../../../../public/gym.jpg" alt="" />
           </div>
         <div className="ctgry-images">
-          <img src="../../../../public/kids.jpg" alt="" />
+          <img src="../../../../public/men (1).jpg" alt="" />
           </div>
         <div className="ctgry-images">
           <img src="../../../../public/sports.jpg" alt="" />
@@ -72,17 +72,68 @@ const IndexPage = () => {
        
     </div>
 
-    <div className="cat-kids">
-     <div className="cat-kids-heading">
+    <div className="categoreis-products">
+     <div className="cat-product-heading">
      <h3>Kids Collection</h3>
       <div className="cat-ul"></div>
      </div>
+  
+    <div className="collection-cards">
+    <Link className='link'>
+      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+     <div className="card-details">
+     <p className='item-title'>Title</p>
+     <div><span className="prdct-description">Description of the product</span></div>
+    <div className="prices">
+    <div><p className='price'>₹ 299</p></div>
+    <div><strike><p className='og-price'>₹ 799</p></strike></div>
     </div>
-    <div className="cat-men"></div>
-    <div className="cat-women"></div>
-    <div className="cat-winterCollection"></div>
-    <div className="cat-sportsAccessories"></div>
-    <div className="cat-GymActiveWear"></div>
+     </div>
+      </div>
+      </Link>
+    </div>
+    
+    </div>
+    <div className="categoreis-products">
+     <div className="cat-product-heading">
+     <h3>Womens Collection</h3>
+      <div className="cat-ul"></div>
+     </div>
+     <div className="collection-cards">
+     <Link className='link'>
+      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+     <div className="card-details">
+     <p className='item-title'>Title</p>
+     <div><span className="prdct-description">Description of the product</span></div>
+    <div className="prices">
+    <div><p className='price'>₹ 299</p></div>
+    <div><strike><p className='og-price'>₹ 799</p></strike></div>
+    </div>
+     </div>
+      </div>
+      </Link>
+    </div>
+    </div>
+    <div className="categoreis-products">
+     <div className="cat-product-heading">
+     <h3>Men Collection</h3>
+      <div className="cat-ul"></div>
+     </div>
+     <div className="collection-cards">
+     <Link className='link'>
+      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+     <div className="card-details">
+     <p className='item-title'>Title</p>
+     <div><span className="prdct-description">Description of the product</span></div>
+    <div className="prices">
+    <div><p className='price'>₹ 299</p></div>
+    <div><strike><p className='og-price'>₹ 799</p></strike></div>
+    </div>
+     </div>
+      </div>
+      </Link>
+    </div>
+    </div>
 <Footer/>
  {/* <script src='./index.js'></script> */}
     </div>
