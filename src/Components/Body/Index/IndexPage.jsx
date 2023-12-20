@@ -36,7 +36,7 @@ const IndexPage = () => {
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
   <TfiAngleLeft  className='angle'/>
-    <span className="visually-hidden">Previous</span>
+    <span className="visually-hidden">Previous </span>
   </button>
   <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
   <TfiAngleRight className='angle'/>
