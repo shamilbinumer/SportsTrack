@@ -59,8 +59,13 @@
         width: 25%;
         border-radius: 6px;
         height: 200px;
+        transition: .4s;
         // background-color: rgb(176, 55, 55);
         overflow: hidden;
+        cursor: pointer;
+    }
+    .ctgry-images:hover{
+        transform: scale(1.03);
     }
     .ctgry-list img{
         width: 100%;
