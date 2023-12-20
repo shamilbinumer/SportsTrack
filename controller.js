@@ -2,6 +2,7 @@ import admin_schema from './admin.model.js'
 import category_schema from './category.model.js'
 import product_schema from './product.model.js'
 import bcrypt from 'bcrypt'
+import path from 'path'
 // import jsonwebtoken from 'jsonwebtoken'
 import pkg from "jsonwebtoken";
 const {sign}=pkg
@@ -107,14 +108,24 @@ export async function getCategory(req,res){
 
 export async function AddProducts(req, res) {
   try {
-    const { ...products } = req.body;
-    const task=await product_schema.create({ ...products });
-
-    res.status(200).send(task);
+    // console.log(req.files);
+    const images=req.files;
+    console.log(images);
+    const { product_name,category,description,price,size,stoke } = req.body;
+    const task=await product_schema.create({ product_name,category,description,price,size,stoke,images });
+    console.log(task);
+    res.status(200).send({result : task});
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
   }
+}
+
+export async function SetPath(req,res)
+{
+  let { filename } = req.params;
+  console.log(filename);
+  return res.sendFile(path.resolve(`./images/${filename}`))
 }
 
 export function delCategory(req,res)

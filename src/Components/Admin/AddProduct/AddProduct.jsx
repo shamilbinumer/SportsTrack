@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './AddProduct.scss'
-import convertToBase64 from '../../../../base64'
+// import convertToBase64 from '../../../../base64'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const AddProduct = () => {
-  let Photo=""
+  
   const [getCat,setCat]=useState([])
   const [val,setVal]=useState({
     product_name:"",
@@ -14,18 +14,11 @@ const AddProduct = () => {
     price:"",
     size:"",
     stoke:"",
-    image:""
+    images:""
   })
   const GetData=(e)=>{ 
     setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
     console.log(val);
-  }
-
-  const Upload=async(e)=>{
-    e.preventDefault()
-  
-    Photo=await convertToBase64(e.target.files[0])
-    console.log(Photo);
   }
 
   const getCategory=async()=>{
@@ -40,8 +33,20 @@ const AddProduct = () => {
   const addProduct=async(e)=>{
    try {
     e.preventDefault()
-    const res=await axios.post("http://localhost:7000/sportstrack/addProduct",{...val,image:Photo})
-    console.log(res.data);
+    let formData = new FormData();
+    console.log(Object.entries(val));
+    Object.entries(val).forEach(item => formData.append(item[0],item[1]));
+    if (val.images && val.images.length > 0) {
+      for (const image of val.images) {
+        formData.append('images', image);
+      }
+    }
+    const res = await axios.post("http://localhost:7000/sportstrack/addProduct", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
     if(res.status!=404){
       alert("Product Added")
     }
@@ -90,7 +95,8 @@ const AddProduct = () => {
       <input id="stoke" placeholder="Number of Stoke" className="input-field" name="stoke" type="text" onChange={GetData}/>
     </div>
     <div className="field">
-      <input id="image" placeholder="Image" className="input-field" name="image" type="file" onChange={Upload}/>
+    <div><label htmlFor="">Images</label></div>
+      <input id="image" placeholder="Image" className="input-field" name="images" type="file"  onChange={e => setVal(p => ({...p,[e.target.name]: e.target.files}))}  multiple/>
     </div>
     <button className="btn" type="submit">Add</button>
   </form>

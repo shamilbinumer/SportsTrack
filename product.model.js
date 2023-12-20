@@ -6,7 +6,7 @@ const product_schema=new mongoose.Schema({
     price:{type:String},
     size:{type:String},
     stoke:{type:String},
-    image:{type:String}
+    images:{type:Object}
 })
 
 export default mongoose.model.products||mongoose.model("product",product_schema)
