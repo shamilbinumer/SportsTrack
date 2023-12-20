@@ -51,26 +51,38 @@ const IndexPage = () => {
       </div>
       <div className="ctgry-list">
         <div className="ctgry-images">
-          {/* <img src="../../../../public/men (1).jpg" alt="" /> */}
+          <img src="../../../../public/men (1).jpg" alt="" />
           </div>
         <div className="ctgry-images">
-          {/* <img src="../../../../public/gym.jpg" alt="" /> */}
+          <img src="../../../../public/gym.jpg" alt="" />
           </div>
         <div className="ctgry-images">
-          {/* <img src="../../../../public/kids.jpg" alt="" /> */}
+          <img src="../../../../public/kids.jpg" alt="" />
           </div>
         <div className="ctgry-images">
-          {/* <img src="../../../../public/sports.jpg" alt="" /> */}
+          <img src="../../../../public/sports.jpg" alt="" />
           </div>
         <div className="ctgry-images">
-          {/* <img src="../../../../public/winter.jpg" alt="" /> */}
+          <img src="../../../../public/winter.jpg" alt="" />
           </div>
         <div className="ctgry-images">
-          {/* <img src="../../../../public/women.jpg" alt="" /> */}
+          <img src="../../../../public/women.jpg" alt="" />
           </div>
       </div>
        
     </div>
+
+    <div className="cat-kids">
+     <div className="cat-kids-heading">
+     <h3>Kids Collection</h3>
+      <div className="cat-ul"></div>
+     </div>
+    </div>
+    <div className="cat-men"></div>
+    <div className="cat-women"></div>
+    <div className="cat-winterCollection"></div>
+    <div className="cat-sportsAccessories"></div>
+    <div className="cat-GymActiveWear"></div>
 <Footer/>
  {/* <script src='./index.js'></script> */}
     </div>
