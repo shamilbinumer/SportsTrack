@@ -117,7 +117,7 @@ const IndexPage = () => {
     <div className="categoreis-products">
      <div className="cat-product-heading">
      <h3>Men Collection</h3>
-      <div className="cat-ul"> </div>
+      <div className="cat-ul"></div>
      </div>
      <div className="collection-cards">
      <Link className='link'>
