@@ -23,6 +23,7 @@ router.route("/image/:filename").get(controller.SetPath)
 router.route("/delcategory/:id").delete(controller.delCategory);
 router.route("/editCategory/:id").patch(controller.editCategory);
 router.route("/getCatDetails/:id").post(controller.getCatDetails);
+router.route("/getCatWiseProducts/:category").get(controller.getCategoryWisedProduct);
 
 
 export default router;

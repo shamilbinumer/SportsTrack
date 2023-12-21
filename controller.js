@@ -159,6 +159,17 @@ export async function editCategory(req, res) {
   }
 }
 
+export async function getCategoryWisedProduct(req, res) {
+  try {
+    const { category } = req.params;
+    const products = await product_schema.find({ category: category });
+
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
 
 
 
