@@ -16,9 +16,9 @@
         padding: 7px 30px;
     }
     .card {
-        width: 390px;
+        width: 40%;
         margin: auto;
-        margin-top: 5%;
+        margin-top: 2%;
         padding: 1.9rem 1.2rem;
         text-align: center;
         background: rgb(2, 7, 61);
@@ -94,6 +94,14 @@
        
        .btn-link:hover {
         color: #ffeba7;
+       }
+       .label{
+        text-align: left;
+        padding-top: 5px;
+        padding-left: 3px;
+       }
+       .label label{
+            color: white;
        }
        
 }
