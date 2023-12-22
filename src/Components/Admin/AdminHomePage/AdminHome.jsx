@@ -71,6 +71,8 @@ const AdminHome = () => {
         alert("Deletion canceled by user");
       }
     };
+
+    
     
   return (
     <div className='adminHomePageMain'>
@@ -93,7 +95,7 @@ const AdminHome = () => {
             getCat.map((data,index)=>
             <table key={index}>
             <tr>
-              <th><span>{data.category}</span></th>
+              <th><Link to={`/prooood/${data.category}`}><span>{data.category}</span></Link></th>
               <td><Link className='edit-btn' to={`/editCategory/${data._id}`}><FcEditImage /></Link>
               <Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}><FcEmptyTrash /></Link></td>
             </tr>
@@ -124,6 +126,7 @@ const AdminHome = () => {
        <Link className='service-btn-right'>Service <FcOnlineSupport className='add-icon'/></Link>
        </div>
       </div>
+      <div></div>
         </div>
       </div>
 
