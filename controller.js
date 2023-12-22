@@ -111,8 +111,8 @@ export async function AddProducts(req, res) {
     // console.log(req.files);
     const images=req.files;
     console.log(images);
-    const { product_name,category,description,price,size,stoke } = req.body;
-    const task=await product_schema.create({ product_name,category,description,price,size,stoke,images });
+    const { product_name,category,description,price,size,stoke,thumbnile } = req.body;
+    const task=await product_schema.create({ product_name,category,description,price,size,stoke,thumbnile,images });
     console.log(task);
     res.status(200).send({result : task});
   } catch (error) {

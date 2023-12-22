@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const AddProduct = () => {
-  
+  let Thumnile=""
   const [getCat,setCat]=useState([])
   const [val,setVal]=useState({
     product_name:"",
@@ -14,6 +14,7 @@ const AddProduct = () => {
     price:"",
     size:"",
     stoke:"",
+    thumbnile:"",
     images:""
   })
   const GetData=(e)=>{ 
@@ -29,6 +30,27 @@ const AddProduct = () => {
   useEffect(()=>{
     getCategory()
   },[])
+
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+  
+        fileReader.onload = () => {
+            resolve(fileReader.result)
+        }
+        fileReader.onerror = (error) => {
+            reject(error)
+        }
+    })
+  }
+
+  const Upload=async(e)=>{
+    e.preventDefault()
+  
+    Thumnile=await convertToBase64(e.target.files[0])
+    console.log(Thumnile);
+  }
 
   const addProduct=async(e)=>{
    try {
@@ -103,6 +125,9 @@ const AddProduct = () => {
     </div>
     <div className="field">
       <input id="stoke" placeholder="Number of Stoke" className="input-field" name="stoke" type="text" onChange={GetData}/>
+    </div>
+    <div className="field">
+      <input id="thumnile" placeholder="Thumbnile" className="input-field" name="thumbnile" type="file" onChange={Upload}/>
     </div>
     <div className="field">
     <div><label htmlFor="">Images</label></div>
