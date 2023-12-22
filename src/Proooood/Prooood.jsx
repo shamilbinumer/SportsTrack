@@ -1,6 +1,7 @@
 import axios from 'axios';
+import './Proood.scss'
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Prooood = () => {
   const [prod, setProd] = useState([]);
@@ -20,10 +21,34 @@ const Prooood = () => {
   }, [category]);
 
   return (
-    <div>
-      {prod.map((data, index) => (
+    <div className='categoryWiseProducts'>
+      <h2 className='main-heading'>Collection</h2>
+      {/* {prod.map((data, index) => (
         <h1 key={index}>{data.product_name}</h1>
-      ))}
+      ))} */}
+    <div className="collection">
+    {
+      prod.map((data,index)=>
+    
+       
+      <div className="collection-cards"  key={index}>
+  
+  <Link className='link'>
+   <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+  <div className="card-details">
+  <p className='item-title'>{data.product_name}</p>
+  <div><span className="prdct-description">{data.description}</span></div>
+  <div className="prices">
+  <div><p className='price'>₹ {data.price}</p></div>
+  <div><strike><p className='og-price'>₹ 799</p></strike></div>
+  </div>
+  </div>
+   </div>
+   </Link>
+     </div>
+     )
+     }
+    </div>
     </div>
   );
 };
