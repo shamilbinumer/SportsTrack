@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     },
 });
+
 const upload = multer({ storage: storage });
 router.route("/addadmin").post(controller.AddAdmin);
 router.route("/adminlogin").post(controller.AdminLogin);

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const AddProduct = () => {
-  let Thumbnile="";
+  
   const [getCat,setCat]=useState([])
   const [val,setVal]=useState({
     product_name:"",
@@ -14,7 +14,6 @@ const AddProduct = () => {
     price:"",
     size:"",
     stoke:"",
-    thumbnile:"",
     images:""
   })
   const GetData=(e)=>{ 
@@ -31,59 +30,30 @@ const AddProduct = () => {
     getCategory()
   },[])
 
-  function convertToBase64(file) {
-    return new Promise((resolve, reject) => {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(file);
-  
-        fileReader.onload = () => {
-            resolve(fileReader.result)
-        }
-        fileReader.onerror = (error) => {
-            reject(error)
-        }
-    })
-  }
-
-  const Upload=async(e)=>{
+  const addProduct=async(e)=>{
+   try {
     e.preventDefault()
-  
-    Thumbnile=await convertToBase64(e.target.files[0])
-    console.log(Thumbnile);
-    setVal((pre) => ({ ...pre, thumbnile: Thumbnile }));
-  }
-
-  const addProduct = async (e) => {
-    try {
-        e.preventDefault();
-
-        let formData = new FormData();
-        formData.append('product_name', val.product_name);
-        formData.append('category', val.category);
-        formData.append('description', val.description);
-        formData.append('price', val.price);
-        formData.append('size', val.size);
-        formData.append('stoke', val.stoke);
-        formData.append('thumbnile', Thumbnile);
-        if (val.images && val.images.length > 0) {
-            for (let i = 0; i < val.images.length; i++) {
-                formData.append('images', val.images[i]);
-            }
-        }
-
-        const res = await axios.post("http://localhost:7000/sportstrack/addProduct", formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        });
-
-        if (res.status !== 404) {
-            alert("Product Added");
-        }
-    } catch (error) {
-        alert("error", error);
+    let formData = new FormData();
+    console.log(Object.entries(val));
+    Object.entries(val).forEach(item => formData.append(item[0],item[1]));
+    if (val.images && val.images.length > 0) {
+      for (const image of val.images) {
+        formData.append('images', image);
+      }
     }
-};
+    const res = await axios.post("http://localhost:7000/sportstrack/addProduct", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    if(res.status!=404){
+      alert("Product Added")
+    }
+   } catch (error) {
+      alert("error",error)
+   }
+  }
   return (
     <div className='add-products-main'>
       <div className="header-main">
@@ -133,9 +103,6 @@ const AddProduct = () => {
     </div>
     <div className="field">
       <input id="stoke" placeholder="Number of Stoke" className="input-field" name="stoke" type="text" onChange={GetData}/>
-    </div>
-    <div className="field">
-      <input id="thumnile" placeholder="Thumbnile" className="input-field" name="thumbnile" type="file" onChange={Upload}/>
     </div>
     <div className="field">
     <div><label htmlFor="">Images</label></div>

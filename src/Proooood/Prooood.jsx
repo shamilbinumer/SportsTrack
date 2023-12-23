@@ -11,6 +11,7 @@ const Prooood = () => {
     try {
       const res = await axios.get(`http://localhost:7000/sportstrack/getCatWiseProducts/${category}`);
       setProd(res.data);
+      console.log(prod[0].images);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -26,15 +27,15 @@ const Prooood = () => {
       {/* {prod.map((data, index) => (
         <h1 key={index}>{data.product_name}</h1>
       ))} */}
-    <div className="collection">
+    <div className="collection-cards">
     {
       prod.map((data,index)=>
     
        
-      <div className="collection-cards"  key={index}>
-  
+      
+  <div key={index}>
   <Link className='link'>
-   <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+   <div className="Card"><div className="prdct-thumnalil"><img src={data.images.filename} alt="" /></div>
   <div className="card-details">
   <p className='item-title'>{data.product_name}</p>
   <div><span className="prdct-description">{data.description}</span></div>
@@ -45,11 +46,13 @@ const Prooood = () => {
   </div>
    </div>
    </Link>
-     </div>
+   </div>
+  
      )
      }
+        </div>
     </div>
-    </div>
+   
   );
 };
 
