@@ -1,9 +1,9 @@
 import axios from 'axios';
-import './Proood.scss'
+import './ProductViewCatVise.scss'
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-const Prooood = () => {
+const ProductViewCatVise = () => {
   const [prod, setProd] = useState([]);
   const { category } = useParams();
 
@@ -56,4 +56,4 @@ const Prooood = () => {
   );
 };
 
-export default Prooood;
+export default ProductViewCatVise;

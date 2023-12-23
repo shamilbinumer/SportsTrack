@@ -11,7 +11,7 @@ import AddCategory from './Components/Admin/AddCategory/AddCategory'
 import AddProduct from './Components/Admin/AddProduct/AddProduct'
 import EditCategory from './Components/Admin/EditCategory/EditCategory'
 import CustomerReg from './Components/Customer/CustomerReg/CustomerReg'
-import Prooood from './Proooood/Prooood'
+import ProductViewCatVise from './ProductViewCatVise/ProductViewCatVise'
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
     <Route path='/addProduct' Component={AddProduct}/>
     <Route path='/editCategory/:id' Component={EditCategory}/>
     <Route path='/custemerReg' Component={CustomerReg}/>
-    <Route path='/prooood/:category' Component={Prooood}/>
+    <Route path='/prooood/:category' Component={ProductViewCatVise}/>
   </Routes>
   </BrowserRouter>
     </>
