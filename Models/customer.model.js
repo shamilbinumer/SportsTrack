@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const customer_schema=new mongoose.Schema({
     name:{type:String},
     email:{type:String},
+    password:{type:String},
     phone:{type:String},
     personal_address:{type:String},
     location:{
