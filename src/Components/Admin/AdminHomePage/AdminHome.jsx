@@ -95,7 +95,7 @@ const AdminHome = () => {
             getCat.map((data,index)=>
             <table key={index}>
             <tr>
-              <th><Link to={`/prooood/${data.category}`}><span>{data.category}</span></Link></th>
+              <th><Link to={`/prooood/${data.category}`} className='link'><span>{data.category}</span></Link></th>
               <td><Link className='edit-btn' to={`/editCategory/${data._id}`}><FcEditImage /></Link>
               <Link className='delete-btn'  to={`#${data._id}`} onClick={() => deletecategory(data._id)}><FcEmptyTrash /></Link></td>
             </tr>
