@@ -198,7 +198,7 @@ export async function AddCustomer(req, res) {
       pincode,
       place,
       landmark,
-      street
+      street,
       photo
     );
 
