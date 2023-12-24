@@ -15,4 +15,4 @@ const customer_schema=new mongoose.Schema({
     }
 })
 
-export default mongoose.model.categorys||mongoose.model("category",customer_schema)
+export default mongoose.model.cutomers||mongoose.model("cutomer",customer_schema)
