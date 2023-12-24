@@ -49,24 +49,24 @@ const Navbar = () => {
               <a className="nav-link mx-2 text-uppercase active" aria-current="page" href="#">Offers</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">Products</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#">Products</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">Catalog</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#">Catalog</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">Services</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#">Services</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#">About</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#">About</a>
             </li>
           </ul>
           <ul className="navbar-nav ms-auto ">
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-cart-shopping me-1"></i> Cart</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#"><i className="fa-solid fa-cart-shopping me-1"></i> Cart</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase" to='/custemerReg'>Account</Link>
+              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>Sign in</Link>
               {/* <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-circle-user me-1"></i> Account</a> */}
             </li>
           </ul>

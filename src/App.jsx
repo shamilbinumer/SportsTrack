@@ -12,6 +12,7 @@ import AddProduct from './Components/Admin/AddProduct/AddProduct'
 import EditCategory from './Components/Admin/EditCategory/EditCategory'
 import CustomerReg from './Components/Customer/CustomerReg/CustomerReg'
 import ProductViewCatVise from './ProductViewCatVise/ProductViewCatVise'
+import CustomerLogin from './Components/Customer/CustomerLogin/CustomerLogin'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     <Route path='/editCategory/:id' Component={EditCategory}/>
     <Route path='/custemerReg' Component={CustomerReg}/>
     <Route path='/prooood/:category' Component={ProductViewCatVise}/>
+    <Route path='/CustomerLogin' Component={CustomerLogin}/>
   </Routes>
   </BrowserRouter>
     </>
