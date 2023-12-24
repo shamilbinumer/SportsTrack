@@ -170,6 +170,31 @@ export async function getCategoryWisedProduct(req, res) {
   }
 }
 
+export async function AddCustomer(req,res){
+  try {
+      const {name,email,phone,password,personal_address,state,district,pincode,place,landmark,street,photo}=req.body;
+      console.log(name,email,phone,password,personal_address,state,district,pincode,place,landmark,street,photo);
+      if(!(name&&email&&phone&&password&&personal_address&&state&&district&&pincode&&place&&landmark,street))
+      return res.status(404).send("fields are empty")
+  
+      bcrypt.hash(password,10)    
+      .then((hashedPwd)=>{
+          admin_schema.create({name,email,phone,password:hashedPwd,personal_address,state,district,pincode,place,landmark,street,photo});
+      })
+      .then(()=>{
+          res.status(201).send("sucessfully registered")
+      })
+    .catch((error)=>{
+      res.status(500).send(error)
+     })
+      
+     } catch (error) {
+      console.log(error);
+  
+  }
+  
+}
+
 
 
 

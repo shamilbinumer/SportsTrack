@@ -12,7 +12,8 @@ const customer_schema=new mongoose.Schema({
         place:{type:String},
         landmark:{type:String},
         street:{type:String}
-    }
+    },
+    photo:{type:String}
 })
 
 export default mongoose.model.cutomers||mongoose.model("cutomer",customer_schema)
