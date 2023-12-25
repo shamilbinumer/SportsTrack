@@ -1,14 +1,29 @@
 import React, { useState } from 'react'
 import './CustomerLogin.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 const CustomerLogin = () => {
+    const navigate=useNavigate()
     const [val,setVal]=useState({
         email:"",
         password:""
     })
-    const GetData=()=>{
+    const GetData=(e)=>{
         setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
         console.log(val);
+    }
+
+    const Login=async(e)=>{
+        e.preventDefault()
+        const res=await axios.post("http://localhost:7000/sportstrack/customerLogin",{...val})
+        console.log(res.data);
+        const data=res.data
+        if(res){
+            alert("Seccessfully Logined")
+            const customer_token=data.token
+            localStorage.setItem("customer_token",JSON.stringify(customer_token))
+            navigate("/")
+        }
     }
     
   return (
@@ -26,9 +41,9 @@ const CustomerLogin = () => {
         <div className="CustRegRight">
           <h2>Sign Up</h2>
           <div className="formMainDiv">
-            <form action="">
+            <form action="" onSubmit={Login}>
             
-                 <div><input type="text"  placeholder='Email' name='name' onChange={GetData}/></div>
+                 <div><input type="text"  placeholder='Email' name='email' onChange={GetData}/></div>
                  <div><input type="password"  placeholder='password' name='password' onChange={GetData}/></div>
              
              <div> <button className='resgiter-btn'>Login</button></div>
