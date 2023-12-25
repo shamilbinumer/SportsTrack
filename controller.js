@@ -181,7 +181,7 @@ export async function AddCustomer(req, res) {
 
     const hashedPwd = await bcrypt.hash(password, 10);
 
-    await customer_schema.create({ ...custDetails, password: hashedPwd });
+    customer_schema.create({ ...custDetails, password: hashedPwd });
 
     res.status(201).send("Successfully registered");
   } catch (error) {

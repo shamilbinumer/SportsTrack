@@ -2,8 +2,8 @@ import React from 'react'
 import './CustomerLogin.scss'
 const CustomerLogin = () => {
   return (
-    <div>
-      jhvjhvhj
+    <div className='cus-login'>
+      
     </div>
   )
 }
