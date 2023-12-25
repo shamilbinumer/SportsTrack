@@ -1,27 +1,27 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const [msg,setMsg]=useState("")
+  // http://localhost:7000/sportstrack/CustHome
+  const value=JSON.parse(localStorage.getItem('customer_token'));
+  console.log(value);
+
+  const getName=async()=>{
+    const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
+        headers:{Authorization: `Bearer ${value}`},
+    })
+    // console.log(res.data.msg);
+    setMsg(res.data.msg)
+  }
+  useEffect(()=>{
+    getName()
+  },[])
   return (
     <div className='navbar-main'>
-        {/* <div className="superNav border-bottom py-2 bg-light">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
-            <select  className="me-3 border-0 bg-light">
-              <option value="en-us">EN-US</option>
-            </select>
-            <span className="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>info@sportstrack.com</strong></span>
-            <span className="me-3"><i className="fa-solid fa-phone me-1 text-warning"></i> <strong>987 786 5431</strong></span>
-          </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
-            <span className="me-3"><i className="fa-solid fa-truck text-muted me-1"></i><a className="text-muted" href="#">Shipping</a></span>
-            <span className="me-3"><i className="fa-solid fa-file  text-muted me-2"></i><a className="text-muted" href="#">Policy</a></span>
-          </div>
-        </div>
-      </div>
-    </div> */}
     <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
       <div className="container">
         <a className="navbar-brand" href="#"><i className="fa-solid fa-shop me-2"></i> <strong>SPORTS TRACK</strong></a>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <a className="nav-link mx-2 text-uppercase active" href="#"><i className="fa-solid fa-cart-shopping me-1"></i> Cart</a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>Sign in</Link>
+              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg ? msg : 'Sign'}</Link>
               {/* <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-circle-user me-1"></i> Account</a> */}
             </li>
           </ul>
