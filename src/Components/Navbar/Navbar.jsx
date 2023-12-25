@@ -4,6 +4,7 @@ import './Navbar.scss'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+
 const Navbar = () => {
   const naviagate=useNavigate()
   const [msg,setMsg]=useState("")
@@ -81,8 +82,8 @@ const Navbar = () => {
              <li className="nav-item">
             {msg ? (
               <>
-                <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg}</Link>
-                <button className="btn btn-danger mx-2" onClick={Logout}>Logout</button>
+                <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'><i className="fa fa-user" aria-hidden="true"></i>   {msg}  <button className='logout' onClick={Logout}>Logout</button></Link>
+               
               </>
             ) : (
               <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>Sign in</Link>

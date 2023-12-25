@@ -69,7 +69,7 @@ const CustomerReg = () => {
             <h1>Sports Track.</h1>
             <div className="ul"></div>
             <h2>Let's go!</h2>
-            <p>Create an account once and log all Decathlon sites and partners in one click!</p>
+            <p>Create an account once and log all SportsTrack sites and partners in one click!</p>
           </div>
         </div>
         <div className="CustRegRight">
