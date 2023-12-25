@@ -85,7 +85,7 @@ const Navbar = () => {
                 <button className="btn btn-danger mx-2" onClick={Logout}>Logout</button>
               </>
             ) : (
-              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>Sign</Link>
+              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>Sign in</Link>
             )}
           </li>
           </ul>
