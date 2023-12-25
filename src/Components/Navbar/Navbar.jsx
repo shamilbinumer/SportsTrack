@@ -1,10 +1,11 @@
 // import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.scss'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const naviagate=useNavigate()
   const [msg,setMsg]=useState("")
   // http://localhost:7000/sportstrack/CustHome
   const value=JSON.parse(localStorage.getItem('customer_token'));
@@ -20,6 +21,15 @@ const Navbar = () => {
   useEffect(()=>{
     getName()
   },[])
+
+  const Logout = () => {
+    const isConfirmed = window.confirm("Are you sure you want to logout?");
+    if (isConfirmed) {
+      localStorage.clear();
+      naviagate("/")
+
+    }
+  };
   return (
     <div className='navbar-main'>
     <nav className="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
@@ -65,10 +75,19 @@ const Navbar = () => {
             <li className="nav-item">
               <a className="nav-link mx-2 text-uppercase active" href="#"><i className="fa-solid fa-cart-shopping me-1"></i> Cart</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg ? msg : 'Sign'}</Link>
-              {/* <a className="nav-link mx-2 text-uppercase" href="#"><i className="fa-solid fa-circle-user me-1"></i> Account</a> */}
-            </li>
+            </li> */}
+             <li className="nav-item">
+            {msg ? (
+              <>
+                <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg}</Link>
+                <button className="btn btn-danger mx-2" onClick={Logout}>Logout</button>
+              </>
+            ) : (
+              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>Sign</Link>
+            )}
+          </li>
           </ul>
         </div>
       </div>
