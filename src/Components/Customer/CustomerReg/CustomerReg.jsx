@@ -19,9 +19,30 @@ const CustomerReg = () => {
     photo:""
   })
 
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+  
+        fileReader.onload = () => {
+            resolve(fileReader.result)
+        }
+        fileReader.onerror = (error) => {
+            reject(error)
+        }
+    })
+  }
+
   const GetData=(e)=>{
     setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
     console.log(val);
+  }
+
+  const Upload=async(e)=>{
+    e.preventDefault()
+  
+    Photo=await convertToBase64(e.target.files[0])
+    console.log(Photo);
   }
   return (
     <div className='CustomerReg-main'>
@@ -61,7 +82,7 @@ const CustomerReg = () => {
               </div>
               <div>
                 <input type="text"  placeholder='Street' name='street' onChange={GetData}/>
-                <input type="file"  placeholder='Photo' name='photo'/>
+                <input type="file"  placeholder='Photo' name='photo' onChange={Upload}/>
               </div>
             <Link className='iHaveAccount' to='/CustomerLogin'>I Have Account</Link>
               
