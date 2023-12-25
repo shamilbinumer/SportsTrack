@@ -3,7 +3,7 @@ import category_schema from './Models/category.model.js'
 import product_schema from './Models/product.model.js'
 import customer_schema from './Models/customer.model.js'
 import bcrypt from 'bcrypt'
-import path from 'path'
+// import path from 'path'
 // import jsonwebtoken from 'jsonwebtoken'
 import pkg from "jsonwebtoken";
 const {sign}=pkg
@@ -110,9 +110,9 @@ export async function getCategory(req,res){
 export async function AddProducts(req, res) {
   try {
     // console.log(req.files);
-    const images=req.files;
-    console.log(req.files);
-     const { product_name,category,description,price,size,stoke } = req.body;
+    // const images=req.files;
+    // console.log(req.files);
+     const { product_name,category,description,price,size,stoke,images } = req.body;
     const task=await product_schema.create({ product_name,category,description,price,size,stoke,images });
     console.log(task);
     res.status(200).send({result : task});
@@ -122,12 +122,12 @@ export async function AddProducts(req, res) {
   }
 }
 
-export async function SetPath(req,res)
-{
-  let { filename } = req.params;
-  console.log(filename);
-  return res.sendFile(path.resolve(`./images/${filename}`))
-}
+// export async function SetPath(req,res)
+// {
+//   let { filename } = req.params;
+//   console.log(filename);
+//   return res.sendFile(path.resolve(`./images/${filename}`))
+// }
 
 export function delCategory(req,res)
 {

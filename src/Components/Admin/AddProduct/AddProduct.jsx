@@ -31,29 +31,40 @@ const AddProduct = () => {
   },[])
 
   const addProduct=async(e)=>{
-   try {
-    e.preventDefault()
-    let formData = new FormData();
-    console.log(Object.entries(val));
-    Object.entries(val).forEach(item => formData.append(item[0],item[1]));
-    if (val.images && val.images.length > 0) {
-      for (const image of val.images) {
-        formData.append('images', image);
-      }
+    try {
+      e.preventDefault()
+      const res = await axios.post("http://localhost:7000/sportstrack/addProduct",{...val})
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
     }
-    const res = await axios.post("http://localhost:7000/sportstrack/addProduct", formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-
-    if(res.status!=404){
-      alert("Product Added")
-    }
-   } catch (error) {
-      alert("error",error)
-   }
   }
+
+
+  // const addProduct=async(e)=>{
+  //  try {
+  //   e.preventDefault()
+  //   let formData = new FormData();
+  //   console.log(Object.entries(val));
+  //   Object.entries(val).forEach(item => formData.append(item[0],item[1]));
+  //   if (val.images && val.images.length > 0) {
+  //     for (const image of val.images) {
+  //       formData.append('images', image);
+  //     }
+  //   }
+  //   const res = await axios.post("http://localhost:7000/sportstrack/addProduct", formData, {
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data',
+  //     },
+  //   });
+
+  //   if(res.status!=404){
+  //     alert("Product Added")
+  //   }
+  //  } catch (error) {
+  //     alert("error",error)
+  //  }
+  // }
   return (
     <div className='add-products-main'>
       <div className="header-main">
