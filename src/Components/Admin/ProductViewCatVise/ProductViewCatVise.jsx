@@ -24,6 +24,7 @@ const ProductViewCatVise = () => {
 
   return (
     <div className='categoryWiseProducts'>
+      <div className="backBtn"><Link className='back-btn' to='/adminhome'>Back</Link></div>
       <h2 className='main-heading'>Collection</h2>
       {/* {prod.map((data, index) => (
         <h1 key={index}>{data.product_name}</h1>
@@ -45,7 +46,7 @@ const ProductViewCatVise = () => {
   <div><strike><p className='og-price'>₹ 799</p></strike></div>
   </div>
  <div className="edit-btn">
- <Link to={`${data._id}`}><button>Edit</button></Link>
+ <Link to={`/editProduct/${data._id}`}><button>Edit</button></Link>
  </div>
   </div>
    </div>

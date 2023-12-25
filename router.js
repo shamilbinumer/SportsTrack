@@ -28,6 +28,8 @@ router.route("/getCatWiseProducts/:category").get(controller.getCategoryWisedPro
 router.route("/addCustomer").post(controller.AddCustomer);
 router.route("/customerLogin").post(controller.CustomerLogin);
 router.route("/CustHome").get(Auth,controller.customerHome);
+router.route("/getProduct/:id").get(controller.getProduct);
+router.route("/editProdect/:id").patch(controller.editProdect);
 
 
 export default router;

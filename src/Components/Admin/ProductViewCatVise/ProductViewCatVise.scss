@@ -1,4 +1,16 @@
 .categoryWiseProducts{
+    .backBtn{
+        padding-top: 20px;
+    }
+    .back-btn{
+        border-radius: 0px 20px 20px 0px;
+        text-decoration: none;
+        background-color: rgb(2, 7, 61);
+        color: white;
+        font-weight: 700;
+        letter-spacing: 2px;
+        padding: 7px 30px;
+    }
     .main-heading{
         text-align: center;
         margin-bottom: 2%;

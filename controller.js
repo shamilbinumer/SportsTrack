@@ -225,6 +225,25 @@ export async function customerHome(req,res)
   }
 }
 
+export async function getProduct(req,res){
+  const { id }=req.params;
+  console.log(id);
+  let task=await product_schema.findOne({ _id:id })
+  console.log(task);
+  res.status(200).send(task)
+}
+
+export async function editProdect(req, res) {
+  const { id } = req.params;
+  try {
+      const updatedData = req.body;
+      const value = await product_schema.updateOne({ _id: id }, { $set: updatedData });
+      res.status(200).send(value);
+  } catch (error) {
+      res.status(404).send(error);
+  }
+}
+
 
 
 
