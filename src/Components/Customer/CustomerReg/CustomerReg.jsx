@@ -44,6 +44,10 @@ const CustomerReg = () => {
     Photo=await convertToBase64(e.target.files[0])
     console.log(Photo);
   }
+
+  const Register=async(e)=>{
+
+  }
   return (
     <div className='CustomerReg-main'>
       <div className="CustRegMain">
@@ -59,7 +63,7 @@ const CustomerReg = () => {
         <div className="CustRegRight">
           <h2>Sign Up</h2>
           <div className="formMainDiv">
-            <form action="">
+            <form action="" onSubmit={Register}>
               <div>
                  <input type="text"  placeholder='Name' name='name' onChange={GetData}/>
                  <input type="text"  placeholder='Email' name='email' onChange={GetData}/>
@@ -84,6 +88,7 @@ const CustomerReg = () => {
                 <input type="text"  placeholder='Street' name='street' onChange={GetData}/>
                 <input type="file"  placeholder='Photo' name='photo' onChange={Upload}/>
               </div>
+             <div className='reg-div'> <button className='resgiter-btn'>Register</button></div>
             <Link className='iHaveAccount' to='/CustomerLogin'>I Have Account</Link>
               
             </form>

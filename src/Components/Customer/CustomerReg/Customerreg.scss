@@ -60,7 +60,7 @@
       margin: auto;
       // width: 60%;
       // background-color: red;
-      padding-top: 7%;
+      padding-top: 4%;
       text-align: center;
     }
     input{
@@ -81,7 +81,19 @@
       
     }
     .iHaveAccount{
-      color: black;
+      // color: black;
+      font-size: 13px;
+    }
+    .resgiter-btn{
+      width: 90px;
+      height: 40px;
+      margin-bottom: 20px;
+      border: 1px solid rgb(2, 7, 61);
+      background-color: rgb(2, 7, 61);
+      color: lightblue;
+    }
+    .reg-div{
+      
     }
   }
 
