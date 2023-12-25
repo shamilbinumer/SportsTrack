@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './AddProduct.scss'
 // import convertToBase64 from '../../../../base64'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const AddProduct = () => {
-  
+  const navigate=useNavigate()
+  let Banner="";
+  let Images=""
   const [getCat,setCat]=useState([])
   const [val,setVal]=useState({
     product_name:"",
@@ -14,8 +16,52 @@ const AddProduct = () => {
     price:"",
     size:"",
     stoke:"",
-    images:""
+    banner:"",
+    images:[]
   })
+
+  function convertToBase64Banner(file) {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+  
+        fileReader.onload = () => {
+            resolve(fileReader.result)
+        }
+        fileReader.onerror = (error) => {
+            reject(error)
+        }
+    })
+  }
+
+  const convertToBase64Images = (files) => {
+    return Promise.all(
+      Array.from(files).map((file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.addEventListener('load', () => resolve(reader.result));
+          reader.addEventListener('error', (error) => reject(error));
+          reader.readAsDataURL(file);
+        });
+      })
+    );
+  };
+
+  const GetBanner=async(e)=>{
+    e.preventDefault()
+  
+    Banner=await convertToBase64Banner(e.target.files[0])
+    console.log(Banner);
+  }
+
+  const GetImages=async(e)=>{
+    e.preventDefault()
+  
+    Images=await convertToBase64Images(e.target.files)
+    console.log(Images);
+    // setVal(Images)
+  }
+
   const GetData=(e)=>{ 
     setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
     console.log(val);
@@ -33,8 +79,12 @@ const AddProduct = () => {
   const addProduct=async(e)=>{
     try {
       e.preventDefault()
-      const res = await axios.post("http://localhost:7000/sportstrack/addProduct",{...val})
+      const res = await axios.post("http://localhost:7000/sportstrack/addProduct",{...val,images:Images,banner:Banner})
       console.log(res.data);
+      if(res){
+        alert("Product Added")
+        navigate("/adminhome")
+      }
     } catch (error) {
       console.log(error);
     }
@@ -116,8 +166,12 @@ const AddProduct = () => {
       <input id="stoke" placeholder="Number of Stoke" className="input-field" name="stoke" type="text" onChange={GetData}/>
     </div>
     <div className="field">
+    <div><label htmlFor="">Banner</label></div>
+      <input id="banner" placeholder="banner" className="input-field" name="banner" type="file"  onChange={GetBanner}  />
+    </div>
+    <div className="field">
     <div><label htmlFor="">Images</label></div>
-      <input id="image" placeholder="Image" className="input-field" name="images" type="file"  onChange={e => setVal(p => ({...p,[e.target.name]: e.target.files}))}  multiple/>
+      <input id="image" placeholder="Image" className="input-field" name="images" type="file"  onChange={GetImages}  multiple/>
     </div>
     <button className="btn" type="submit">Add</button>
   </form>

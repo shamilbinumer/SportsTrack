@@ -10,8 +10,9 @@ const ProductViewCatVise = () => {
   const getProd = async () => {
     try {
       const res = await axios.get(`http://localhost:7000/sportstrack/getCatWiseProducts/${category}`);
+      console.log(res.data);
       setProd(res.data);
-      console.log(prod[0].images);
+      // console.log(prod[0].images);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -35,7 +36,7 @@ const ProductViewCatVise = () => {
       
   <div key={index}>
   <Link className='link'>
-   <div className="Card"><div className="prdct-thumnalil"><img src={data.images.filename} alt="" /></div>
+   <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
   <div className="card-details">
   <p className='item-title'>{data.product_name}</p>
   <div><span className="prdct-description">{data.description}</span></div>
