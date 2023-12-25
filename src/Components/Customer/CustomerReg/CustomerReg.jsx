@@ -54,8 +54,11 @@ const CustomerReg = () => {
 
   const Register=async(e)=>{
     e.preventDefault()
-    const res=await axios.post("http://localhost:7000/sportstrack/addCustomer",{...val})
+    const res=await axios.post("http://localhost:7000/sportstrack/addCustomer",{...val,photo:Photo})
     console.log(res.data);
+    if(res){
+      alert("Successfully Registered")
+    }
   }
   return (
     <div className='CustomerReg-main'>
