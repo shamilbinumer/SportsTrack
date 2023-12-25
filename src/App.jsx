@@ -11,7 +11,7 @@ import AddCategory from './Components/Admin/AddCategory/AddCategory'
 import AddProduct from './Components/Admin/AddProduct/AddProduct'
 import EditCategory from './Components/Admin/EditCategory/EditCategory'
 import CustomerReg from './Components/Customer/CustomerReg/CustomerReg'
-import ProductViewCatVise from './ProductViewCatVise/ProductViewCatVise'
+import ProductViewCatVise from './Components/Admin/ProductViewCatVise/ProductViewCatVise'
 import CustomerLogin from './Components/Customer/CustomerLogin/CustomerLogin'
 
 

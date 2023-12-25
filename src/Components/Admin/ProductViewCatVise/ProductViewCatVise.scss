@@ -28,6 +28,7 @@
         display: none;
     }
     .Card{
+        padding-bottom: 13px;
         width: 250px;
         height: auto;
         border: 1px solid rgba(0, 0, 0, 0.33);
@@ -87,5 +88,18 @@
         padding: 15px;
         // background-color: red;
         color: black;
+    }
+    .Card{
+        .edit-btn{
+            text-align: center;
+        }
+       button{
+        width: 90%;
+        background-color: rgb(2, 7, 61);
+        color: white;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+       } 
     }
 }

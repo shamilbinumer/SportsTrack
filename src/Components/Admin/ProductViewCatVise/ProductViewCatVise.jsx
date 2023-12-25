@@ -44,6 +44,9 @@ const ProductViewCatVise = () => {
   <div><p className='price'>₹ {data.price}</p></div>
   <div><strike><p className='og-price'>₹ 799</p></strike></div>
   </div>
+ <div className="edit-btn">
+ <Link to={`${data._id}`}><button>Edit</button></Link>
+ </div>
   </div>
    </div>
    </Link>
