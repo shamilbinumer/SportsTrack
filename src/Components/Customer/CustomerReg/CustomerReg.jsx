@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Customerreg.scss'
 import { Link } from 'react-router-dom'
 
 const CustomerReg = () => {
+  let Photo
+  const [val,setVal]=useState({
+    name:"",
+    email:"",
+    password:"",
+    phone:"",
+    personal_address:"",
+    state:"",
+    district:"",
+    pincode:"",
+    place:"",
+    landmark:"",
+    street:"",
+    photo:""
+  })
+
+  const GetData=(e)=>{
+    setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
+    console.log(val);
+  }
   return (
     <div className='CustomerReg-main'>
       <div className="CustRegMain">
@@ -20,27 +40,27 @@ const CustomerReg = () => {
           <div className="formMainDiv">
             <form action="">
               <div>
-                 <input type="text"  placeholder='Name' name='name'/>
-                 <input type="text"  placeholder='Email' name='email'/>
+                 <input type="text"  placeholder='Name' name='name' onChange={GetData}/>
+                 <input type="text"  placeholder='Email' name='email' onChange={GetData}/>
               </div>
               <div>
-                <input type="password"  placeholder='Password' name='password'/>
-                <input type="text"  placeholder='Phone' name='phone'/>
+                <input type="password"  placeholder='Password' name='password' onChange={GetData}/>
+                <input type="text"  placeholder='Phone' name='phone' onChange={GetData}/>
                 </div>
               <div>
-                <input type="text"  placeholder='Personal Adress' name='personal_address'/>
-                <input type="text"  placeholder='State' name='state'/>
+                <input type="text"  placeholder='Personal Adress' name='personal_address' onChange={GetData}/>
+                <input type="text"  placeholder='State' name='state' onChange={GetData}/>
                 </div>
               <div>
-                <input type="text"  placeholder='District' name='district'/>
-                <input type="text"  placeholder='Pincode' name='pincode'/>
+                <input type="text"  placeholder='District' name='district' onChange={GetData}/>
+                <input type="text"  placeholder='Pincode' name='pincode' onChange={GetData}/>
               </div>
               <div>
-                <input type="text"  placeholder='Place' name='place'/>
-                <input type="text"  placeholder='Landmark' name='landmark'/>
+                <input type="text"  placeholder='Place' name='place' onChange={GetData}/>
+                <input type="text"  placeholder='Landmark' name='landmark' onChange={GetData}/>
               </div>
               <div>
-                <input type="text"  placeholder='Street' name='street'/>
+                <input type="text"  placeholder='Street' name='street' onChange={GetData}/>
                 <input type="file"  placeholder='Photo' name='photo'/>
               </div>
             <Link className='iHaveAccount' to='/CustomerLogin'>I Have Account</Link>

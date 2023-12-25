@@ -73,12 +73,25 @@
       padding-bottom: 10px;
       // text-align: center;
     }
+    textarea:focus, input:focus{
+      outline: none;
+    }
     .photoInput{
       border: none;
       
     }
     .iHaveAccount{
       color: black;
+    }
+  }
+
+  @media(min-width:300px) and (max-width:575px){
+    .CustRegLeft{
+      display: none;
+    }
+    .CustRegRight{
+      width: 100%;
+      margin: auto;
     }
   }
  
