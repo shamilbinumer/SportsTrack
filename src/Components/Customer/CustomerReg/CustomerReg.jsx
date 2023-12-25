@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Customerreg.scss'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const CustomerReg = () => {
   let Photo
@@ -10,12 +11,14 @@ const CustomerReg = () => {
     password:"",
     phone:"",
     personal_address:"",
+   location:{
     state:"",
     district:"",
     pincode:"",
     place:"",
     landmark:"",
-    street:"",
+    street:""
+   },
     photo:""
   })
 
@@ -38,6 +41,10 @@ const CustomerReg = () => {
     console.log(val);
   }
 
+  const GetLocation=(e)=>{
+    setVal((pre) => ({...pre,location: { ...pre.location, [e.target.name]: e.target.value },}));
+  }
+
   const Upload=async(e)=>{
     e.preventDefault()
   
@@ -46,7 +53,9 @@ const CustomerReg = () => {
   }
 
   const Register=async(e)=>{
-
+    e.preventDefault()
+    const res=await axios.post("http://localhost:7000/sportstrack/addCustomer",{...val})
+    console.log(res.data);
   }
   return (
     <div className='CustomerReg-main'>
@@ -74,18 +83,18 @@ const CustomerReg = () => {
                 </div>
               <div>
                 <input type="text"  placeholder='Personal Adress' name='personal_address' onChange={GetData}/>
-                <input type="text"  placeholder='State' name='state' onChange={GetData}/>
+                <input type="text"  placeholder='State' name='state' onChange={GetLocation}/>
                 </div>
               <div>
-                <input type="text"  placeholder='District' name='district' onChange={GetData}/>
-                <input type="text"  placeholder='Pincode' name='pincode' onChange={GetData}/>
+                <input type="text"  placeholder='District' name='district' onChange={GetLocation}/>
+                <input type="text"  placeholder='Pincode' name='pincode' onChange={GetLocation}/>
               </div>
               <div>
-                <input type="text"  placeholder='Place' name='place' onChange={GetData}/>
-                <input type="text"  placeholder='Landmark' name='landmark' onChange={GetData}/>
+                <input type="text"  placeholder='Place' name='place' onChange={GetLocation}/>
+                <input type="text"  placeholder='Landmark' name='landmark' onChange={GetLocation}/>
               </div>
               <div>
-                <input type="text"  placeholder='Street' name='street' onChange={GetData}/>
+                <input type="text"  placeholder='Street' name='street' onChange={GetLocation}/>
                 <input type="file"  placeholder='Photo' name='photo' onChange={Upload}/>
               </div>
              <div className='reg-div'> <button className='resgiter-btn'>Register</button></div>
