@@ -54,6 +54,25 @@ const ProductDetailsAdmn = () => {
         <h3 className='about-product'>{getProducts.description}</h3>
         <p className='original_price'><strike>₹ 859</strike></p>
         <p className="price">₹ {getProducts.price}</p>
+        <p className="stock">Stock Availablity :</p>
+        <table>
+            <tr>
+                <th>XS</th>
+                <th>S</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+                <th>XXL</th>
+            </tr>
+            <tr>
+                <td>{getProducts?.stock?.xs} pcs</td>
+                <td>{getProducts?.stock?.s} pcs</td>
+                <td>{getProducts?.stock?.m} pcs</td>
+                <td>{getProducts?.stock?.l} pcs</td>
+                <td>{getProducts?.stock?.xl} pcs</td>
+                <td>{getProducts?.stock?.xxl} pcs</td>
+            </tr>
+        </table>
       </div>
       </div>
     </div>
