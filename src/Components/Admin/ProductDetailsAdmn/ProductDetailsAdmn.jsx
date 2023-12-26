@@ -5,13 +5,13 @@ import './ProductDetailsAdmn.scss'
 
 const ProductDetailsAdmn = () => {
     const {id}=useParams()
-    const [getpProduct,setProduct]=useState([])
+    const [getProducts,setProduct]=useState([])
 
     const getProduct=async()=>{
         const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}`)
         // console.log(res.data);
         setProduct(res.data)
-        console.log(getpProduct.images[0]);
+        console.log(getProducts.images[0]);
     }
   
     useEffect(()=>{
@@ -26,30 +26,33 @@ const ProductDetailsAdmn = () => {
       <div className="ProductDetailsAdmnLeft">
         <div className="images-main">
         <div className="prod-image">
-           {getpProduct.images && getpProduct.images[0] && (
-           <img src={getpProduct.images[0]} alt="" />
+           {getProducts.images && getProducts.images[0] && (
+           <img src={getProducts.images[0]} alt="" />
                 )}
            </div>
             <div className="prod-image">
-            {getpProduct.images && getpProduct.images[0] && (
-           <img src={getpProduct.images[1]} alt="" />
+            {getProducts.images && getProducts.images[0] && (
+           <img src={getProducts.images[1]} alt="" />
                 )}
             </div>
         </div>
         <div className="images-main">
             <div className="prod-image">
-            {getpProduct.images && getpProduct.images[0] && (
-           <img src={getpProduct.images[2]} alt="" />
+            {getProducts.images && getProducts.images[0] && (
+           <img src={getProducts.images[2]} alt="" />
                 )}
             </div>
             <div className="prod-image">
-            {getpProduct.images && getpProduct.images[0] && (
-           <img src={getpProduct.images[3]} alt="" />
+            {getProducts.images && getProducts.images[0] && (
+           <img src={getProducts.images[3]} alt="" />
                 )}
             </div>
         </div>
       </div>
-      <div className="ProductDetailsAdmnRight"></div>
+      <div className="ProductDetailsAdmnRight">
+        <p className='prod-name'>{getProducts.product_name}</p>
+        <h3 className='about-product'>{getProducts.description}</h3>
+      </div>
       </div>
     </div>
   )

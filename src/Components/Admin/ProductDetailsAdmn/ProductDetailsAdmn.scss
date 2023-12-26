@@ -40,5 +40,18 @@
             background-color: rgb(137, 137, 137);
             overflow: hidden;
         }
+        img{
+            width: 100%;
+        }
+    }
+    .ProductDetailsAdmnRight{
+        .prod-name{
+            color: rgb(53, 53, 53);
+            font-size: 23px;
+            margin-top: 20px;
+        }
+        .about-product{
+            font-weight: 900;
+        }
     }
 }
