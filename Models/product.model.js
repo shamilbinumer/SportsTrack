@@ -4,7 +4,6 @@ const product_schema=new mongoose.Schema({
     category:{type:String},
     description:{type:String},
     price:{type:String},
-    size:{type:String},
     stock:{
         xs:{type:String},
         s:{type:String},
