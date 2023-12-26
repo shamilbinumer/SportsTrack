@@ -123,7 +123,7 @@ const AdminHome = () => {
        <Link className='sales-btn-right'>Sales <FcComboChart className='add-icon'/></Link>
        </div>
        <div className="services-button">
-       <Link className='service-btn-right'>Service <FcOnlineSupport className='add-icon'/></Link>
+       <Link className='service-btn-right'>Customers <FcOnlineSupport className='add-icon'/></Link>
        </div>
       </div>
       <div></div>
