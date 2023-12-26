@@ -53,6 +53,7 @@ const ProductDetailsAdmn = () => {
         <p className='prod-name'>{getProducts.product_name}</p>
         <h3 className='about-product'>{getProducts.description}</h3>
         <p className='original_price'><strike>₹ 859</strike></p>
+        <p className="price">₹ {getProducts.price}</p>
       </div>
       </div>
     </div>

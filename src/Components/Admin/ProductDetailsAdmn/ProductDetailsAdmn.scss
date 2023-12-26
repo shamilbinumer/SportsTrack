@@ -46,6 +46,10 @@
         }
     }
     .ProductDetailsAdmnRight{
+        // p{
+        //     margin-top: 0 !important;
+        //     margin-bottom: 0 !important;
+        // }
         .prod-name{
             color: rgb(53, 53, 53);
             font-size: 23px;
@@ -57,8 +61,17 @@
             margin-top: 0 !important;
         }
         .original_price{
-            font-size: 23px;
+            font-size: 20px;
             color: rgb(53, 53, 53);
+        }
+        .price{
+            background-color: yellow;
+            padding: 5px;
+            padding-left: 9px;
+            width: 90px;
+            font-size: 27px;
+            letter-spacing: 1px;
+            font-weight: 700;
         }
     }
 }
