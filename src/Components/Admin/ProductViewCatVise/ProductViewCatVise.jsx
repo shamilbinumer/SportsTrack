@@ -36,7 +36,7 @@ const ProductViewCatVise = () => {
        
       
   <div key={index}>
-  <Link className='link'>
+  <Link className='link' to={`/productDetailsAdmn/${data._id}`}>
    <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
   <div className="card-details">
   <p className='item-title'>{data.product_name}</p>
