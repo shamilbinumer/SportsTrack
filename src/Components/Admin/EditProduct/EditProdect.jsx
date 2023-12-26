@@ -16,8 +16,14 @@ const EditProdect = () => {
       category:"",
       description:"",
       price:"",
-      size:"",
-      stoke:"",
+      stock:{
+        xs:"",
+        s:"",
+        m:"",
+        l:"",
+        xl:"",
+        xxl:""
+      },
       banner:"",
       images:[]
     })
@@ -69,6 +75,10 @@ const EditProdect = () => {
     const GetData=(e)=>{ 
       setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
       console.log(val);
+    }
+
+    const GetStock=(e)=>{
+      setVal((pre) => ({...pre,stock: { ...pre.stock, [e.target.name]: e.target.value },}));
     }
 
     const getProduct=async()=>{
@@ -137,10 +147,10 @@ const EditProdect = () => {
     <div className="field">
       <input id="price" placeholder="Price" className="input-field" name="price" type="text" onChange={GetData} value={val.price} />
     </div>
-    <div className='label'><label htmlFor="">Size :</label></div>
-    <div className="field">
+    {/* <div className='label'><label htmlFor="">Size :</label></div> */}
+    {/* <div className="field"> */}
       {/* <input id="size" placeholder="Size" className="input-field" name="size" type="text" onChange={GetData}/> */}
-      <select name="size" id="" onChange={GetData} className="input-field">
+      {/* <select name="size" id="" onChange={GetData} className="input-field">
         <option value="XS">XS</option>
         <option value="S">S</option>
         <option value="M">M</option>
@@ -148,9 +158,15 @@ const EditProdect = () => {
         <option value="XL">XL</option>
         <option value="XXL">XXL</option>
       </select>
-    </div>
+    </div> */}
+    <div className='label'><label htmlFor="">Stock :</label></div>
     <div className="field">
-      <input id="stoke" placeholder="Number of Stoke" className="input-field" name="stoke" type="text" onChange={GetData} value={val.stoke} />
+    <input id="xs" placeholder="XS" className="input-field" name="xs" type="text" onChange={GetStock}/>
+      <input id="s" placeholder="S" className="input-field" name="s" type="text" onChange={GetStock}/>
+      <input id="m" placeholder="M" className="input-field" name="m" type="text" onChange={GetStock}/>
+      <input id="l" placeholder="L" className="input-field" name="l" type="text" onChange={GetStock}/>
+      <input id="xl" placeholder="XL" className="input-field" name="xl" type="text" onChange={GetStock}/>
+      <input id="xxl" placeholder="XXL" className="input-field" name="xxl" type="text" onChange={GetStock}/>
     </div>
     <div className="field">
     <div><label htmlFor="">Banner</label></div>

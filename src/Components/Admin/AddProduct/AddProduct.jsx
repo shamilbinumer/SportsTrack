@@ -14,7 +14,6 @@ const AddProduct = () => {
     category:"",
     description:"",
     price:"",
-    size:"",
     stock:{
       xs:"",
       s:"",
@@ -161,10 +160,10 @@ const AddProduct = () => {
     <div className="field">
       <input id="price" placeholder="Price" className="input-field" name="price" type="text" onChange={GetData}/>
     </div>
-    <div className='label'><label htmlFor="">Size :</label></div>
-    <div className="field">
+    {/* <div className='label'><label htmlFor="">Size :</label></div> */}
+    {/* <div className="field"> */}
       {/* <input id="size" placeholder="Size" className="input-field" name="size" type="text" onChange={GetData}/> */}
-      <select name="size" id="" onChange={GetData} className="input-field">
+      {/* <select name="size" id="" onChange={GetData} className="input-field">
         <option value="XS">XS</option>
         <option value="S">S</option>
         <option value="M">M</option>
@@ -172,7 +171,7 @@ const AddProduct = () => {
         <option value="XL">XL</option>
         <option value="XXL">XXL</option>
       </select>
-    </div>
+    </div> */}
     <div className='label'><label htmlFor="">Stock :</label></div>
     <div className="field" id='stock'>
       <input id="xs" placeholder="XS" className="input-field" name="xs" type="text" onChange={GetStock}/>
