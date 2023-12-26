@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Navbar from '../../Navbar/Navbar'
 import './ProductDetailsCustomer.scss'
+import { PiShoppingCartFill } from "react-icons/pi";
+import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     const {id}=useParams()
@@ -58,6 +60,10 @@ const ProductDetailsCustomer = () => {
                         <option className='option' value="xl">XL</option>
                         <option className='option' value="xxl">XXL</option>
                     </select>
+                </div>
+                <div className="btns">
+                    <button className='addToCartBtn'>ADD TO CARD <PiShoppingCartFill /></button>
+                    <button className='WhishListBtn'>ADD RO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>
         </div>
