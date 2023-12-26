@@ -105,7 +105,7 @@ const EditProdect = () => {
         const res = await axios.patch(`http://localhost:7000/sportstrack/editProdect/${id}`,{...val,images:Images,banner:Banner})
         console.log(res.data);
         if(res){
-          alert("Product Added")
+          alert("Product Edited")
           navigate("/adminhome")
         }
       } catch (error) {
@@ -161,12 +161,12 @@ const EditProdect = () => {
     </div> */}
     <div className='label'><label htmlFor="">Stock :</label></div>
     <div className="field">
-    <input id="xs" placeholder="XS" className="input-field" name="xs" type="text" onChange={GetStock}/>
-      <input id="s" placeholder="S" className="input-field" name="s" type="text" onChange={GetStock}/>
-      <input id="m" placeholder="M" className="input-field" name="m" type="text" onChange={GetStock}/>
-      <input id="l" placeholder="L" className="input-field" name="l" type="text" onChange={GetStock}/>
-      <input id="xl" placeholder="XL" className="input-field" name="xl" type="text" onChange={GetStock}/>
-      <input id="xxl" placeholder="XXL" className="input-field" name="xxl" type="text" onChange={GetStock}/>
+    <input id="xs" placeholder="XS" className="input-field" name="xs" type="text" value={val?.stock?.xs} onChange={GetStock}/>
+      <input id="s" placeholder="S" className="input-field" name="s" type="text" value={val?.stock?.s} onChange={GetStock}/>
+      <input id="m" placeholder="M" className="input-field" name="m" type="text" value={val?.stock?.m} onChange={GetStock}/>
+      <input id="l" placeholder="L" className="input-field" name="l" type="text"  value={val?.stock?.l}onChange={GetStock}/>
+      <input id="xl" placeholder="XL" className="input-field" name="xl" type="text" value={val?.stock?.xl} onChange={GetStock}/>
+      <input id="xxl" placeholder="XXL" className="input-field" name="xxl" type="text" value={val?.stock?.xxl} onChange={GetStock}/>
     </div>
     <div className="field">
     <div><label htmlFor="">Banner</label></div>

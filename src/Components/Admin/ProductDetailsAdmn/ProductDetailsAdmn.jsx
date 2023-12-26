@@ -73,6 +73,7 @@ const ProductDetailsAdmn = () => {
                 <td>{getProducts?.stock?.xxl} pcs</td>
             </tr>
         </table>
+       <div className='EditBtn'> <Link to={`/editProduct/${getProducts._id}`}><button>Edit Product</button></Link></div>
       </div>
       </div>
     </div>

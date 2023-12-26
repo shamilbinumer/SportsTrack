@@ -47,6 +47,7 @@
     }
     .ProductDetailsAdmnRight{
         padding-right: 15px;
+        padding-left: 15px;
     }
     .ProductDetailsAdmnRight{
         
@@ -84,6 +85,17 @@
         th{
             width: 60px;
             font-size: 19px;
+        }
+        button{
+            background-color: rgb(2, 7, 61);
+            width: 130px;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 1px;
+            height: 40px;
+            margin-top: 20px;
+            border: 1px solid rgb(2, 7, 61);
+            border-radius: 5px;
         }
     }
 }
