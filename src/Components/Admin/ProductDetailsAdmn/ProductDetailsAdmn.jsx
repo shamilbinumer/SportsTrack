@@ -65,7 +65,7 @@ const ProductDetailsAdmn = () => {
                 <th>XXL</th>
             </tr>
             <tr>
-                <td>{getProducts?.stock?.xs} pcs </td>
+                <td>{getProducts?.stock?.xs} pcs</td>
                 <td>{getProducts?.stock?.s} pcs</td>
                 <td>{getProducts?.stock?.m} pcs</td>
                 <td>{getProducts?.stock?.l} pcs</td>
