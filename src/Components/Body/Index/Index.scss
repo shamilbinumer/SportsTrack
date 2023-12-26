@@ -123,7 +123,8 @@
     }
     .Card{
         width: 250px;
-        height: 320px;
+        height: auto;
+        // padding-bottom: 9px;
         border: 1px solid rgba(0, 0, 0, 0.33);
         border-radius: 5px;
     }
@@ -135,7 +136,7 @@
         border-radius: 5px 5px 0px 0px;
     }
     .card-details{
-        padding: 10px 0px 0px 10px;
+        padding: 10px 10px 0px 10px;
       
         // padding-left: 20px;
     }

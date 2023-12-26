@@ -90,213 +90,23 @@ const IndexPage = () => {
      </div>
   
     <div className="collection-cards">
-    <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+   {
+     getProducts.filter((data) => data.category === 'Kids')
+     .map((data, index) => (
+       <Link className='link' key={index}>
+         <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
+     <p className='item-title'>{data.product_name}</p>
+     <div><span className="prdct-description">{data.description}</span></div>
     <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
+    <div><p className='price'>₹ {data.price}</p></div>
     <div><strike><p className='og-price'>₹ 799</p></strike></div>
     </div>
      </div>
       </div>
-      </Link>
-
-      {/* <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link> */}
+       </Link>
+     ))
+   }
     </div>
     
     </div>
@@ -306,112 +116,24 @@ const IndexPage = () => {
       <div className="cat-ul"></div>
      </div>
      <div className="collection-cards">
-
-     <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+       {
+     getProducts.filter((data) => data.category === 'Women')
+     .map((data, index) => (
+       <Link className='link' key={index}>
+         <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
+     <p className='item-title'>{data.product_name}</p>
+     <div><span className="prdct-description">{data.description}</span></div>
     <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
+    <div><p className='price'>₹ {data.price}</p></div>
     <div><strike><p className='og-price'>₹ 799</p></strike></div>
     </div>
      </div>
       </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-    
-    </div>
+       </Link>
+     ))
+   }
+   </div>
     </div>
     <div className="categoreis-products">
      <div className="cat-product-heading">
@@ -420,210 +142,55 @@ const IndexPage = () => {
      </div>
      <div className="collection-cards">
 
-     <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+     {
+     getProducts.filter((data) => data.category === 'Men')
+     .map((data, index) => (
+       <Link className='link' key={index}>
+         <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
+     <p className='item-title'>{data.product_name}</p>
+     <div><span className="prdct-description">{data.description}</span></div>
     <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
+    <div><p className='price'>₹ {data.price}</p></div>
     <div><strike><p className='og-price'>₹ 799</p></strike></div>
     </div>
      </div>
       </div>
-      </Link>
+       </Link>
+     ))
+   }
 
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
+     
+      
     </div>
-     </div>
-      </div>
-      </Link>
+    </div>
 
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
+    <div className="categoreis-products">
+     <div className="cat-product-heading">
+     <h3 id='men'>Gym Wear Collection</h3>
+      <div className="cat-ul"></div>
      </div>
-      </div>
-      </Link>
+     <div className="collection-cards">
 
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
+     {
+     getProducts.filter((data) => data.category === 'Gym Wears')
+     .map((data, index) => (
+       <Link className='link' key={index}>
+         <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
+     <p className='item-title'>{data.product_name}</p>
+     <div><span className="prdct-description">{data.description}</span></div>
     <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
+    <div><p className='price'>₹ {data.price}</p></div>
     <div><strike><p className='og-price'>₹ 799</p></strike></div>
     </div>
      </div>
       </div>
-      </Link>
+       </Link>
+     ))
+   }
 
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
-
-      <Link className='link'>
-      <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
-     <div className="card-details">
-     <p className='item-title'>Title</p>
-     <div><span className="prdct-description">Description of the product</span></div>
-    <div className="prices">
-    <div><p className='price'>₹ 299</p></div>
-    <div><strike><p className='og-price'>₹ 799</p></strike></div>
-    </div>
-     </div>
-      </div>
-      </Link>
+     
       
     </div>
     </div>
