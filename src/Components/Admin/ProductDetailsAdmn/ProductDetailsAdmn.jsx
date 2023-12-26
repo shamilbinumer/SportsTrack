@@ -20,7 +20,7 @@ const ProductDetailsAdmn = () => {
   return (
     <div className='ProductDetailsAdmnMain'>
         <div className="backBtn">
-            <Link className='back_btn' to='/prooood'>Back</Link>
+            <Link className='back_btn' to={`/prooood/${getProducts.category}`}>Back</Link>
         </div>
       <div className="left_Right_main">
       <div className="ProductDetailsAdmnLeft">
