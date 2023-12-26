@@ -93,7 +93,7 @@ const IndexPage = () => {
    {
      getProducts.filter((data) => data.category === 'Kids')
      .map((data, index) => (
-       <Link className='link' key={index}>
+       <Link className='link' key={index} to={`/productDetailsCustomer/${data._id}`}>
          <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
      <p className='item-title'>{data.product_name}</p>
@@ -119,7 +119,7 @@ const IndexPage = () => {
        {
      getProducts.filter((data) => data.category === 'Women')
      .map((data, index) => (
-       <Link className='link' key={index}>
+       <Link className='link' key={index} to={`/productDetailsCustomer/${data._id}`}>
          <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
      <p className='item-title'>{data.product_name}</p>
@@ -145,7 +145,7 @@ const IndexPage = () => {
      {
      getProducts.filter((data) => data.category === 'Men')
      .map((data, index) => (
-       <Link className='link' key={index}>
+       <Link className='link' key={index} to={`/productDetailsCustomer/${data._id}`}>
          <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
      <p className='item-title'>{data.product_name}</p>
@@ -175,7 +175,7 @@ const IndexPage = () => {
      {
      getProducts.filter((data) => data.category === 'Gym Wears')
      .map((data, index) => (
-       <Link className='link' key={index}>
+       <Link className='link' key={index} to={`/productDetailsCustomer/${data._id}`}>
          <div className="Card"><div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
      <div className="card-details">
      <p className='item-title'>{data.product_name}</p>

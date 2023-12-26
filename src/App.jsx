@@ -15,6 +15,7 @@ import ProductViewCatVise from './Components/Admin/ProductViewCatVise/ProductVie
 import CustomerLogin from './Components/Customer/CustomerLogin/CustomerLogin'
 import EditProdect from './Components/Admin/EditProduct/EditProdect'
 import ProductDetailsAdmn from './Components/Admin/ProductDetailsAdmn/ProductDetailsAdmn'
+import ProductDetailsCustomer from './Components/Body/ProductDetailsCustome/ProductDetailsCustomer'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
     <Route path='/editProduct/:id' Component={EditProdect}/>
     <Route path='/CustomerLogin' Component={CustomerLogin}/>
     <Route path='/productDetailsAdmn/:id' Component={ProductDetailsAdmn}/>
+    <Route path='/productDetailsCustomer/:id' Component={ProductDetailsCustomer}/>
 
   </Routes>
   </BrowserRouter>
