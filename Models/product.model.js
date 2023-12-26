@@ -5,7 +5,14 @@ const product_schema=new mongoose.Schema({
     description:{type:String},
     price:{type:String},
     size:{type:String},
-    stoke:{type:String},
+    stock:{
+        xs:{type:String},
+        s:{type:String},
+        m:{type:String},
+        l:{type:String},
+        xl:{type:String},
+        xxl:{type:String}
+    },
     banner:{type:String},
     images:{type:Object}
 })

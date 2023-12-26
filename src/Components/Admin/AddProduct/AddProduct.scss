@@ -103,5 +103,17 @@
        .label label{
             color: white;
        }
+       #stock{
+        input{
+            margin-right: 10px;
+            background-color: #b0b0b0;
+            border-radius: 4px;
+        }
+        input::placeholder{
+            color: rgb(98, 98, 98);
+            padding: 10px;
+            height: 40px;
+        }
+       }
        
 }

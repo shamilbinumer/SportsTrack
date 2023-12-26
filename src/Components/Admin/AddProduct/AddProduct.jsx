@@ -15,7 +15,14 @@ const AddProduct = () => {
     description:"",
     price:"",
     size:"",
-    stoke:"",
+    stock:{
+      xs:"",
+      s:"",
+      m:"",
+      l:"",
+      xl:"",
+      xxl:""
+    },
     banner:"",
     images:[]
   })
@@ -65,6 +72,10 @@ const AddProduct = () => {
   const GetData=(e)=>{ 
     setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
     console.log(val);
+  }
+
+  const GetStock=(e)=>{
+    setVal((pre) => ({...pre,stock: { ...pre.stock, [e.target.name]: e.target.value },}));
   }
 
   const getCategory=async()=>{
@@ -162,8 +173,14 @@ const AddProduct = () => {
         <option value="XXL">XXL</option>
       </select>
     </div>
-    <div className="field">
-      <input id="stoke" placeholder="Number of Stoke" className="input-field" name="stoke" type="text" onChange={GetData}/>
+    <div className='label'><label htmlFor="">Stock :</label></div>
+    <div className="field" id='stock'>
+      <input id="xs" placeholder="XS" className="input-field" name="xs" type="text" onChange={GetStock}/>
+      <input id="s" placeholder="S" className="input-field" name="s" type="text" onChange={GetStock}/>
+      <input id="m" placeholder="M" className="input-field" name="m" type="text" onChange={GetStock}/>
+      <input id="l" placeholder="L" className="input-field" name="l" type="text" onChange={GetStock}/>
+      <input id="xl" placeholder="XL" className="input-field" name="xl" type="text" onChange={GetStock}/>
+      <input id="xxl" placeholder="XXL" className="input-field" name="xxl" type="text" onChange={GetStock}/>
     </div>
     <div className="field">
     <div><label htmlFor="">Banner</label></div>
