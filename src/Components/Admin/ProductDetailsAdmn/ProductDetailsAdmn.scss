@@ -36,6 +36,7 @@
     .images-main{
         .prod-image{
             width: 50%;
+            border: 1px solid black;
             height: 400px;
             background-color: rgb(137, 137, 137);
             overflow: hidden;
@@ -54,6 +55,10 @@
         .about-product{
             font-weight: 900;
             margin-top: 0 !important;
+        }
+        .original_price{
+            font-size: 23px;
+            color: rgb(53, 53, 53);
         }
     }
 }
