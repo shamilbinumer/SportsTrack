@@ -76,7 +76,7 @@ const IndexPage = () => {
           {/* <img src="../../../../public/men (1).jpg" alt="" /> */}
           </div>
         <div className="ctgry-images">
-       <a href=""> <h3>Gym Wear</h3></a>
+       <a href="#Gym"> <h3>Gym Wear</h3></a>
           {/* <img src="../../../../public/sports.jpg" alt="" /> */}
           </div>
       </div>
@@ -167,7 +167,7 @@ const IndexPage = () => {
 
     <div className="categoreis-products">
      <div className="cat-product-heading">
-     <h3 id='men'>Gym Wear Collection</h3>
+     <h3 id='Gym'>Gym Wear Collection</h3>
       <div className="cat-ul"></div>
      </div>
      <div className="collection-cards">
