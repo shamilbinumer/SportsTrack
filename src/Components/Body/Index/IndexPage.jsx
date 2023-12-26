@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../Navbar/Navbar'
 import Footer from '../../Footer/Footer'
 import './Index.scss'
 import { Link } from 'react-router-dom'
 import { TfiAngleRight } from "react-icons/tfi";
 import { TfiAngleLeft } from "react-icons/tfi";
+import axios from 'axios'
 // import './index.js'
 
 const IndexPage = () => {
+  const [getProducts,setProducts]=useState([])
+  
+  // http://localhost:7000/sportstrack/getAllProducts
+  const getAllProducts=async()=>{
+    const res=await axios.get("http://localhost:7000/sportstrack/getAllProducts") 
+    // console.log(res.data);
+    setProducts(res.data)
+    console.log(getProducts);
+  }
+  useEffect(()=>{
+    getAllProducts()
+  },[])
   return (
     <div className='index-page-main'>
         <Navbar/>
@@ -51,22 +64,20 @@ const IndexPage = () => {
       </div>
       <div className="ctgry-list">
         <div className="ctgry-images">
-          <img src="../../../../public/kids.jpg" alt="" />
+         <a href="#kids"><h3>Kids</h3></a>         
+          {/* <img src="../../../../public/kids.jpg" alt="" /> */}
           </div>
         <div className="ctgry-images">
-          <img src="../../../../public/gym.jpg" alt="" />
+       <a href="#men"> <h3>Men</h3></a>
+          {/* <img src="../../../../public/gym.jpg" alt="" /> */}
           </div>
         <div className="ctgry-images">
-          <img src="../../../../public/men (1).jpg" alt="" />
+        <a href="#women"><h3>Women</h3></a>
+          {/* <img src="../../../../public/men (1).jpg" alt="" /> */}
           </div>
         <div className="ctgry-images">
-          <img src="../../../../public/sports.jpg" alt="" />
-          </div>
-        <div className="ctgry-images">
-          <img src="../../../../public/winter.jpg" alt="" />
-          </div>
-        <div className="ctgry-images">
-          <img src="../../../../public/women.jpg" alt="" />
+       <a href=""> <h3>Gym Wear</h3></a>
+          {/* <img src="../../../../public/sports.jpg" alt="" /> */}
           </div>
       </div>
        
@@ -74,7 +85,7 @@ const IndexPage = () => {
 
     <div className="categoreis-products">
      <div className="cat-product-heading">
-     <h3>Kids Collection</h3>
+     <h3 id='kids'>Kids Collection</h3>
       <div className="cat-ul"></div>
      </div>
   
@@ -291,7 +302,7 @@ const IndexPage = () => {
     </div>
     <div className="categoreis-products">
      <div className="cat-product-heading">
-     <h3>Womens Collection</h3>
+     <h3 id='women'>Womens Collection</h3>
       <div className="cat-ul"></div>
      </div>
      <div className="collection-cards">
@@ -404,7 +415,7 @@ const IndexPage = () => {
     </div>
     <div className="categoreis-products">
      <div className="cat-product-heading">
-     <h3>Men Collection</h3>
+     <h3 id='men'>Men Collection</h3>
       <div className="cat-ul"></div>
      </div>
      <div className="collection-cards">

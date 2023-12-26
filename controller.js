@@ -255,6 +255,11 @@ export function delProduct(req,res)
     })
 }
 
+export async function getAllProducts(req,res){
+  let task=await product_schema.find()
+  res.status(200).send(task)
+}
+
 
 
 

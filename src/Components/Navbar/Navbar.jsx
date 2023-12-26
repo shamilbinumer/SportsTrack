@@ -10,7 +10,7 @@ const Navbar = () => {
   const [msg,setMsg]=useState("")
   // http://localhost:7000/sportstrack/CustHome
   const value=JSON.parse(localStorage.getItem('customer_token'));
-  console.log(value);
+  // console.log(value);
 
   const getName=async()=>{
     const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{

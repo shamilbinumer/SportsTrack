@@ -31,6 +31,7 @@ router.route("/CustHome").get(Auth,controller.customerHome);
 router.route("/getProduct/:id").get(controller.getProduct);
 router.route("/editProdect/:id").patch(controller.editProdect);
 router.route("/delProduct/:id").delete(controller.delProduct);
+router.route("/getAllProducts").get(controller.getAllProducts);
 
 
 export default router;
