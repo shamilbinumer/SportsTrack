@@ -92,7 +92,7 @@ const IndexPage = () => {
       </div>
       </Link>
 
-      <Link className='link'>
+      {/* <Link className='link'>
       <div className="Card"><div className="prdct-thumnalil"><img src="../../../../public/sports.jpg" alt="" /></div>
      <div className="card-details">
      <p className='item-title'>Title</p>
@@ -285,7 +285,7 @@ const IndexPage = () => {
     </div>
      </div>
       </div>
-      </Link>
+      </Link> */}
     </div>
     
     </div>
