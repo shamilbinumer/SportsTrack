@@ -16,6 +16,7 @@ import CustomerLogin from './Components/Customer/CustomerLogin/CustomerLogin'
 import EditProdect from './Components/Admin/EditProduct/EditProdect'
 import ProductDetailsAdmn from './Components/Admin/ProductDetailsAdmn/ProductDetailsAdmn'
 import ProductDetailsCustomer from './Components/Body/ProductDetailsCustome/ProductDetailsCustomer'
+import AllCustomers from './Components/Admin/AllCustomers/AllCustomers'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
     <Route path='/CustomerLogin' Component={CustomerLogin}/>
     <Route path='/productDetailsAdmn/:id' Component={ProductDetailsAdmn}/>
     <Route path='/productDetailsCustomer/:id' Component={ProductDetailsCustomer}/>
+    <Route path='/AllCustomers' Component={AllCustomers}/>
 
   </Routes>
   </BrowserRouter>

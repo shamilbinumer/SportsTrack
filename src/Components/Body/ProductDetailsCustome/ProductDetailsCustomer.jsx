@@ -28,10 +28,10 @@ const ProductDetailsCustomer = () => {
         console.log(size);
     }
 
-    const addToCart=async(e)=>{
-        const res=await axios.post("http://localhost:7000/sportstrack/addToCart",{...getProduct,...size})
-        console.log(res.data);
-    }
+    // const addToCart=async(e)=>{
+    //     const res=await axios.post("http://localhost:7000/sportstrack/addToCart",{...getProduct,...size})
+    //     console.log(res.data);
+    // }
   return (
     <div className='ProductDetailsCustomerMain'>
         <Navbar/>
