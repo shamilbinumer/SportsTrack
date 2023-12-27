@@ -5,8 +5,7 @@ const cart_schema=new mongoose.Schema({
     description:{type:String},
     price:{type:String},
     size:{type:String},
-    banner:{type:String},
-    images:{type:Object}
+    banner:{type:String}
 })
 
 export default mongoose.model.cart||mongoose.model("cart",cart_schema)
