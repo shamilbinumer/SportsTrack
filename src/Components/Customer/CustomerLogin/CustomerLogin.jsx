@@ -39,7 +39,7 @@ const CustomerLogin = () => {
           </div>
         </div>
         <div className="CustRegRight">
-          <h2>Sign Up</h2>
+          <h2>Sign In</h2>
           <div className="formMainDiv">
             <form action="" onSubmit={Login}>
             

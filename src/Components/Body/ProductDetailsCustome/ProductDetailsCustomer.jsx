@@ -7,6 +7,7 @@ import { PiShoppingCartFill } from "react-icons/pi";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
+    const [size,setSize]=useState("")
     const {id}=useParams()
     const [getProducts,setProduct]=useState([])
 
@@ -21,6 +22,16 @@ const ProductDetailsCustomer = () => {
     useEffect(()=>{
         getProduct()
     },[])
+
+    const selectSize=(e)=>{
+        setSize((pre) => ({...pre,size: { ...pre.size, [e.target.name]: e.target.value },}));
+        console.log(size);
+    }
+
+    const addToCart=async(e)=>{
+        const res=await axios.post("http://localhost:7000/sportstrack/addToCart",{...getProduct,...size})
+        console.log(res.data);
+    }
   return (
     <div className='ProductDetailsCustomerMain'>
         <Navbar/>
@@ -51,18 +62,18 @@ const ProductDetailsCustomer = () => {
                 <span className="price">₹ {getProducts.price}</span>
                 <div className='select_size'>
                     {/* <p>Select Size</p> */}
-                    <select name="" id="">
+                    <select name="size" id="" onChange={selectSize}>
                         <option className='option'>Select Size</option>
-                        <option className='option' value="xs">XS</option>
-                        <option className='option' value="s">S</option>
-                        <option className='option' value="m">M</option>
-                        <option className='option' value="l">L</option>
-                        <option className='option' value="xl">XL</option>
-                        <option className='option' value="xxl">XXL</option>
+                        <option className='option' name='xs' value="xs">XS</option>
+                        <option className='option' name='s' value="s">S</option>
+                        <option className='option' name='m' value="m">M</option>
+                        <option className='option' name='l' value="l">L</option>
+                        <option className='option' name='xl' value="xl">XL</option>
+                        <option className='option' name='xxl' value="xxl">XXL</option>
                     </select>
                 </div>
                 <div className="btns">
-                    <button className='addToCartBtn'>ADD TO CARD <PiShoppingCartFill /></button>
+                    <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button>
                     <button className='WhishListBtn'>ADD RO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>
