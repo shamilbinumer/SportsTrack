@@ -264,9 +264,6 @@ export async function getAllProducts(req,res){
 
 export async function AddToCart(req, res) {
   try {
-    // console.log(req.files);
-    // const images=req.files;
-    // console.log(req.files);
      const { ...productdetails } = req.body;
     const task=await cart_schema.create({ ...productdetails });
     console.log(task);

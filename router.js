@@ -32,6 +32,7 @@ router.route("/getProduct/:id").get(controller.getProduct);
 router.route("/editProdect/:id").patch(controller.editProdect);
 router.route("/delProduct/:id").delete(controller.delProduct);
 router.route("/getAllProducts").get(controller.getAllProducts);
+router.route("/addToCart").post(controller.AddToCart);
 
 
 export default router;
