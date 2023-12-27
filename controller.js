@@ -2,6 +2,7 @@ import admin_schema from './Models/admin.model.js'
 import category_schema from './Models/category.model.js'
 import product_schema from './Models/product.model.js'
 import customer_schema from './Models/customer.model.js'
+import cart_schema from './Models/cart.model.js'
 import bcrypt from 'bcrypt'
 // import path from 'path'
 // import jsonwebtoken from 'jsonwebtoken'
@@ -260,6 +261,21 @@ export async function getAllProducts(req,res){
   res.status(200).send(task)
 }
 
+
+export async function AddToCart(req, res) {
+  try {
+    // console.log(req.files);
+    // const images=req.files;
+    // console.log(req.files);
+     const { ...productdetails } = req.body;
+    const task=await cart_schema.create({ ...productdetails });
+    console.log(task);
+    res.status(200).send({result : task});
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+}
 
 
 
