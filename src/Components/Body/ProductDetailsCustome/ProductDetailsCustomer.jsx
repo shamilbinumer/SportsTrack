@@ -7,7 +7,7 @@ import { PiShoppingCartFill } from "react-icons/pi";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
-    let Size
+    let Size;
     const {id}=useParams()
     const [getProducts,setProduct]=useState({
         product_name:"",
@@ -42,6 +42,11 @@ const ProductDetailsCustomer = () => {
               }
           const res = await axios.post("http://localhost:7000/sportstrack/addToCart", {...getProducts,size:Size});
           console.log(res.data);
+          if(res){
+            alert("Added To Cart")
+          }else{
+            alert("Error adding product to cart. Please try again.")
+          }
         } catch (error) {
             console.error("Error adding product to cart:", error);
             alert("Error adding product to cart. Please try again.");
