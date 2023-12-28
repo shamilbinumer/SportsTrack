@@ -8,7 +8,7 @@ const Cart = () => {
     <div className='cart-main'>
       <Navbar/>
       <div className="back">
-        <Link className='back-btn'>Back</Link>
+        <Link className='back-btn' to='/'>Back</Link>
       </div>
     </div>
   )
