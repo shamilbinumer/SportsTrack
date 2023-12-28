@@ -20,7 +20,7 @@ const ProductDetailsCustomer = () => {
     })
 
     const getProduct=async()=>{
-        const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}`)
+        const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}` )
         setProduct(res.data)
         // console.log(getProducts);
     }
