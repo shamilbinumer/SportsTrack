@@ -8,7 +8,6 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     let Size
-    // const [size,setSize]=useState("")
     const {id}=useParams()
     const [getProducts,setProduct]=useState({
         product_name:"",
