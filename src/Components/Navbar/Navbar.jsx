@@ -74,7 +74,7 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav ms-auto ">
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase active" href="#"><i className="fa-solid fa-cart-shopping me-1"></i> Cart</a>
+              <Link className="nav-link mx-2 text-uppercase active" to='/cart'><i className="fa-solid fa-cart-shopping me-1"></i> Cart</Link>
             </li>
             {/* <li className="nav-item">
               <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg ? msg : 'Sign'}</Link>

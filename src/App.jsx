@@ -17,6 +17,7 @@ import EditProdect from './Components/Admin/EditProduct/EditProdect'
 import ProductDetailsAdmn from './Components/Admin/ProductDetailsAdmn/ProductDetailsAdmn'
 import ProductDetailsCustomer from './Components/Body/ProductDetailsCustome/ProductDetailsCustomer'
 import AllCustomers from './Components/Admin/AllCustomers/AllCustomers'
+import Cart from './Components/Customer/Cart/Cart'
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
     <Route path='/productDetailsAdmn/:id' Component={ProductDetailsAdmn}/>
     <Route path='/productDetailsCustomer/:id' Component={ProductDetailsCustomer}/>
     <Route path='/AllCustomers' Component={AllCustomers}/>
+    <Route path='/cart' Component={Cart}/>
 
   </Routes>
   </BrowserRouter>
