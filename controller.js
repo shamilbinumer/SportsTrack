@@ -264,15 +264,16 @@ export async function getAllProducts(req,res){
 
 export async function AddToCart(req, res) {
   try {
-     const { ...productdetails } = req.body;
-    const task=await cart_schema.create({ ...productdetails });
+    const { ...productdetails } = req.body;
+    const task = await cart_schema.create({ ...productdetails });
     console.log(task);
-    res.status(200).send( task);
+    res.status(200).send(task);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Internal Server Errorrrr");
+    res.status(500).send("Internal Server Error");
   }
 }
+
 
 export async function getAllCustomers(req,res){
   let task=await customer_schema.find()
