@@ -9,7 +9,10 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 const ProductDetailsCustomer = () => {
     let Size;
     const {id}=useParams()
+    const [msg,setMsg]=useState("")
+    const value=JSON.parse(localStorage.getItem('customer_token'));
     const [getProducts,setProduct]=useState({
+        cust_id:"",
         product_name:"",
         category:"",
         description:"",
@@ -18,6 +21,20 @@ const ProductDetailsCustomer = () => {
         banner:"",
         images:[]
     })
+
+    const getName=async()=>{
+        const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
+            headers:{Authorization: `Bearer ${value}`},
+        })
+        // console.log(res.data);
+        setMsg(res.data)
+        console.log(msg);
+        // const id=msg.id
+        // console.log(id);
+      }
+      useEffect(()=>{
+        getName()
+      },[])
 
     const getProduct=async()=>{
         const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}` )
@@ -40,7 +57,7 @@ const ProductDetailsCustomer = () => {
                 alert("Please select the size");
                 return;
               }
-          const res = await axios.post("http://localhost:7000/sportstrack/addToCart", {...getProducts,size:Size});
+          const res = await axios.post("http://localhost:7000/sportstrack/addToCart", {...getProducts,size:Size,cust_id:msg.id});
           console.log(res.data);
           if(res){
             alert("Added To Cart")
