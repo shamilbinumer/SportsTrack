@@ -73,7 +73,7 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                    <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button>
+                    <button className='addToCartBtn'>ADD TO CARD <PiShoppingCartFill /></button>
                     <button className='WhishListBtn'>ADD RO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>
