@@ -58,7 +58,7 @@ const ProductDetailsCustomer = () => {
                         {getProducts.images && getProducts.images[0] && (<img src={getProducts.images[0]} alt="" />)}
                     </div>
                     <div className="image">
-                    {getProducts.images && getProducts.images[0] && (<img src={getProducts.images[1]} alt="" />)}
+                     {getProducts.images && getProducts.images[0] && (<img src={getProducts.images[1]} alt="" />)}
                     </div>
                 </div>
                 <div className="images-main">
