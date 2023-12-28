@@ -7,7 +7,7 @@ import { PiShoppingCartFill } from "react-icons/pi";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
-    let Size=""
+    let Size
     // const [size,setSize]=useState("")
     const {id}=useParams()
     const [getProducts,setProduct]=useState({
