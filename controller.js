@@ -267,10 +267,10 @@ export async function AddToCart(req, res) {
      const { ...productdetails } = req.body;
     const task=await cart_schema.create({ ...productdetails });
     console.log(task);
-    res.status(200).send({result : task});
+    res.status(200).send( task);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Errorrrr");
   }
 }
 

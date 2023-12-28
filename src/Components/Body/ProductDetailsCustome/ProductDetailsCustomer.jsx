@@ -7,16 +7,23 @@ import { PiShoppingCartFill } from "react-icons/pi";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
+    // let Size=""
     const [size,setSize]=useState("")
     const {id}=useParams()
-    const [getProducts,setProduct]=useState([])
+    const [getProducts,setProduct]=useState({
+        product_name:"",
+        category:"",
+        description:"",
+        price:"",
+        size:"",
+        banner:"",
+        images:[]
+    })
 
     const getProduct=async()=>{
         const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}`)
-        // console.log(res.data);
         setProduct(res.data)
-        // console.log(getProducts.images[0]);
-        console.log(getProducts);
+        // console.log(getProducts);
     }
   
     useEffect(()=>{
@@ -24,14 +31,23 @@ const ProductDetailsCustomer = () => {
     },[])
 
     const selectSize=(e)=>{
-        setSize((pre) => ({...pre,size: { ...pre.size, [e.target.name]: e.target.value },}));
+        setSize(e.target.value);
         console.log(size);
     }
 
-    // const addToCart=async(e)=>{
-    //     const res=await axios.post("http://localhost:7000/sportstrack/addToCart",{...getProduct,...size})
-    //     console.log(res.data);
-    // }
+    const addToCart = async () => {
+        try {
+            if (!size) {
+                alert("Please select a size");
+                return;
+              }
+          const res = await axios.post("http://localhost:7000/sportstrack/addToCart", {...getProducts,size:size});
+          console.log(res.data);
+        } catch (error) {
+            console.error("Error adding product to cart:", error);
+            alert("Error adding product to cart. Please try again.");
+        }
+      };
   return (
     <div className='ProductDetailsCustomerMain'>
         <Navbar/>
@@ -73,7 +89,7 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                    <button className='addToCartBtn'>ADD TO CARD <PiShoppingCartFill /></button>
+                    <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button>
                     <button className='WhishListBtn'>ADD RO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>
