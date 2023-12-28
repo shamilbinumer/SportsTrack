@@ -274,6 +274,12 @@ export async function AddToCart(req, res) {
   }
 }
 
+export async function getAllCustomers(req,res){
+  let task=await customer_schema.find()
+  res.status(200).send(task)
+}
+
+
 
 
 
