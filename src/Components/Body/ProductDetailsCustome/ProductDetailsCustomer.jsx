@@ -38,7 +38,7 @@ const ProductDetailsCustomer = () => {
     const addToCart = async () => {
         try {
             if (!size) {
-                alert("Please select a size");
+                alert("Please select the size");
                 return;
               }
           const res = await axios.post("http://localhost:7000/sportstrack/addToCart", {...getProducts,size:size});
