@@ -2,6 +2,7 @@ import React from 'react'
 import './Cart.scss'
 import Navbar from '../../Navbar/Navbar'
 import { Link } from 'react-router-dom'
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Cart = () => {
   // http://localhost:7000/sportstrack/getCartProduct/65892142bf1bf84652a499c2
@@ -33,8 +34,11 @@ const Cart = () => {
                   <option value="7">Qty : 7</option>
                   <option value="8">Qty : 8</option>
                 </select>
-              <div className='price-div'>  <span className='price'>₹ 499</span>
-                <span className='og-price'><strike>₹ 699</strike></span></div>
+              <div className='price-div'>
+                <span className='price'>₹ 499</span>
+                <span className='og-price'><strike>₹ 699</strike></span>
+              </div>
+              <RiDeleteBin5Fill className='delete' />
               </div>
             </div>
         </div>
