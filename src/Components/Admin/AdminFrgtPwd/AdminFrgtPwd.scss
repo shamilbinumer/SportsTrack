@@ -1,5 +1,6 @@
 .admin-frgt-pwd-main{
     .card {
+        transition: .6s;
         width: 390px;
         margin: auto;
         margin-top: 10%;
@@ -80,4 +81,19 @@
         color: #ffeba7;
        }
        
+
+       @media(min-width:300px) and (max-width:575.98px){
+        .card {
+            width: 90%;
+            margin-top: 25% !important;
+           }
+       }
+
+       @media(min-width:576px) and (max-width:991.98px){
+        .card {
+            width: 90%;
+            margin-top: 15% !important;
+           }
+       }
+      
 }

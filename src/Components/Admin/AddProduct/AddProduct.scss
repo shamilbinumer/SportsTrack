@@ -1,6 +1,7 @@
 .add-products-main{
     .header-main{
         display: flex;
+        padding-bottom: 20px !important;
     }
     .header-left{
         width: 80%;
@@ -16,12 +17,15 @@
         padding: 7px 30px;
     }
     .card {
+        transition: .6s;
         width: 40%;
         margin: auto;
         margin-top: 2%;
         padding: 1.9rem 1.2rem;
+        padding-bottom: 10px;
         text-align: center;
         background: rgb(2, 7, 61);
+        margin-bottom: 20px !important;
        }
        
        /*Inputs*/
@@ -116,4 +120,20 @@
         }
        }
        
+
+
+       @media(min-width:300px) and (max-width:575.98px){
+        .card {
+            width: 90%;
+            margin-top: 5% !important;
+           }
+       }
+
+       @media(min-width:576px) and (max-width:991.98px){
+        .card {
+            width: 90%;
+            margin-top: 5% !important;
+           }
+       }
+      
 }

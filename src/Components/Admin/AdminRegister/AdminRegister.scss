@@ -4,6 +4,7 @@ body{
 }
 .admin-resgiter-page{
     .card {
+        transition: .6s;
         width: 490px;
         margin: auto;
         margin-top: 9%;
@@ -82,6 +83,22 @@ body{
        
        .btn-link:hover {
         color: #ffeba7;
+       }
+
+
+       
+       @media(min-width:300px) and (max-width:575.98px){
+        .card {
+            width: 90%;
+            margin-top: 25% !important;
+           }
+       }
+
+       @media(min-width:576px) and (max-width:991.98px){
+        .card {
+            width: 90%;
+            margin-top: 15% !important;
+           }
        }
        
 }
