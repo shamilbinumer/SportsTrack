@@ -14,7 +14,7 @@ const Cart = () => {
     const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     // console.log(res.data);
     setProdct(res.data)
-    console.log(getPrdct);
+    // console.log(getPrdct);
   }
   useEffect(()=>{
     getPrdctDetails()
@@ -28,8 +28,10 @@ const Cart = () => {
   const qty = (e, index) => {
     const selectedQuantity = parseInt(e.target.value, 10);
     const productPrice = getPrdct[index].price;
+   
     if (!isNaN(productPrice)) {
-      const updatedPrice = selectedQuantity * productPrice;
+      console.log(getPrdct[index].price);
+      const updatedPrice = selectedQuantity * productPrice
       console.log(updatedPrice);
       const updatedGetPrdct = [...getPrdct];
       updatedGetPrdct[index].price = updatedPrice;
@@ -50,10 +52,11 @@ const Cart = () => {
       <div className="back">
         <Link className='back-btn' to='/'>Back</Link>
       </div>
-
+      <div><h3 className='main-heading'>Items In Cart</h3></div>
       <div className="display-ietm-main">
+        
         <div className="display-ietm-left">
-            <div><h3>Items In Cart</h3></div>
+            
             <div className="ul"></div>
            {
             getPrdct.map((data,index)=> <div className="details-main" key={index}>
@@ -88,7 +91,7 @@ const Cart = () => {
           <p className='order-summery'>Order Summery</p>
           <table>
             <tr>
-              <td>Total price (Inc GST)</td>
+              <td className='td'>Total price (Inc GST)</td>
               <td>₹  {totalPrice ? totalPrice : 0}</td>
             </tr>
             {/* <tr>
@@ -103,7 +106,7 @@ const Cart = () => {
           <div className="table-ul"></div>
           <table>
             <tr>
-              <td className='total-text'>Total</td>
+              <td className='total-text' id='td'>Total</td>
               <td className='total-text'>₹ {totalPrice ? totalPrice + 99 : 99}</td>
             </tr>
           </table>

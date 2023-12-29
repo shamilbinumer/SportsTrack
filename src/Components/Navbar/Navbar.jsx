@@ -15,14 +15,14 @@ const Navbar = () => {
     const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
         headers:{Authorization: `Bearer ${value}`},
     })
-    console.log(res.data);
+    // console.log(res.data);
     setMsg(res.data.msg)
     setId(res.data.id)
   }
   useEffect(()=>{
     getName()
   },[])
-  console.log(id);
+  // console.log(id);
  
 
   const Logout = () => {
