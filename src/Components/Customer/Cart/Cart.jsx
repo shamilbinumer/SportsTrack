@@ -33,6 +33,8 @@ const Cart = () => {
                   <option value="7">Qty : 7</option>
                   <option value="8">Qty : 8</option>
                 </select>
+              <div className='price-div'>  <span className='price'>₹ 499</span>
+                <span className='og-price'><strike>₹ 699</strike></span></div>
               </div>
             </div>
         </div>
