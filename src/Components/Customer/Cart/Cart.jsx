@@ -3,6 +3,7 @@ import './Cart.scss'
 import Navbar from '../../Navbar/Navbar'
 import { Link, useParams } from 'react-router-dom'
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { FaShoppingCart } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = () => {
@@ -49,7 +50,7 @@ const Cart = () => {
                 <option value="8">Qty : 8</option>
               </select>
             <div className='price-div'>
-              <span className='price'>₹ 499</span>
+              <span className='price'>₹ {data.price}</span>
               <span className='og-price'><strike>₹ 699</strike></span>
             </div>
             <RiDeleteBin5Fill className='delete' />
@@ -58,7 +59,32 @@ const Cart = () => {
            }
         </div>
         <div className="line"></div>
-        <div className="display-ietm-right"></div>
+        <div className="display-ietm-right">
+          <p className='order-summery'>Order Summery</p>
+          <table>
+            <tr>
+              <td>Total price (Inc GST)</td>
+              <td>₹ 699</td>
+            </tr>
+            <tr>
+              <td>Discount</td>
+              <td className='discout-price'>₹ 200</td>
+            </tr>
+            <tr>
+              <td>Estimated Delivery Fee</td>
+              <td>₹ 49</td>
+            </tr>
+          </table>
+          <div className="table-ul"></div>
+          <table>
+            <tr>
+              <td className='total-text'>Total</td>
+              <td className='total-text'>₹ 200</td>
+            </tr>
+          </table>
+
+          <button> <FaShoppingCart /> Proceed To Checkout</button>
+        </div>
       </div>
     </div>
   )
