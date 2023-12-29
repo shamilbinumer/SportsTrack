@@ -19,6 +19,11 @@ const Cart = () => {
   useEffect(()=>{
     getPrdctDetails()
   },[])
+
+  useEffect(() => {
+    const totalPriceSum = getPrdct.reduce((sum, product) => sum + product.price, 0);
+    setTotalPrice(totalPriceSum);
+  }, [getPrdct]);
   return (
     <div className='cart-main'>
       <Navbar/>
@@ -64,7 +69,7 @@ const Cart = () => {
           <table>
             <tr>
               <td>Total price (Inc GST)</td>
-              <td>₹ 699</td>
+              <td>₹  {totalPrice ? totalPrice : 0}</td>
             </tr>
             <tr>
               <td>Discount</td>
