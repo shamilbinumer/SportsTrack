@@ -8,9 +8,8 @@ import axios from 'axios';
 
 const Cart = () => {
   const {id}=useParams()
+  const [totalPrice,setTotalPrice]=useState(0)
   const [getPrdct,setProdct]=useState([])
-  // console.log(id);
-  // http://localhost:7000/sportstrack/getCartProduct/65892142bf1bf84652a499c2
   const getPrdctDetails=async()=>{
     const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     // console.log(res.data);
@@ -39,6 +38,7 @@ const Cart = () => {
             <div className="details-details-section">
               <p className="item-name">{data.product_name}</p>
               <p className="description">{data.description}</p>
+              <p className='size'>Size : {data.size}</p>
               <select name="" id="">
                 <option value="1">Qty : 1</option>
                 <option value="2">Qty : 2</option>
