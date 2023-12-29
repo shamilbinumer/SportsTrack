@@ -24,7 +24,7 @@ const Cart = () => {
     const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price), 0);
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
-  
+
   return (
     <div className='cart-main'>
       <Navbar/>
@@ -72,20 +72,20 @@ const Cart = () => {
               <td>Total price (Inc GST)</td>
               <td>₹  {totalPrice ? totalPrice : 0}</td>
             </tr>
-            <tr>
+            {/* <tr>
               <td>Discount</td>
               <td className='discout-price'>₹ 200</td>
-            </tr>
+            </tr> */}
             <tr>
               <td>Estimated Delivery Fee</td>
-              <td>₹ 49</td>
+              <td>₹ 99</td>
             </tr>
           </table>
           <div className="table-ul"></div>
           <table>
             <tr>
               <td className='total-text'>Total</td>
-              <td className='total-text'>₹ 200</td>
+              <td className='total-text'>₹ {totalPrice ? totalPrice + 99 : 99}</td>
             </tr>
           </table>
 
