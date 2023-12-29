@@ -13,4 +13,79 @@
         padding: 7px 30px; 
         }
     }
+    .display-ietm-main{
+        display: flex;
+        width: 90%;
+        // background-color: gray;
+        height: auto;
+        margin-top: 30px !important;
+        margin: auto;
+        padding: 20px 10px 20px 10px;
+    }
+    .display-ietm-main{
+        .display-ietm-left{
+            width: 60%;
+            height: 300px;
+            padding: 10px 20px 10px 20px;
+            // background-color: bisque;
+        }
+        .display-ietm-left{
+            .display-left-head{
+                display: flex;
+                justify-content: space-between;
+            }
+            h3{
+                font-weight: 600;
+                font-size: 20px;
+            }
+            .ul{
+                width: 100%;
+                border-bottom: 2px solid rgb(172, 172, 172);
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .details-main{
+                display: flex;
+            }
+            .details-main{
+                .details-image-section{
+                    width: 30%;
+                    // background-color: red;
+                    height: 220px;
+                }
+                .image{
+                    width: 100%;
+                    height: 220px;
+                    overflow: hidden;
+                    background-color: black;
+                }
+                .details-details-section{
+                    width: 70%;
+                    padding-left: 20px;
+                    // background-color: rgb(60, 50, 50);
+                    height: 220px;
+                }
+                .details-details-section{
+                    .item-name{
+                        // padding-left: 20px;
+                        font-weight: 800;
+                        font-size: 20px;
+                        margin-bottom: 0 !important;
+                    }
+                    .description{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        .line{
+            height: auto;
+            border-left: 2px solid rgb(172, 172, 172);
+        }
+        .display-ietm-right{
+            width: 40%;
+            height: 300px;
+            // background-color: rgb(122, 110, 95);
+        }
+    }
 }

@@ -6,22 +6,24 @@ import { useEffect, useState } from 'react';
 
 
 const Navbar = () => {
+ const [id,setId]=useState("")
   const naviagate=useNavigate()
   const [msg,setMsg]=useState("")
-  // http://localhost:7000/sportstrack/CustHome
   const value=JSON.parse(localStorage.getItem('customer_token'));
-  // console.log(value);
 
   const getName=async()=>{
     const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
         headers:{Authorization: `Bearer ${value}`},
     })
-    // console.log(res.data.msg);
+    console.log(res.data);
     setMsg(res.data.msg)
+    setId(res.data.id)
   }
   useEffect(()=>{
     getName()
   },[])
+  console.log(id);
+ 
 
   const Logout = () => {
     const isConfirmed = window.confirm("Are you sure you want to logout?");
@@ -74,7 +76,7 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav ms-auto ">
             <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to='/cart'><i className="fa-solid fa-cart-shopping me-1"></i> Cart</Link>
+              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i> Cart</Link>
             </li>
             {/* <li className="nav-item">
               <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg ? msg : 'Sign'}</Link>

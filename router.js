@@ -34,6 +34,7 @@ router.route("/delProduct/:id").delete(controller.delProduct);
 router.route("/getAllProducts").get(controller.getAllProducts);
 router.route("/addToCart").post(controller.AddToCart);
 router.route("/getAllCustomers").get(controller.getAllCustomers);
+router.route("/getCartProduct/:id").get(controller.getCartProduct);
 
 
 export default router;

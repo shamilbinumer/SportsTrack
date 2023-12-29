@@ -301,6 +301,14 @@ export async function getAllCustomers(req,res){
   res.status(200).send(task)
 }
 
+export async function getCartProduct(req,res){
+  const { id }=req.params;
+  console.log(id);
+  let task=await cart_schema.find({ cust_id:id })
+  console.log(task);
+  res.status(200).send(task)
+}
+
 
 
 

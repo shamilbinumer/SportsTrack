@@ -41,7 +41,7 @@ function App() {
     <Route path='/productDetailsAdmn/:id' Component={ProductDetailsAdmn}/>
     <Route path='/productDetailsCustomer/:id' Component={ProductDetailsCustomer}/>
     <Route path='/AllCustomers' Component={AllCustomers}/>
-    <Route path='/cart' Component={Cart}/>
+    <Route path='/cart/:id' Component={Cart}/>
 
   </Routes>
   </BrowserRouter>
