@@ -10,7 +10,6 @@ const Cart = () => {
   const {id}=useParams()
   const [totalPrice,setTotalPrice]=useState(0)
   const [getPrdct,setProdct]=useState([])
-  const [price,setPrice]=useState(0)
   const getPrdctDetails=async()=>{
     const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     // console.log(res.data);
