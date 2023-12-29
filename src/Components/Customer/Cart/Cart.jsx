@@ -26,20 +26,24 @@ const Cart = () => {
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
 
-  const qty = (e) => {
+  const qty = (e, index) => {
     const selectedQuantity = parseInt(e.target.value, 10);
-    const productPrice = getPrdct.price; // Assuming getPrdct is an object representing a single product
-  
-    // Check if productPrice is a number
+    const productPrice = getPrdct[index].price;
     if (!isNaN(productPrice)) {
       const updatedPrice = selectedQuantity * productPrice;
       console.log(updatedPrice);
-      setPrice(updatedPrice)
-      // Now you can use updatedPrice as needed, such as updating the UI or state
+      const updatedGetPrdct = [...getPrdct];
+      updatedGetPrdct[index].price = updatedPrice;
+      setProdct(updatedGetPrdct);
     } else {
       console.error('Invalid product price:', productPrice);
     }
   };
+
+  const BuyNow=(e)=>{
+    e.preventDefault()
+      alert("Order Placed")
+  }
 
   return (
     <div className='cart-main'>
@@ -61,7 +65,7 @@ const Cart = () => {
               <p className="item-name">{data.product_name}</p>
               <p className="description">{data.description}</p>
               <p className='size'>Size : {data.size}</p>
-              <select name="" id="" onChange={qty}>
+              <select name="" id=""  onChange={(e) => qty(e, index)}>
                 <option value="1">Qty : 1</option>
                 <option value="2">Qty : 2</option>
                 <option value="3">Qty : 3</option>
@@ -72,7 +76,7 @@ const Cart = () => {
                 <option value="8">Qty : 8</option>
               </select>
             <div className='price-div'>
-              <span className='price'>₹ {price}</span>
+              <span className='price'>₹ {data.price}</span>
               <span className='og-price'><strike>₹ 699</strike></span>
             </div>
             <RiDeleteBin5Fill className='delete' />
@@ -105,7 +109,7 @@ const Cart = () => {
             </tr>
           </table>
 
-          <button> <FaShoppingCart /> Proceed To Checkout</button>
+          <button onClick={BuyNow}> <FaShoppingCart /> Proceed To Checkout</button>
         </div>
       </div>
     </div>
