@@ -21,9 +21,10 @@ const Cart = () => {
   },[])
 
   useEffect(() => {
-    const totalPriceSum = getPrdct.reduce((sum, product) => sum + product.price, 0);
+    const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price), 0);
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
+  
   return (
     <div className='cart-main'>
       <Navbar/>
