@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './Cart.scss'
 import Navbar from '../../Navbar/Navbar'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = () => {
+ const navigate=useNavigate()
   const {id}=useParams()
   const [totalPrice,setTotalPrice]=useState(0)
   const [getPrdct,setProdct]=useState([])
@@ -41,10 +42,40 @@ const Cart = () => {
     }
   };
 
-  const BuyNow=(e)=>{
-    e.preventDefault()
-      alert("Order Placed")
-  }
+  const BuyNow = async (e) => {
+    e.preventDefault();
+    const userConfirmed = window.confirm("Are you sure you want to proceed to checkout and delete all products?");
+    if (userConfirmed) {
+      try {
+        // Delete all products with the same cust_id
+        await axios.delete(`http://localhost:7000/sportstrack/delAlltProduct/${id}`);
+        alert("Order Placed");
+        navigate("/")
+      } catch (error) {
+        console.error("Error deleting products:", error);
+        // alert("An error occurred while deleting products");
+      }
+    }
+  };
+
+  const delCartPrdct = async (id) => {
+    const userConfirmed = window.confirm("Are you sure you want to delete this product from the cart?");
+    if (userConfirmed) {
+      try {
+        const res = await axios.delete(`http://localhost:7000/sportstrack/delCartProduct/${id}`);
+        console.log(res.data);
+        if (res) {
+          alert("Product deleted");
+        } else {
+          alert("Product not deleted");
+        }
+        getPrdctDetails();
+      } catch (error) {
+        console.error("Error deleting product:", error);
+      }
+    }
+  };
+  
 
   return (
     <div className='cart-main'>
@@ -81,7 +112,7 @@ const Cart = () => {
               <span className='price'>₹ {data.price}</span>
               <span className='og-price'><strike>₹ 699</strike></span>
             </div>
-            <RiDeleteBin5Fill className='delete' />
+           <button className='delBtn' onClick={()=>delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete'/></button>
             </div>
           </div>)
            }

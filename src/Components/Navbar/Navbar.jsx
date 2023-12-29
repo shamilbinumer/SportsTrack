@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.scss'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -62,7 +63,7 @@ const Navbar = () => {
               <a className="nav-link mx-2 text-uppercase active" aria-current="page" href="#">Offers</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase active" href="#">Products</a>
+              <Link className="nav-link mx-2 text-uppercase active"  to='/'>Products</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link mx-2 text-uppercase active" href="#">Catalog</a>
@@ -76,7 +77,7 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav ms-auto ">
             <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i> Cart</Link>
+              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i> <FaShoppingCart className='cartIcon' /></Link>
             </li>
             {/* <li className="nav-item">
               <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg ? msg : 'Sign'}</Link>
