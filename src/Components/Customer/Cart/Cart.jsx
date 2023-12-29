@@ -10,6 +10,7 @@ const Cart = () => {
   const {id}=useParams()
   const [totalPrice,setTotalPrice]=useState(0)
   const [getPrdct,setProdct]=useState([])
+  const [price,setPrice]=useState(0)
   const getPrdctDetails=async()=>{
     const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     // console.log(res.data);
@@ -24,6 +25,12 @@ const Cart = () => {
     const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price), 0);
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
+
+  const qty=(e)=>{
+    console.log(e.target.value);
+     let updateprice=(e.target.value)*getPrdct.price;
+     console.log(updateprice);
+  }
 
   return (
     <div className='cart-main'>
@@ -45,7 +52,7 @@ const Cart = () => {
               <p className="item-name">{data.product_name}</p>
               <p className="description">{data.description}</p>
               <p className='size'>Size : {data.size}</p>
-              <select name="" id="">
+              <select name="" id="" onChange={qty}>
                 <option value="1">Qty : 1</option>
                 <option value="2">Qty : 2</option>
                 <option value="3">Qty : 3</option>
