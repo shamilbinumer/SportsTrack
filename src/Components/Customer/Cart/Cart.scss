@@ -75,6 +75,13 @@
                     .description{
                         font-size: 18px;
                     }
+                    select{
+                        width: 100px;
+                        text-align: center;
+                        height: 40px;
+                        border: 2px solid rgb(129, 129, 129);
+                        border-radius: 4px;
+                    }
                 }
             }
         }
