@@ -26,11 +26,20 @@ const Cart = () => {
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
 
-  const qty=(e)=>{
-    console.log(e.target.value);
-     let updateprice=(e.target.value)*getPrdct.price;
-     console.log(updateprice);
-  }
+  const qty = (e) => {
+    const selectedQuantity = parseInt(e.target.value, 10);
+    const productPrice = getPrdct.price; // Assuming getPrdct is an object representing a single product
+  
+    // Check if productPrice is a number
+    if (!isNaN(productPrice)) {
+      const updatedPrice = selectedQuantity * productPrice;
+      console.log(updatedPrice);
+      setPrice(updatedPrice)
+      // Now you can use updatedPrice as needed, such as updating the UI or state
+    } else {
+      console.error('Invalid product price:', productPrice);
+    }
+  };
 
   return (
     <div className='cart-main'>
@@ -63,7 +72,7 @@ const Cart = () => {
                 <option value="8">Qty : 8</option>
               </select>
             <div className='price-div'>
-              <span className='price'>₹ {data.price}</span>
+              <span className='price'>₹ {price}</span>
               <span className='og-price'><strike>₹ 699</strike></span>
             </div>
             <RiDeleteBin5Fill className='delete' />
