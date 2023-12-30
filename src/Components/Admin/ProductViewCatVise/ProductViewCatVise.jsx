@@ -33,6 +33,7 @@ const ProductViewCatVise = () => {
             if (res) {
                 alert("Product deleted successfully");
             }
+            getProd();
         } catch (error) {
             console.error("Error deleting product:", error);
         }
