@@ -92,6 +92,7 @@ const Cart = () => {
             {getPrdct.length === 0 ? (
                    <>
                     <p className="no-items-message">No items in the cart</p>
+                    <div className='shpDiv'><Link className='shp-now-btn' to='/'>Shop Now</Link></div>
                    </>
                 ) : (
                     <>
