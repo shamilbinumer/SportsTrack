@@ -6,7 +6,6 @@ import { Link, useParams } from 'react-router-dom';
 const ProductViewCatVise = () => {
   const [prod, setProd] = useState([]);
   const { category } = useParams();
-  // http://localhost:7000/sportstrack/delProduct/658a89c572e6aae0548a1bc7
   const getProd = async () => {
     try {
       const res = await axios.get(`http://localhost:7000/sportstrack/getCatWiseProducts/${category}`);
