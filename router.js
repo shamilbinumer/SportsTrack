@@ -39,7 +39,7 @@ router.route("/delCartProduct/:id").delete(controller.delCartProduct);
 router.route("/delAlltProduct/:id").delete(controller.deleteAllProducts);
 router.route("/addToWhishList").post(controller.AddToWishList);
 router.route("/getWishlistProduct/:id").get(controller.getWishlistProduct);
-router.route("/delCartProduct/:id").delete(controller.delwishListProduct);
+router.route("/delWishListProduct/:id").delete(controller.delwishListProduct);
 
 
 export default router;

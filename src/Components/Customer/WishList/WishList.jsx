@@ -20,6 +20,11 @@ const WishList = () => {
         getPrdctDetails();
     }, []);
 
+    const delProduct=async(id)=>{
+            const res=await axios.delete(`http://localhost:7000/sportstrack/delWishListProduct/${id}`)
+            console.log(res.data);
+    }
+
     return (
         <div className='whishlist-main'>
             <Navbar/>
