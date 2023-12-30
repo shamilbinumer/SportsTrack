@@ -3,7 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.scss'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { FaShoppingCart } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
+import { BsCart3 } from "react-icons/bs";
+import { FaRegHeart } from "react-icons/fa";
+
 
 
 const Navbar = () => {
@@ -76,16 +79,16 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="navbar-nav ms-auto ">
-            <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i> <FaShoppingCart className='cartIcon' /></Link>
+          <li className="nav-item">
+              <Link className="nav-link mx-2 text-uppercase active" to={`/whishList/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'>{msg ? msg : 'Sign'}</Link>
-            </li> */}
+            <li className="nav-item">
+              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>
+            </li>
              <li className="nav-item">
             {msg ? (
               <>
-                <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'><i className="fa fa-user" aria-hidden="true"></i>   {msg}  <button className='logout' onClick={Logout}>Logout</button></Link>
+                <Link className="nav-link mx-2 text-uppercase active" to='/CustomerLogin'><FiUser className='cartIcon' />  {msg}  <button className='logout' onClick={Logout}>Logout</button></Link>
                
               </>
             ) : (

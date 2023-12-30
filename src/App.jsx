@@ -18,6 +18,7 @@ import ProductDetailsAdmn from './Components/Admin/ProductDetailsAdmn/ProductDet
 import ProductDetailsCustomer from './Components/Body/ProductDetailsCustome/ProductDetailsCustomer'
 import AllCustomers from './Components/Admin/AllCustomers/AllCustomers'
 import Cart from './Components/Customer/Cart/Cart'
+import WishList from './Components/Customer/WishList/WishList'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
     <Route path='/productDetailsCustomer/:id' Component={ProductDetailsCustomer}/>
     <Route path='/AllCustomers' Component={AllCustomers}/>
     <Route path='/cart/:id' Component={Cart}/>
+    <Route path='/whishList/:id' Component={WishList}/>
 
   </Routes>
   </BrowserRouter>
