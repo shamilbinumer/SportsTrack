@@ -69,6 +69,21 @@ const ProductDetailsCustomer = () => {
             alert("Error adding product to cart. Please try again.");
         }
       };
+
+      const addToWishList = async () => {
+        try {
+          const res = await axios.post("http://localhost:7000/sportstrack/addToWhishList", {...getProducts,size:Size,cust_id:msg.id});
+          console.log(res.data);
+          if(res){
+            alert("Added To Wishlist")
+          }else{
+            alert("Error adding product to Wishlist. Please try again.")
+          }
+        } catch (error) {
+            console.error("Error adding product to Wishlist:", error);
+            alert("Error adding product to Wishlist. Please try again.");
+        }
+      };
   return (
     <div className='ProductDetailsCustomerMain'>
         <Navbar/>
@@ -111,7 +126,7 @@ const ProductDetailsCustomer = () => {
                 </div>
                 <div className="btns">
                     <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button>
-                    <button className='WhishListBtn'>ADD RO WISHLIST <FaHeartCirclePlus /></button>
+                    <button className='WhishListBtn' onClick={addToWishList}>ADD RO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>
         </div>
