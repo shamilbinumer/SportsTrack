@@ -52,8 +52,8 @@ const WishList = () => {
                      {
                     getPrdct.map((data, index) => (
                         // <div className="cards" >
-                            <Link className='link' to={`/productDetailsCustomer/${data._id}`} key={index}>
-                                <div className="Card">
+                            
+                                <div className="Card"  key={index}>
                                     <div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
                                     <div className="card-details">
                                         <p className='item-title'>{data.product_name}</p>
@@ -65,9 +65,9 @@ const WishList = () => {
                                         
                                     </div>
                                     {/* <RiDeleteBinLine className='Btn' /> */}
-                                 <div className='deleteBtn' ><button onClick={()=>delProduct(data._id)}>Delete from Wishlist</button></div>
+                                 <div className='deleteBtn' ><button onClick={()=>delProduct(data._id)}>Delete from Wishlist</button><button><Link className='ViewDetailsBtn' to={`/productDetailsCustomer/${data._id}`}>View Details</Link></button></div>
                                 </div>
-                            </Link>
+                          
                         // </div>
                     ))
                 }

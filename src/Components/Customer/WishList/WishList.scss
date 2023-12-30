@@ -125,8 +125,13 @@
             background-color: rgb(2, 7, 61);
             color: white;
             width: 100%;
+            margin-bottom: 6px;
             border-radius: 4px !important;
             height: 35px;
+        }
+        .ViewDetailsBtn{
+            color: white;
+            text-decoration: none;
         }
         .Btn{
             font-size: 30px;
