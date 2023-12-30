@@ -3,6 +3,7 @@ import category_schema from './Models/category.model.js'
 import product_schema from './Models/product.model.js'
 import customer_schema from './Models/customer.model.js'
 import cart_schema from './Models/cart.model.js'
+import wishlist_schema from './Models/wishList.model.js'
 import bcrypt from 'bcrypt'
 // import path from 'path'
 // import jsonwebtoken from 'jsonwebtoken'
@@ -191,29 +192,6 @@ export async function AddCustomer(req, res) {
   }
 }
 
-
-// export async function CustomerLogin(req, res) {
-//   try {
-//    console.log(req.body);
-//    const { email, password } = req.body;
-//    const usr = await customer_schema.findOne({ email })
-//    console.log(usr);
-//    if (usr === null) return res.status(404).send("email or password doesnot exist");
-//    const success =await bcrypt.compare(password, usr.password)
-//    console.log(success);
-//    const {name}=usr
-//    if (success !== true) return res.status(404).send("email or password doesnot exist");
-//    const token = await sign({ name }, process.env.JWT_KEY, { expiresIn: "24h" })
-//    console.log(name);
-//    console.log(token);
-//    res.status(200).send({ msg: "successfullly login", token })
-//   //  res.end();
-   
-//   } catch (error) {
-//    console.log(error); 
-// }
-// }
-
 export async function CustomerLogin(req, res) {
   try {
     console.log(req.body);
@@ -332,6 +310,18 @@ export function deleteAllProducts(req,res)
     })
 }
 
+
+export async function AddToWishList(req, res) {
+  try {
+    const { ...productdetails } = req.body;
+    const task = await wishlist_schema.create({ ...productdetails });
+    console.log(task);
+    res.status(200).send(task);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+}
 
 
 
