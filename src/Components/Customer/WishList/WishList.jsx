@@ -3,6 +3,8 @@ import './WishList.scss';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../Navbar/Navbar';
+import { RiDeleteBinLine } from "react-icons/ri";
+
 
 const WishList = () => {
     const { id } = useParams();
@@ -43,6 +45,7 @@ const WishList = () => {
                                         <div className="prices">
                                             <div><p className='price'>₹ {data.price}</p></div>
                                             <div><strike><p className='og-price'>₹ 799</p></strike></div>
+                                            <div><RiDeleteBinLine className='deleteBtn' /></div>
                                         </div>
                                     </div>
                                 </div>
