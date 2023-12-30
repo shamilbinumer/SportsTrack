@@ -8,7 +8,7 @@ const WishList = () => {
     const [getPrdct, setProdct] = useState([]);
 
     const getPrdctDetails = async () => {
-        const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${id}`);
+        const res = await axios.get(`http://localhost:7000/sportstrack/getWishlistProduct/${id}`);
         setProdct(res.data);
         console.log(getPrdct);
     };
@@ -22,10 +22,17 @@ const WishList = () => {
             <div className="backBtn"><Link className='back-btn' to='/'>Back</Link></div>
             <h3 className='mainHeading'>Wishlist</h3>
             <div className="cards-main">
-                {
+                {getPrdct.length===0?(
+                <>
+                <p className='NoItemText'>No Items On Your Whishlist</p>
+                      <div className='shpBtn'><Link className='Shp_btn' to='/'>Shop Now</Link></div>    
+                </>              
+                      ):(
+                    <>
+                     {
                     getPrdct.map((data, index) => (
                         <div className="cards" key={index}>
-                            <Link className='link'>
+                            <Link className='link' to={`/productDetailsCustomer/${data._id}`}>
                                 <div className="Card">
                                     <div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
                                     <div className="card-details">
@@ -41,6 +48,9 @@ const WishList = () => {
                         </div>
                     ))
                 }
+                    </>
+                )}
+                {/* */}
             </div>
         </div>
     );

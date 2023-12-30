@@ -89,9 +89,15 @@ const Cart = () => {
         <div className="display-ietm-left">
             
             <div className="ul"></div>
-           {
-            getPrdct.map((data,index)=> <div className="details-main" key={index}>
-            <div className="details-image-section">
+            {getPrdct.length === 0 ? (
+                   <>
+                    <p className="no-items-message">No items in the cart</p>
+                   </>
+                ) : (
+                    <>
+                        {getPrdct.map((data, index) => (
+                            <div className="details-main" key={index}>
+                                 <div className="details-image-section">
               <div className="image"><img src={data.banner} alt="" /></div>
             </div>
             <div className="details-details-section">
@@ -114,8 +120,10 @@ const Cart = () => {
             </div>
            <button className='delBtn' onClick={()=>delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete'/></button>
             </div>
-          </div>)
-           }
+                            </div>
+                        ))}
+                    </>
+                )}
         </div>
         <div className="line"></div>
         <div className="display-ietm-right">

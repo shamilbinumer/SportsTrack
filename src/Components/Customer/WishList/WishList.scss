@@ -26,6 +26,23 @@
         gap: 15px;
         flex-wrap: wrap;
     }
+    .NoItemText{
+        text-align: center !important;
+        // background-color: red;
+        font-size: 22px;
+        margin-top: 12%;
+        width: 100%;
+    }
+    .shpBtn{
+        text-align: center;
+        width: 100%;
+    }
+    .Shp_btn{
+        text-decoration: none;
+        border: 2px solid rgb(2, 7, 61);
+        color: rgb(2, 7, 61);
+        padding: 5px 30px;
+    }
    
     .Card{
         width: 250px;

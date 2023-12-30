@@ -45,6 +45,11 @@
             display: none;
         }
         .display-ietm-left{
+            .no-items-message{
+                font-size: 23px;
+                text-align: center;
+                padding-top: 5%;
+            }
             .display-left-head{
                 display: flex;
                 justify-content: space-between;
