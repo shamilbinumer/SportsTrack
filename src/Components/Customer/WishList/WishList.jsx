@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './WishList.scss';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../../Navbar/Navbar';
 
 const WishList = () => {
     const { id } = useParams();
@@ -19,6 +20,7 @@ const WishList = () => {
 
     return (
         <div className='whishlist-main'>
+            <Navbar/>
             <div className="backBtn"><Link className='back-btn' to='/'>Back</Link></div>
             <h3 className='mainHeading'>Wishlist</h3>
             <div className="cards-main">
