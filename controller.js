@@ -323,6 +323,14 @@ export async function AddToWishList(req, res) {
   }
 }
 
+export async function getWishlistProduct(req,res){
+  const { id }=req.params;
+  console.log(id);
+  let task=await wishlist_schema.find({ cust_id:id })
+  console.log(task);
+  res.status(200).send(task)
+}
+
 
 
 
