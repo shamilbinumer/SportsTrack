@@ -47,6 +47,7 @@
     .Card{
         width: 250px;
         height: auto;
+        // background-color: red;
         // padding-bottom: 9px;
         border: 1px solid rgba(0, 0, 0, 0.33);
         border-radius: 5px;
@@ -110,23 +111,29 @@
     }
 
     .deleteBtn{
-        text-align: right;
+        text-align: center;
         margin-bottom: 5px;
+        padding: 10px;
+        // position: absolute;
         // padding-top: 15px !important;
         // padding-left: 28%;
         // background-color: red !important;
     }
     .deleteBtn{
         button{
-            border: none;
-            background-color: transparent;
+            border: 1px solid rgb(2, 7, 61);
+            background-color: rgb(2, 7, 61);
+            color: white;
+            width: 100%;
+            border-radius: 4px !important;
+            height: 35px;
         }
         .Btn{
             font-size: 30px;
             background-color: grey;
             color: white;
             padding: 4px;
-            border-radius: 3px;
+           
         }
     }
 

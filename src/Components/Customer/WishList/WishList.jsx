@@ -20,10 +20,21 @@ const WishList = () => {
         getPrdctDetails();
     }, []);
 
-    const delProduct=async(id)=>{
-            const res=await axios.delete(`http://localhost:7000/sportstrack/delWishListProduct/${id}`)
-            console.log(res.data);
-    }
+    const delProduct = async (id) => {
+        const userConfirmed = window.confirm("Are you sure you want to delete this product from the wishlist?");
+        if (userConfirmed) {
+            try {
+                const res = await axios.delete(`http://localhost:7000/sportstrack/delWishListProduct/${id}`);
+                console.log(res.data);
+                if (res) {
+                    alert("Product deleted");
+                }
+            } catch (error) {
+                console.error("Error deleting product:", error);
+            }
+        }
+    };
+    
 
     return (
         <div className='whishlist-main'>
@@ -40,8 +51,8 @@ const WishList = () => {
                     <>
                      {
                     getPrdct.map((data, index) => (
-                        <div className="cards" key={index}>
-                            <Link className='link' to={`/productDetailsCustomer/${data._id}`}>
+                        // <div className="cards" >
+                            <Link className='link' to={`/productDetailsCustomer/${data._id}`} key={index}>
                                 <div className="Card">
                                     <div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
                                     <div className="card-details">
@@ -51,11 +62,13 @@ const WishList = () => {
                                             <div><p className='price'>₹ {data.price}</p></div>
                                             <div><strike><p className='og-price'>₹ 799</p></strike></div>
                                         </div>
-                                        <div> <div className='deleteBtn' ><button><RiDeleteBinLine className='Btn' /></button></div></div>
+                                        
                                     </div>
+                                    {/* <RiDeleteBinLine className='Btn' /> */}
+                                 <div className='deleteBtn' ><button onClick={()=>delProduct(data._id)}>Delete from Wishlist</button></div>
                                 </div>
                             </Link>
-                        </div>
+                        // </div>
                     ))
                 }
                     </>
