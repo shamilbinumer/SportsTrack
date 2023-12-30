@@ -45,8 +45,8 @@ const WishList = () => {
                                         <div className="prices">
                                             <div><p className='price'>₹ {data.price}</p></div>
                                             <div><strike><p className='og-price'>₹ 799</p></strike></div>
-                                            <div className='deleteBtn' ><RiDeleteBinLine /></div>
                                         </div>
+                                        <div> <div className='deleteBtn' ><button><RiDeleteBinLine className='Btn' /></button></div></div>
                                     </div>
                                 </div>
                             </Link>

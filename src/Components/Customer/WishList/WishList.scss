@@ -109,6 +109,27 @@
         color: black;
     }
 
+    .deleteBtn{
+        text-align: center;
+        margin-bottom: 5px;
+        // padding-top: 15px !important;
+        // padding-left: 28%;
+        // background-color: red !important;
+    }
+    .deleteBtn{
+        button{
+            border: none;
+            background-color: transparent;
+        }
+        .Btn{
+            font-size: 30px;
+            background-color: grey;
+            color: white;
+            padding: 4px;
+            border-radius: 3px;
+        }
+    }
+
     @media(min-width:300px) and (max-width:575px){
         .cards-main{
             gap: 1px;
@@ -139,8 +160,6 @@
         .price{
             font-size: 13px;
         }
-        .deleteBtn{
-            padding-left: 60px !important;
-        }
+      
     }
 }
