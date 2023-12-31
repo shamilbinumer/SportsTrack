@@ -44,16 +44,14 @@ const Cart = () => {
 
   const BuyNow = async (e) => {
     e.preventDefault();
-    const userConfirmed = window.confirm("Are you sure you want to proceed to checkout and delete all products?");
+    const userConfirmed = window.confirm("Are you sure you want to proceed to checkout?");
     if (userConfirmed) {
       try {
-        // Delete all products with the same cust_id
         await axios.delete(`http://localhost:7000/sportstrack/delAlltProduct/${id}`);
         alert("Order Placed");
         navigate("/")
       } catch (error) {
         console.error("Error deleting products:", error);
-        // alert("An error occurred while deleting products");
       }
     }
   };
