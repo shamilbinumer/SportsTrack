@@ -69,13 +69,13 @@ const Navbar = () => {
               <Link className="nav-link mx-2 text-uppercase active"  to='/'>Products</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase active" href="#">Catalog</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#">About</a>
             </li>
             <li className="nav-item">
               <a className="nav-link mx-2 text-uppercase active" href="#">Services</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase active" href="#">About</a>
+              <a className="nav-link mx-2 text-uppercase active" href="#">My Orders</a>
             </li>
           </ul>
           <ul className="navbar-nav ms-auto ">
