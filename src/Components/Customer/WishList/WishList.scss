@@ -21,6 +21,7 @@
         padding-top: 2%;
         width: 90%;
         margin: auto;
+        justify-content: center;
         // background-color: red;
         display: flex;
         gap: 15px;
@@ -144,13 +145,15 @@
 
     @media(min-width:300px) and (max-width:575px){
         .cards-main{
-            gap: 1px;
+            gap: 9px;
             padding: 6px;
+            justify-content: center;
             width: 100% !important;
             // background-color: red;
+            // text-align: center;
         }
         .Card{
-            width: 155px;
+            width: 48%;
             border-radius: 1px !important;
         }
         .prdct-thumnalil{
@@ -172,6 +175,12 @@
         .price{
             font-size: 13px;
         }
+        .deleteBtn{
+            button{
+              font-size: 12px !important;
+            }
+        }
+        
       
     }
 }
