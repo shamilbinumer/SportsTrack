@@ -47,15 +47,12 @@ const Cart = () => {
   // };
 
   const qty=(e,index)=>{
-    const selectedQty=parseInt(e.target.value);
+    const selectedQty=parseInt(e.target.value,10);
     const price=getPrdct[index].price;
 
     if(!isNaN(price)){
       console.log(getPrdct[index].price);
       const updatedPrice=price*selectedQty;
-      console.log(updatedPrice);
-      const updatedGetPrdct = [...getPrdct];
-      // updatedGetPrdct[index].price = updatedPrice;
       console.log(updatedPrice);
    
     }
