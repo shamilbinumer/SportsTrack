@@ -26,9 +26,7 @@ const WishList = () => {
             try {
                 const res = await axios.delete(`http://localhost:7000/sportstrack/delWishListProduct/${id}`);
                 console.log(res.data);
-                if (res) {
-                    alert("Product deleted");
-                }
+                getPrdctDetails();
             } catch (error) {
                 console.error("Error deleting product:", error);
             }
