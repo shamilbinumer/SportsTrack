@@ -7,8 +7,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = () => {
+  
  const navigate=useNavigate()
   const {id}=useParams()
+  // const [price,setPrice]=useState({})
   const [totalPrice,setTotalPrice]=useState(0)
   const [getPrdct,setProdct]=useState([])
   const getPrdctDetails=async()=>{
@@ -21,32 +23,72 @@ const Cart = () => {
     getPrdctDetails()
   },[])
 
+
+
   useEffect(() => {
     const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price), 0);
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
 
-  const qty = (e, index) => {
-    const selectedQuantity = parseInt(e.target.value, 10);
-    const productPrice = getPrdct[index].price;
+  // const qty = (e, index) => {
+  //   const selectedQuantity = parseInt(e.target.value, 10);
+  //   const productPrice = getPrdct[index].price;
    
-    if (!isNaN(productPrice)) {
+  //   if (!isNaN(productPrice)) {
+  //     console.log(getPrdct[index].price);
+  //     const updatedPrice = selectedQuantity * productPrice
+  //     console.log(updatedPrice);
+  //     const updatedGetPrdct = [...getPrdct];
+  //     updatedGetPrdct[index].price = updatedPrice;
+  //     setProdct(updatedGetPrdct);
+  //   } else {
+  //     console.error('Invalid product price:', productPrice);
+  //   }
+  // };
+
+  const qty=(e,index)=>{
+    const selectedQty=parseInt(e.target.value);
+    const price=getPrdct[index].price;
+
+    if(!isNaN(price)){
       console.log(getPrdct[index].price);
-      const updatedPrice = selectedQuantity * productPrice
+      const updatedPrice=price*selectedQty;
       console.log(updatedPrice);
       const updatedGetPrdct = [...getPrdct];
-      updatedGetPrdct[index].price = updatedPrice;
-      setProdct(updatedGetPrdct);
-    } else {
-      console.error('Invalid product price:', productPrice);
+      // updatedGetPrdct[index].price = updatedPrice;
+      console.log(updatedPrice);
+   
     }
-  };
+  }
+
+ 
+  
+
+ 
+  
 
   const BuyNow = async (e) => {
     e.preventDefault();
     const userConfirmed = window.confirm("Are you sure you want to proceed to checkout?");
     if (userConfirmed) {
       try {
+
+        const orderData = {
+          cust_id: id,
+          products: getPrdct.map((product) => ({ 
+            product_name: product.product_name,
+            category: product.category,
+            description:product.description,
+            price:product.price,
+            banner:product.banner
+          })),
+        };
+
+        console.log("Order Data:", orderData.products);
+        console.log("hgfhjghggh");
+
+        const res=await axios.post("http://localhost:7000/sportstrack/addToMyOrder",orderData)
+        console.log(res.data);
         await axios.delete(`http://localhost:7000/sportstrack/delAlltProduct/${id}`);
         alert("Order Placed");
         navigate("/")
@@ -94,8 +136,8 @@ const Cart = () => {
                    </>
                 ) : (
                     <>
-                        {getPrdct.map((data, index) => (
-                            <div className="details-main" key={index}>
+                        {getPrdct.map((data,index) => (
+                            <div className="details-main" key={data._id}>
                                  <div className="details-image-section">
               <div className="image"><img src={data.banner} alt="" /></div>
             </div>
