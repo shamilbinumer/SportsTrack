@@ -1,6 +1,7 @@
 .admin-login-page{
    
     .card {
+        transition: .5s;
         width: 390px;
         margin: auto;
         margin-top: 10%;
@@ -79,6 +80,20 @@
        
        .btn-link:hover {
         color: #ffeba7;
+       }
+
+       @media(min-width:300px) and (max-width:575px){
+        .card {
+            width: 90%;
+            margin-top: 40% !important;
+           }
+       }
+
+       @media(min-width:576px) and (max-width:991px){
+        .card {
+            width: 50%;
+            margin-top: 20% !important;
+           }
        }
        
 }
