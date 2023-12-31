@@ -62,9 +62,9 @@ const Navbar = () => {
             </div>
           </div>
           <ul className="navbar-nav ms-auto ">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link mx-2 text-uppercase active" aria-current="page" href="#">Offers</a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link mx-2 text-uppercase active"  to='/'>Products</Link>
             </li>
