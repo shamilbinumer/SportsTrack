@@ -4,6 +4,7 @@ import product_schema from './Models/product.model.js'
 import customer_schema from './Models/customer.model.js'
 import cart_schema from './Models/cart.model.js'
 import wishlist_schema from './Models/wishList.model.js'
+import myOrder_schema from './Models/myOrders.model.js'
 import bcrypt from 'bcrypt'
 // import path from 'path'
 // import jsonwebtoken from 'jsonwebtoken'
@@ -342,6 +343,18 @@ export function delwishListProduct(req,res)
     })
 }
 
+
+export async function AddToMyOrder(req, res) {
+  try {
+    const { ...productdetails } = req.body;
+    const task = await myOrder_schema.create({ ...productdetails });
+    console.log(task);
+    res.status(200).send(task);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+}
 
 
 
