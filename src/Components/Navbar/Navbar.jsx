@@ -12,8 +12,17 @@ import { FaRegHeart } from "react-icons/fa";
 const Navbar = () => {
  const [id,setId]=useState("")
   const naviagate=useNavigate()
+  const navigateItself=useNavigate()
   const [msg,setMsg]=useState("")
   const value=JSON.parse(localStorage.getItem('customer_token'));
+
+  const gotoCartOrWishList=(e)=>{
+    e.preventDefault()
+    if(msg.length===0){
+      alert ("Please Login")
+      navigateItself("/CustomerLogin")
+    }
+  }
 
   const getName=async()=>{
     const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
@@ -80,10 +89,10 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav ms-auto ">
           <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to={`/whishList/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>
+              <Link className="nav-link mx-2 text-uppercase active" to={`/whishList/${id}`} onClick={gotoCartOrWishList}><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`}><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>
+              <Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`} onClick={gotoCartOrWishList}><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>
             </li>
              <li className="nav-item">
             {msg ? (
