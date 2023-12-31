@@ -75,7 +75,7 @@ const Navbar = () => {
               <a className="nav-link mx-2 text-uppercase active" href="#">Services</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link mx-2 text-uppercase active" href="#">My Orders</a>
+              <Link className="nav-link mx-2 text-uppercase active" to={`/myOreder/${id}`}>My Orders</Link>
             </li>
           </ul>
           <ul className="navbar-nav ms-auto ">
