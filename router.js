@@ -40,6 +40,7 @@ router.route("/delAlltProduct/:id").delete(controller.deleteAllProducts);
 router.route("/addToWhishList").post(controller.AddToWishList);
 router.route("/getWishlistProduct/:id").get(controller.getWishlistProduct);
 router.route("/delWishListProduct/:id").delete(controller.delwishListProduct);
+router.route("/addToMyOrder").post(controller.AddToMyOrder);
 
 
 export default router;
