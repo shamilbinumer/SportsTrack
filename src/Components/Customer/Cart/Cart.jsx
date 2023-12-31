@@ -30,31 +30,19 @@ const Cart = () => {
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
 
-  // const qty = (e, index) => {
-  //   const selectedQuantity = parseInt(e.target.value, 10);
-  //   const productPrice = getPrdct[index].price;
-   
-  //   if (!isNaN(productPrice)) {
-  //     console.log(getPrdct[index].price);
-  //     const updatedPrice = selectedQuantity * productPrice
-  //     console.log(updatedPrice);
-  //     const updatedGetPrdct = [...getPrdct];
-  //     updatedGetPrdct[index].price = updatedPrice;
-  //     setProdct(updatedGetPrdct);
-  //   } else {
-  //     console.error('Invalid product price:', productPrice);
-  //   }
-  // };
+  
 
   const qty=(e,index)=>{
     const selectedQty=parseInt(e.target.value,10);
     const price=getPrdct[index].price;
 
     if(!isNaN(price)){
-      console.log(getPrdct[index].price);
       const updatedPrice=price*selectedQty;
       console.log(updatedPrice);
-   
+      const updatedGetPrdct = [...getPrdct];
+      console.log(getPrdct);
+      updatedGetPrdct[index].price=updatedPrice
+      setProdct(updatedGetPrdct)
     }
   }
 
