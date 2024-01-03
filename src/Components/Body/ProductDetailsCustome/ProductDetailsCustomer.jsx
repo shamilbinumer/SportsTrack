@@ -9,6 +9,7 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 const ProductDetailsCustomer = () => {
     let Size;
     const {id}=useParams()
+    console.log(id);
     const [msg,setMsg]=useState("")
     const [cartItems,setCartItems]=useState([])
     const value=JSON.parse(localStorage.getItem('customer_token'));
@@ -26,13 +27,14 @@ const ProductDetailsCustomer = () => {
     })
 
     const getPrdctDetails=async()=>{
-      const res=await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${id}`)
+      const res=await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`)
+      console.log(res.data);
       setCartItems(res.data)
-      console.log(cartItems);
+      // console.log(cartItems);
     }
     useEffect(()=>{
       getPrdctDetails()
-      console.log(cartItems);
+      // console.log(cartItems);
     },[])
 
 
@@ -41,7 +43,7 @@ const ProductDetailsCustomer = () => {
             headers:{Authorization: `Bearer ${value}`},
         })
         setMsg(res.data)
-        console.log(msg);
+        // console.log(msg);
       }
       useEffect(()=>{
         getName()
@@ -139,7 +141,7 @@ const ProductDetailsCustomer = () => {
                 <div className="btns">
                 {isInCart ? (
               <button className='addToCartBtn'>
-                <Link className='gotocart' to={`/cart/${id}`}>
+                <Link className='gotocart' to={`/cart/${msg.id}`}>
                   Goto Cart <PiShoppingCartFill />
                 </Link>
               </button>
