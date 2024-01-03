@@ -7,7 +7,7 @@ const cart_schema=new mongoose.Schema({
     description:{type:String},
     price:{type:String},
     size:{type:String},
-    quantity:{type:String},
+    quantity:{type:Number},
     banner:{type:String}
 })
 
