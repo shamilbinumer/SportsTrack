@@ -13,10 +13,14 @@ const Cart = () => {
   // const [price,setPrice]=useState({})
   const [totalPrice,setTotalPrice]=useState(0)
   const [getPrdct,setProdct]=useState([])
+  const [getupPrdct,setupProdct]=useState([])
+  
+  const [count,setCount]=useState(0)
   const getPrdctDetails=async()=>{
     const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     // console.log(res.data);
     setProdct(res.data)
+    setupProdct(getPrdct)
     // console.log(getPrdct);
   }
   useEffect(()=>{
@@ -33,16 +37,21 @@ const Cart = () => {
   
 
   const qty=(e,index)=>{
-    const selectedQty=parseInt(e.target.value,10);
+    const selectedQty=parseInt(e.target.value);
     const price=getPrdct[index].price;
+
 
     if(!isNaN(price)){
       const updatedPrice=price*selectedQty;
       console.log(updatedPrice);
+      // setProdct([...getPrdct,])
       const updatedGetPrdct = [...getPrdct];
       console.log(getPrdct);
-      updatedGetPrdct[index].price=updatedPrice
-      setProdct(updatedGetPrdct)
+        updatedGetPrdct[index].price=updatedPrice
+        console.log("price",updatedGetPrdct[index].price);
+        setupProdct([...updatedGetPrdct])
+        getPrdct[index].price=getupPrdct[index].price
+        setCount(count+1)
     }
   }
 
@@ -141,6 +150,7 @@ const Cart = () => {
                 <option value="8">Qty : 8</option>
               </select>
             <div className='price-div'>
+              
               <span className='price'>₹ {data.price}</span>
               <span className='og-price'><strike>₹ 699</strike></span>
             </div>
