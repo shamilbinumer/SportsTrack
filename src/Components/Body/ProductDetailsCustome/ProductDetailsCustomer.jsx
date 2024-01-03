@@ -28,7 +28,7 @@ const ProductDetailsCustomer = () => {
 
     const getPrdctDetails=async()=>{
       const res=await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`)
-      console.log(res.data);
+      console.log(res.data[0].prod_id);
       setCartItems(res.data)
       // console.log(cartItems);
     }
@@ -62,6 +62,12 @@ const ProductDetailsCustomer = () => {
         Size=e.target.value;
         console.log(Size);
     }
+   useEffect(()=>{
+    cartItems.map((data,index)=>{
+      const product_id=data[index].prod_id
+      console.log(product_id);
+    })
+   },[])
 
     const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
 
