@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Navbar from '../../Navbar/Navbar'
 import './ProductDetailsCustomer.scss'
 import { PiShoppingCartFill } from "react-icons/pi";
@@ -10,6 +10,7 @@ const ProductDetailsCustomer = () => {
     let Size;
     const {id}=useParams()
     const [msg,setMsg]=useState("")
+    const [cartItems,setCartItems]=useState([])
     const value=JSON.parse(localStorage.getItem('customer_token'));
     const [getProducts,setProduct]=useState({
         cust_id:"",
@@ -23,6 +24,17 @@ const ProductDetailsCustomer = () => {
         banner:"",
         images:[]
     })
+
+    const getPrdctDetails=async()=>{
+      const res=await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${id}`)
+      setCartItems(res.data)
+      console.log(cartItems);
+    }
+    useEffect(()=>{
+      getPrdctDetails()
+      console.log(cartItems);
+    },[])
+
 
     const getName=async()=>{
         const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
@@ -48,6 +60,8 @@ const ProductDetailsCustomer = () => {
         Size=e.target.value;
         console.log(Size);
     }
+
+    const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
 
     const addToCart = async () => {
         try {
@@ -123,7 +137,18 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                    <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button>
+                {isInCart ? (
+              <button className='addToCartBtn'>
+                <Link className='gotocart' to={`/cart/${id}`}>
+                  Goto Cart <PiShoppingCartFill />
+                </Link>
+              </button>
+            ) : (
+              <button className='addToCartBtn' onClick={addToCart}>
+                ADD TO CART <PiShoppingCartFill />
+              </button>
+            )}
+                    {/* <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button> */}
                     <button className='WhishListBtn' onClick={addToWishList}>ADD RO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>

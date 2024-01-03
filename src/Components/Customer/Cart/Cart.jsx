@@ -15,7 +15,7 @@ const Cart = () => {
   const [getPrdct,setProdct]=useState([])
   const [getupPrdct,setupProdct]=useState([])
   
-  const [count,setCount]=useState(0)
+  // const [count,setCount]=useState(0)
   const getPrdctDetails=async()=>{
     const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     // console.log(res.data);
@@ -51,7 +51,7 @@ const Cart = () => {
         console.log("price",updatedGetPrdct[index].price);
         setupProdct([...updatedGetPrdct])
         getPrdct[index].price=getupPrdct[index].price
-        setCount(count+1)
+        // setCount(count+1)
     }
   }
 
@@ -67,22 +67,7 @@ const Cart = () => {
     if (userConfirmed) {
       try {
 
-        const orderData = {
-          cust_id: id,
-          products: getPrdct.map((product) => ({ 
-            product_name: product.product_name,
-            category: product.category,
-            description:product.description,
-            price:product.price,
-            banner:product.banner
-          })),
-        };
-
-        console.log("Order Data:", orderData.products);
-        console.log("hgfhjghggh");
-
-        const res=await axios.post("http://localhost:7000/sportstrack/addToMyOrder",orderData)
-        console.log(res.data);
+        // console.log(res.data);
         await axios.delete(`http://localhost:7000/sportstrack/delAlltProduct/${id}`);
         alert("Order Placed");
         navigate("/")
