@@ -9,6 +9,10 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 const ProductDetailsCustomer = () => {
     let Size;
     // let iiiiid
+    const [loading, setLoading] = useState(true);
+    const [count,setCount]=useState(0)
+
+  
     let product_id
     const {id}=useParams()
     // console.log(id);
@@ -27,15 +31,25 @@ const ProductDetailsCustomer = () => {
         banner:"",
         images:[]
     })
+    useEffect(() => {
+      if (msg) {
+        getPrdctDetails();
+      }
+    }, [msg]);
+  
 
     // const [products_id, setProductId] = useState(null);
 
   const getPrdctDetails = async () => {
-    const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
-    // console.log(res.status);
-    setCartItems(res.data);
-    console.log("All prod_id in cartItems:", cartItems.map(item => item.prod_id));
-    // iiiiid=cartItems[0].prod_id
+    try {
+      const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
+      setCartItems(res.data);
+      console.log("All prod_id in cartItems:", cartItems.map(item => item.prod_id));
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+      setLoading(false);
+    }
 
   };
   // const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
@@ -83,6 +97,7 @@ const ProductDetailsCustomer = () => {
           console.log(res.data);
           if(res){
             alert("Added To Cart")
+            window.location.reload();
           }else{
             alert("Error adding product to cart. Please try again.")
           }
