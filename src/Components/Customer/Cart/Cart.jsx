@@ -95,23 +95,11 @@ const Cart = () => {
   };
 
 
-  const handleQuantityChange = async (productId, newQuantity) => {
-    try {
-      // Use axios.put to update the quantity in the database
-      const res = await axios.patch(`http://localhost:7000/sportstrack/updateCartItem/${productId}`, {
-        quantity: newQuantity,
-      });
-      console.log(res.data);
-
-      // If the update is successful, refresh the cart items
-      if (res) {
-        getPrdctDetails();
-      }
-    } catch (error) {
-      console.error('Error updating quantity:', error);
-    }
+  const handleQuantityChange = (productId, newQuantity) => {
+    const updatedGetPrdct = getPrdct.map((product) =>product._id === productId? {...product,quantity: newQuantity,price: product.price * newQuantity,} : product);
+    console.log(updatedGetPrdct[0]);
+    setProdct(updatedGetPrdct);
   };
-  
   
 
   return (
@@ -156,7 +144,7 @@ const Cart = () => {
                     </select>
             <div className='price-div'>
               
-              <span className='price'>₹ {data.price * (data.quantity)}</span>
+              <span className='price'>₹ {data.price}</span>
               <span className='og-price'><strike>₹ 699</strike></span>
             </div>
            <button className='delBtn' onClick={()=>delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete'/></button>
