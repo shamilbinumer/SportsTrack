@@ -140,7 +140,7 @@ const Cart = () => {
         <div className="image"><img src={data.banner} alt="" /></div>
       </div>
       <div className="details-details-section">
-        <p className="item-name">{data.product_nam e}</p>
+        <p className="item-name">{data.product_name}</p>
         <p className="description">{data.description}</p>
         <p className='size'>Size : {data.size}</p>
         <select
