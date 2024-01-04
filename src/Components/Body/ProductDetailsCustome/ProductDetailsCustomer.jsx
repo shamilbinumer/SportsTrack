@@ -143,7 +143,7 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                {cartItems.prod_id===product_id ? (
+                {cartItems.prod_id===getProducts._id ? (
               <button className='addToCartBtn'>
                 <Link className='gotocart' to={`/cart/${msg.id}`}>
                   Goto Cart <PiShoppingCartFill />
