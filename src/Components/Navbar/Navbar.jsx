@@ -42,7 +42,7 @@ const Navbar = () => {
     const isConfirmed = window.confirm("Are you sure you want to logout?");
     if (isConfirmed) {
       localStorage.clear();
-      naviagate("/")
+      // naviagate("/")
 
     }
   };
