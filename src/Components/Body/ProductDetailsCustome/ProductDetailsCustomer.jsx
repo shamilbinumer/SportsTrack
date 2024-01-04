@@ -8,6 +8,7 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     let Size;
+    let product_id
     const {id}=useParams()
     console.log(id);
     const [msg,setMsg]=useState("")
@@ -26,16 +27,17 @@ const ProductDetailsCustomer = () => {
         images:[]
     })
 
-    const getPrdctDetails=async()=>{
-      const res=await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`)
-      console.log(res.data[0].prod_id);
-      setCartItems(res.data)
-      // console.log(cartItems);
-    }
-    useEffect(()=>{
-      getPrdctDetails()
-      // console.log(cartItems);
-    },[])
+    // const [products_id, setProductId] = useState(null);
+
+  const getPrdctDetails = async () => {
+    const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
+    setCartItems(res.data);
+  };
+  const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
+
+  useEffect(() => {
+    getPrdctDetails();
+  }, []);
 
 
     const getName=async()=>{
@@ -62,14 +64,15 @@ const ProductDetailsCustomer = () => {
         Size=e.target.value;
         console.log(Size);
     }
-   useEffect(()=>{
-    cartItems.map((data,index)=>{
-      const product_id=data[index].prod_id
-      console.log(product_id);
-    })
-   },[])
+    useEffect(() => {
+      cartItems.map((data) => {
+        product_id = data.prod_id;
+        console.log("id",product_id);
+        return null;
+      });
+    }, [cartItems]);
 
-    const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
+    
 
     const addToCart = async () => {
         try {
@@ -157,7 +160,7 @@ const ProductDetailsCustomer = () => {
               </button>
             )}
                     {/* <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button> */}
-                    <button className='WhishListBtn' onClick={addToWishList}>ADD RO WISHLIST <FaHeartCirclePlus /></button>
+                    <button className='WhishListBtn' onClick={addToWishList}>ADD TO WISHLIST <FaHeartCirclePlus /></button>
                 </div>
             </div>
         </div>
