@@ -69,7 +69,6 @@ const Cart = () => {
 
   const handleQuantityChange = (productId, newQuantity) => {
     const updatedGetPrdct=getPrdct.map((product)=>product._id===productId?{...product,quantity:newQuantity,price:product.price*newQuantity,}:product);
-    console.log(updatedGetPrdct[0]);
     setProdct(updatedGetPrdct);
   };
 
