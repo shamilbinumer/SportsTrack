@@ -36,25 +36,27 @@ const Cart = () => {
 
   
 
-  const qty=(e,index)=>{
-    const selectedQty=parseInt(e.target.value);
-    const price=getPrdct[index].price;
-
-
-    if(!isNaN(price)){
-      const updatedPrice=price*selectedQty;
-      console.log(updatedPrice);
-      // setProdct([...getPrdct,])
+  const qty = (e, index) => {
+    const selectedQty = parseInt(e.target.value);
+    const price = getPrdct[index].price;
+  
+    if (!isNaN(price)) {
+      const updatedPrice = price * selectedQty;
+  
+      // Create a shallow copy of the getPrdct array
       const updatedGetPrdct = [...getPrdct];
-      console.log(getPrdct);
-        updatedGetPrdct[index].price=updatedPrice
-        console.log("price",updatedGetPrdct[index].price);
-        setupProdct([...updatedGetPrdct])
-        getPrdct[index].price=getupPrdct[index].price
-        // setCount(count+1)
+  
+      // Update the price of the selected product
+      updatedGetPrdct[index] = {
+        ...updatedGetPrdct[index],
+        price: updatedPrice
+      };
+  
+      // Update the state with the modified array
+      setProdct(updatedGetPrdct);
     }
-  }
-
+  };
+  
  
   
 
