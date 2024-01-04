@@ -8,6 +8,7 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     let Size;
+    // let iiiiid
     let product_id
     const {id}=useParams()
     // console.log(id);
@@ -33,6 +34,9 @@ const ProductDetailsCustomer = () => {
     const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
     // console.log(res.status);
     setCartItems(res.data);
+    console.log("All prod_id in cartItems:", cartItems.map(item => item.prod_id));
+    // iiiiid=cartItems[0].prod_id
+
   };
   // const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
 
@@ -143,7 +147,7 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                {cartItems.prod_id===getProducts._id ? (
+                { cartItems.map(item => item.prod_id).includes(getProducts._id)? (
               <button className='addToCartBtn'>
                 <Link className='gotocart' to={`/cart/${msg.id}`}>
                   Goto Cart <PiShoppingCartFill />
