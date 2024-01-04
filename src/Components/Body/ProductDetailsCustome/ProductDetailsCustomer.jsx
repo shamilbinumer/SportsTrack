@@ -8,7 +8,7 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     let Size;
-    let product_id
+    // let product_id
     const {id}=useParams()
     console.log(id);
     const [msg,setMsg]=useState("")
@@ -31,9 +31,10 @@ const ProductDetailsCustomer = () => {
 
   const getPrdctDetails = async () => {
     const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
+    console.log(res.status);
     setCartItems(res.data);
   };
-  const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
+  // const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
 
   useEffect(() => {
     getPrdctDetails();
@@ -64,14 +65,6 @@ const ProductDetailsCustomer = () => {
         Size=e.target.value;
         console.log(Size);
     }
-    useEffect(() => {
-      cartItems.map((data) => {
-        product_id = data.prod_id;
-        console.log("id",product_id);
-        return null;
-      });
-    }, [cartItems]);
-
     
 
     const addToCart = async () => {
@@ -148,7 +141,7 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                {isInCart ? (
+                {cartItems.prod_id===getProducts._id ? (
               <button className='addToCartBtn'>
                 <Link className='gotocart' to={`/cart/${msg.id}`}>
                   Goto Cart <PiShoppingCartFill />
