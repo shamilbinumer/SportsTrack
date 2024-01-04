@@ -5,17 +5,21 @@ import Navbar from '../../Navbar/Navbar'
 import './ProductDetailsCustomer.scss'
 import { PiShoppingCartFill } from "react-icons/pi";
 import { FaHeartCirclePlus } from "react-icons/fa6";
+import { FaHeartCircleCheck } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     let Size;
     // let iiiiid
     const [loading, setLoading] = useState(true);
+    
+
   
     let product_id
     const {id}=useParams()
     // console.log(id);
     const [msg,setMsg]=useState("")
     const [cartItems,setCartItems]=useState([])
+    const [wishlistItems,setWishlistItems]=useState([])
     const value=JSON.parse(localStorage.getItem('customer_token'));
     const [getProducts,setProduct]=useState({
         cust_id:"",
@@ -32,6 +36,7 @@ const ProductDetailsCustomer = () => {
     useEffect(() => {
       if (msg) {
         getPrdctDetails();
+        getWishListDetails();
       }
     }, [msg]);
   
@@ -42,7 +47,7 @@ const ProductDetailsCustomer = () => {
     try {
       const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
       setCartItems(res.data);
-      console.log("All prod_id in cartItems:", cartItems.map(item => item.prod_id));
+      // console.log("All prod_id in cartItems:", cartItems.map(item => item.prod_id));
       setLoading(false);
     } catch (error) {
       console.error("Error fetching cart items:", error);
@@ -57,6 +62,34 @@ const ProductDetailsCustomer = () => {
   }, []);
 
 
+  const getWishListDetails = async () => {
+    try {
+      const res = await axios.get(`http://localhost:7000/sportstrack/getWishlistProduct/${msg.id}`);
+      // console.log("widh list",res.data[0]);
+      setWishlistItems(res.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+      setLoading(false);
+    }
+};
+
+useEffect(() => {
+  getWishListDetails();
+}, []);
+
+
+const getProduct=async()=>{
+  const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}` )
+  setProduct(res.data)
+  product_id=res.data._id
+  console.log("prooooood",product_id);
+}
+
+useEffect(()=>{
+  getProduct()
+},[])
+
     const getName=async()=>{
         const res=await axios.get("http://localhost:7000/sportstrack/CustHome",{
             headers:{Authorization: `Bearer ${value}`},
@@ -68,16 +101,7 @@ const ProductDetailsCustomer = () => {
         getName()
       },[])
 
-    const getProduct=async()=>{
-        const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}` )
-        setProduct(res.data)
-        product_id=res.data._id
-        console.log("prooooood",product_id);
-    }
-  
-    useEffect(()=>{
-        getProduct()
-    },[])
+ 
 
     const selectSize=(e)=>{
         Size=e.target.value;
@@ -107,10 +131,11 @@ const ProductDetailsCustomer = () => {
 
       const addToWishList = async () => {
         try {
-          const res = await axios.post("http://localhost:7000/sportstrack/addToWhishList", {...getProducts,size:Size,cust_id:msg.id});
+          const res = await axios.post("http://localhost:7000/sportstrack/addToWhishList", {...getProducts,size:Size,cust_id:msg.id,prod_id:getProducts._id});
           console.log(res.data);
           if(res){
             alert("Added To Wishlist")
+            window.location.reload();
           }else{
             alert("Error adding product to Wishlist. Please try again.")
           }
@@ -163,16 +188,25 @@ const ProductDetailsCustomer = () => {
                 { cartItems.map(item => item.prod_id).includes(getProducts._id)? (
               <button className='addToCartBtn'>
                 <Link className='gotocart' to={`/cart/${msg.id}`}>
-                  Goto Cart <PiShoppingCartFill />
+                  GOTO CART <PiShoppingCartFill className='add-icon' />
                 </Link>
               </button>
             ) : (
               <button className='addToCartBtn' onClick={addToCart}>
-                ADD TO CART <PiShoppingCartFill />
+                ADD TO CART <PiShoppingCartFill className='add-icon' />
               </button>
             )}
                     {/* <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button> */}
-                    <button className='WhishListBtn' onClick={addToWishList}>ADD TO WISHLIST <FaHeartCirclePlus /></button>
+                    {/* <button className='WhishListBtn' onClick={addToWishList}>ADD TO WISHLIST <FaHeartCirclePlus /></button> */}
+                    { wishlistItems.map(item => item.prod_id).includes(getProducts._id)? (
+              <button className='AddedWhishListBtn'>
+                  ADDED TO WHISHLIST <FaHeartCircleCheck className='add-icon' />
+              </button>
+            ) : (
+              <button className='WhishListBtn' onClick={addToWishList}>
+                ADD TO WHISHLIST <FaHeartCirclePlus className='add-icon' />
+              </button>
+            )}
                 </div>
             </div>
         </div>
