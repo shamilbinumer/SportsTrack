@@ -32,26 +32,26 @@ const WishList = () => {
             }
         }
     };
-    
+
 
     return (
         <div className='whishlist-main'>
-            <Navbar/>
+            <Navbar />
             <div className="backBtn"><Link className='back-btn' to='/'>Back</Link></div>
             <h3 className='mainHeading'>Wishlist</h3>
             <div className="cards-main">
-                {getPrdct.length===0?(
-                <>
-                <p className='NoItemText'>No Items On Your Whishlist</p>
-                      <div className='shpBtn'><Link className='Shp_btn' to='/'>Shop Now</Link></div>    
-                </>              
-                      ):(
+                {getPrdct.length === 0 ? (
                     <>
-                     {
-                    getPrdct.map((data, index) => (
-                        // <div className="cards" >
-                            
-                                <div className="Card"  key={index}>
+                        <p className='NoItemText'>No Items On Your Whishlist</p>
+                        <div className='shpBtn'><Link className='Shp_btn' to='/'>Shop Now</Link></div>
+                    </>
+                ) : (
+                    <>
+                        {
+                            getPrdct.map((data, index) => (
+                                // <div className="cards" >
+
+                                <div className="Card" key={index}>
                                     <div className="prdct-thumnalil"><img src={data.banner} alt="" /></div>
                                     <div className="card-details">
                                         <p className='item-title'>{data.product_name}</p>
@@ -60,15 +60,15 @@ const WishList = () => {
                                             <div><p className='price'>₹ {data.price}</p></div>
                                             <div><strike><p className='og-price'>₹ 799</p></strike></div>
                                         </div>
-                                        
+
                                     </div>
                                     {/* <RiDeleteBinLine className='Btn' /> */}
-                                 <div className='deleteBtn' ><button onClick={()=>delProduct(data._id)}>Delete from Wishlist</button><button><Link className='ViewDetailsBtn' to={`/productDetailsCustomer/${data._id}`}>View Details</Link></button></div>
+                                    <div className='deleteBtn' ><button onClick={() => delProduct(data._id)}>Delete from Wishlist</button><button><Link className='ViewDetailsBtn' to={`/productDetailsCustomer/${data._id}`}>View Details</Link></button></div>
                                 </div>
-                          
-                        // </div>
-                    ))
-                }
+
+                                // </div>
+                            ))
+                        }
                     </>
                 )}
                 {/* */}

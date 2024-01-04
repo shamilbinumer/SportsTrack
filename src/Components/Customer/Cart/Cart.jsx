@@ -7,22 +7,22 @@ import { FaShoppingCart } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = () => {
-  
- const navigate=useNavigate()
-  const {id}=useParams()
+
+  const navigate = useNavigate()
+  const { id } = useParams()
   // const [price,setPrice]=useState({})
-  const [totalPrice,setTotalPrice]=useState(0)
-  const [getPrdct,setProdct]=useState([])
-  
+  const [totalPrice, setTotalPrice] = useState(0)
+  const [getPrdct, setProdct] = useState([])
+
   // const [count,setCount]=useState(0)
-  const getPrdctDetails=async()=>{
-    const res=await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
+  const getPrdctDetails = async () => {
+    const res = await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
     setProdct(res.data)
-   
+
   }
-  useEffect(()=>{
+  useEffect(() => {
     getPrdctDetails()
-  },[])
+  }, [])
 
 
 
@@ -31,34 +31,6 @@ const Cart = () => {
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
 
-  
-
-  // const qty = (e, index) => {
-  //   const selectedQty = parseInt(e.target.value);
-  //   const price = getPrdct[index].price;
-  
-  //   if (!isNaN(price)) {
-  //     const updatedPrice = price * selectedQty;
-  
-  //     // Create a shallow copy of the getPrdct array
-  //     const updatedGetPrdct = [...getPrdct];
-  
-  //     // Update the price of the selected product
-  //     updatedGetPrdct[index] = {
-  //       ...updatedGetPrdct[index],
-  //       price: updatedPrice
-  //     };
-  
-  //     // Update the state with the modified array
-  //     setProdct(updatedGetPrdct);
-  //   }
-  // };
-  
- 
-  
-
- 
-  
 
   const BuyNow = async (e) => {
     e.preventDefault();
@@ -96,41 +68,41 @@ const Cart = () => {
 
 
   const handleQuantityChange = (productId, newQuantity) => {
-    const updatedGetPrdct = getPrdct.map((product) =>product._id === productId? {...product,quantity: newQuantity,price: product.price * newQuantity,} : product);
+    const updatedGetPrdct = getPrdct.map((product) => product._id === productId ? { ...product, quantity: newQuantity, price: product.price * newQuantity, } : product);
     console.log(updatedGetPrdct[0]);
     setProdct(updatedGetPrdct);
   };
-  
+
 
   return (
     <div className='cart-main'>
-      <Navbar/>
+      <Navbar />
       <div className="back">
         <Link className='back-btn' to='/'>Back</Link>
       </div>
       <div><h3 className='main-heading'>Items In Cart</h3></div>
       <div className="display-ietm-main">
-        
+
         <div className="display-ietm-left">
-            
-            <div className="ul"></div>
-            {getPrdct.length === 0 ? (
-                   <>
-                    <p className="no-items-message">No items in the cart</p>
-                    <div className='shpDiv'><Link className='shp-now-btn' to='/'>Shop Now</Link></div>
-                   </>
-                ) : (
-                    <>
-                        {getPrdct.map((data,index) => (
-                            <div className="details-main" key={data._id}>
-                                 <div className="details-image-section">
-              <div className="image"><img src={data.banner} alt="" /></div>
-            </div>
-            <div className="details-details-section">
-              <p className="item-name">{data.product_name}</p>
-              <p className="description">{data.description}</p>
-              <p className='size'>Size : {data.size}</p>
-              <select
+
+          <div className="ul"></div>
+          {getPrdct.length === 0 ? (
+            <>
+              <p className="no-items-message">No items in the cart</p>
+              <div className='shpDiv'><Link className='shp-now-btn' to='/'>Shop Now</Link></div>
+            </>
+          ) : (
+            <>
+              {getPrdct.map((data, index) => (
+                <div className="details-main" key={data._id}>
+                  <div className="details-image-section">
+                    <div className="image"><img src={data.banner} alt="" /></div>
+                  </div>
+                  <div className="details-details-section">
+                    <p className="item-name">{data.product_name}</p>
+                    <p className="description">{data.description}</p>
+                    <p className='size'>Size : {data.size}</p>
+                    <select
                       name=""
                       id=""
                       onChange={(e) => handleQuantityChange(data._id, parseInt(e.target.value))}
@@ -142,17 +114,17 @@ const Cart = () => {
                         </option>
                       ))}
                     </select>
-            <div className='price-div'>
-              
-              <span className='price'>₹ {data.price}</span>
-              <span className='og-price'><strike>₹ 699</strike></span>
-            </div>
-           <button className='delBtn' onClick={()=>delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete'/></button>
-            </div>
-                            </div>
-                        ))}
-                    </>
-                )}
+                    <div className='price-div'>
+
+                      <span className='price'>₹ {data.price}</span>
+                      <span className='og-price'><strike>₹ 699</strike></span>
+                    </div>
+                    <button className='delBtn' onClick={() => delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete' /></button>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
         </div>
         <div className="line"></div>
         <div className="display-ietm-right">
