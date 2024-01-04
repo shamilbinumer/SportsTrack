@@ -10,8 +10,6 @@ const ProductDetailsCustomer = () => {
     let Size;
     // let iiiiid
     const [loading, setLoading] = useState(true);
-    const [count,setCount]=useState(0)
-
   
     let product_id
     const {id}=useParams()

@@ -94,6 +94,23 @@ const Cart = () => {
     }
   };
 
+
+  const handleQuantityChange = async (productId, newQuantity) => {
+    try {
+      // Use axios.put to update the quantity in the database
+      const res = await axios.patch(`http://localhost:7000/sportstrack/updateCartItem/${productId}`, {
+        quantity: newQuantity,
+      });
+      console.log(res.data);
+
+      // If the update is successful, refresh the cart items
+      if (res) {
+        getPrdctDetails();
+      }
+    } catch (error) {
+      console.error('Error updating quantity:', error);
+    }
+  };
   
   
 
