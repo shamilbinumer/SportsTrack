@@ -185,6 +185,7 @@ useEffect(()=>{
                     </select>
                 </div>
                 <div className="btns">
+                  {/* ////////////////ADDTO CART BTN///////////// */}
                 { cartItems.map(item => item.prod_id).includes(getProducts._id)? (
               <button className='addToCartBtn'>
                 <Link className='gotocart' to={`/cart/${msg.id}`}>
@@ -196,17 +197,17 @@ useEffect(()=>{
                 ADD TO CART <PiShoppingCartFill className='add-icon' />
               </button>
             )}
-                    {/* <button className='addToCartBtn' onClick={addToCart}>ADD TO CARD <PiShoppingCartFill /></button> */}
-                    {/* <button className='WhishListBtn' onClick={addToWishList}>ADD TO WISHLIST <FaHeartCirclePlus /></button> */}
-                    { wishlistItems.map(item => item.prod_id).includes(getProducts._id)? (
-              <button className='AddedWhishListBtn'>
-                  ADDED TO WHISHLIST <FaHeartCircleCheck className='add-icon' />
+            {/* //////////////////END////////////////// */}
+            {/* /////////////////ADD TO WISHLIST BTN/////////////// */}
+            { wishlistItems.map(item => item.prod_id).includes(getProducts._id)? (
+            <button className='AddedWhishListBtn'> ADDED TO WHISHLIST <FaHeartCircleCheck className='add-icon' />
               </button>
             ) : (
               <button className='WhishListBtn' onClick={addToWishList}>
                 ADD TO WHISHLIST <FaHeartCirclePlus className='add-icon' />
               </button>
             )}
+            {/* ///////////////////END////////////////// */}
                 </div>
             </div>
         </div>
