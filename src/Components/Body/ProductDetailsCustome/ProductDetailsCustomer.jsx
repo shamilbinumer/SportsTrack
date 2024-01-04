@@ -8,9 +8,9 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
     let Size;
-    // let product_id
+    let product_id
     const {id}=useParams()
-    console.log(id);
+    // console.log(id);
     const [msg,setMsg]=useState("")
     const [cartItems,setCartItems]=useState([])
     const value=JSON.parse(localStorage.getItem('customer_token'));
@@ -31,7 +31,7 @@ const ProductDetailsCustomer = () => {
 
   const getPrdctDetails = async () => {
     const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
-    console.log(res.status);
+    // console.log(res.status);
     setCartItems(res.data);
   };
   // const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
@@ -55,6 +55,8 @@ const ProductDetailsCustomer = () => {
     const getProduct=async()=>{
         const res=await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}` )
         setProduct(res.data)
+        product_id=res.data._id
+        console.log("prooooood",product_id);
     }
   
     useEffect(()=>{
@@ -63,7 +65,7 @@ const ProductDetailsCustomer = () => {
 
     const selectSize=(e)=>{
         Size=e.target.value;
-        console.log(Size);
+        // console.log(Size);
     }
     
 
@@ -141,7 +143,7 @@ const ProductDetailsCustomer = () => {
                     </select>
                 </div>
                 <div className="btns">
-                {cartItems.prod_id===getProducts._id ? (
+                {cartItems.prod_id===product_id ? (
               <button className='addToCartBtn'>
                 <Link className='gotocart' to={`/cart/${msg.id}`}>
                   Goto Cart <PiShoppingCartFill />
