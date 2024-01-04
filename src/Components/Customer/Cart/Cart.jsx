@@ -94,25 +94,7 @@ const Cart = () => {
     }
   };
 
-  const updateQuantity = async (productId, newQuantity) => {
-    try {
-      const res = await axios.patch(`http://localhost:7000/sportstrack/updateCartItem/${productId}`, {
-        quantity: newQuantity,
-      });
-      console.log(res.data);
-      getPrdctDetails();
-    } catch (error) {
-      console.error('Error updating quantity:', error);
-    }
-  };
-
-
-  const handleQuantityChange = (e, productId) => {
-    const newQuantity = parseInt(e.target.value);
-    if (!isNaN(newQuantity) && newQuantity > 0) {
-      updateQuantity(productId, newQuantity);
-    }
-  };
+  
   
 
   return (
@@ -133,40 +115,38 @@ const Cart = () => {
                     <div className='shpDiv'><Link className='shp-now-btn' to='/'>Shop Now</Link></div>
                    </>
                 ) : (
-                  <>
-  {getPrdct.map((data, index) => (
-    <div className="details-main" key={data._id}>
-      <div className="details-image-section">
-        <div className="image"><img src={data.banner} alt="" /></div>
-      </div>
-      <div className="details-details-section">
-        <p className="item-name">{data.product_name}</p>
-        <p className="description">{data.description}</p>
-        <p className='size'>Size : {data.size}</p>
-        <select
-          name=""
-          id=""
-          onChange={(e) => handleQuantityChange(e, data._id)}
-          value={data.quantity}
-        >
-          {[...Array(10)].map((_, i) => (
-            <option key={i + 1} value={i + 1}>
-              Qty: {i + 1}
-            </option>
-          ))}
-        </select>
-        <div className='price-div'>
-          <span className='price'>₹ {data.price * data.quantity}</span>
-          <span className='og-price'><strike>₹ 699</strike></span>
-        </div>
-        <button className='delBtn' onClick={() => delCartPrdct(data._id)}>
-          <RiDeleteBin5Fill className='delete' />
-        </button>
-      </div>
-    </div>
-  ))}
-</>
-
+                    <>
+                        {getPrdct.map((data,index) => (
+                            <div className="details-main" key={data._id}>
+                                 <div className="details-image-section">
+              <div className="image"><img src={data.banner} alt="" /></div>
+            </div>
+            <div className="details-details-section">
+              <p className="item-name">{data.product_name}</p>
+              <p className="description">{data.description}</p>
+              <p className='size'>Size : {data.size}</p>
+              <select
+                      name=""
+                      id=""
+                      onChange={(e) => handleQuantityChange(data._id, parseInt(e.target.value))}
+                      value={data.quantity}
+                    >
+                      {[...Array(10)].map((_, i) => (
+                        <option key={i + 1} value={i + 1}>
+                          Qty: {i + 1}
+                        </option>
+                      ))}
+                    </select>
+            <div className='price-div'>
+              
+              <span className='price'>₹ {data.price * (data.quantity)}</span>
+              <span className='og-price'><strike>₹ 699</strike></span>
+            </div>
+           <button className='delBtn' onClick={()=>delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete'/></button>
+            </div>
+                            </div>
+                        ))}
+                    </>
                 )}
         </div>
         <div className="line"></div>
