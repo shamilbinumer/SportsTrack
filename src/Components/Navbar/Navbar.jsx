@@ -11,8 +11,8 @@ import { FaRegHeart } from "react-icons/fa";
 
 const Navbar = () => {
   const [id, setId] = useState("")
-  const naviagate = useNavigate()
-  const navigateItself = useNavigate()
+  // const naviagate = useNavigate()
+  // const navigateItself = useNavigate()
   const [msg, setMsg] = useState("")
   const value = JSON.parse(localStorage.getItem('customer_token'));
 
@@ -42,6 +42,7 @@ const Navbar = () => {
     const isConfirmed = window.confirm("Are you sure you want to logout?");
     if (isConfirmed) {
       localStorage.clear();
+      window.location.reload()
       // naviagate("/")
 
     }

@@ -173,7 +173,7 @@
         .ProductDetailsRight {
             padding-top: 0px;
             width: 100% !important;
-            padding-left: 20px;
+            padding: 20px;
             height: 700px;
             // background-color: rgb(74, 74, 74);
         }
@@ -205,20 +205,45 @@
         }
 
         .ProductDetailsRight {
-            height: 300px !important;
+            height: 270px !important;
+            // background-color: red;
+        }
+        .btns{
+            justify-content: center !important;
+            // background-color: red;
+            margin: auto;
+            margin-left: 0 !important;
+            width: 100% !important;
         }
 
         .addToCartBtn {
             width: 45% !important;
             font-size: 10px;
             height: 30px !important;
+            letter-spacing: 0 !important;
+            border-radius: 0 !important;
+            height: 40px !important;
+
+
         }
 
         .WhishListBtn {
             width: 45% !important;
             font-size: 10px;
-            height: 30px !important;
+            height: 40px !important;
+            font-size: 12px !important;
+            letter-spacing: 0 !important;
+            border-radius: 0 !important;
 
+        }
+        .AddedWhishListBtn{
+            font-size: 12px !important;
+            height: 40px !important;
+            letter-spacing: 0 !important;
+            border-radius: 0 !important;
+        }
+        .add-icon {
+            font-size: 14px !important;
         }
     }
 
@@ -275,20 +300,42 @@
         }
 
         .ProductDetailsRight {
-            height: 300px !important;
+            height: 270px !important;
+            padding: 20px;
         }
 
         .addToCartBtn {
             width: 45% !important;
             font-size: 10px;
             height: 30px !important;
+            letter-spacing: 0 !important;
+            border-radius: 0 !important;
+            height: 40px !important;
+
+
         }
 
         .WhishListBtn {
             width: 45% !important;
             font-size: 10px;
-            height: 30px !important;
+            height: 40px !important;
+            font-size: 12px !important;
+            letter-spacing: 0 !important;
+            border-radius: 0 !important;
 
+        }
+        .AddedWhishListBtn{
+            font-size: 12px !important;
+            height: 40px !important;
+            letter-spacing: 0 !important;
+            border-radius: 0 !important;
+        }
+        .add-icon {
+            font-size: 14px !important;
+        }
+        .btns{
+            // background-color: red;
+            width: 100% !important;
         }
     }
 
