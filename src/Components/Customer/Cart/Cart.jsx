@@ -7,12 +7,25 @@ import { FaShoppingCart } from "react-icons/fa";
 import axios from 'axios';
 
 const Cart = () => {
+  // http://localhost:7000/sportstrack//updateCartItem/658b14eb3b28a0463603d284
 
   const navigate = useNavigate()
   const { id } = useParams()
   // const [price,setPrice]=useState({})
   const [totalPrice, setTotalPrice] = useState(0)
   const [getPrdct, setProdct] = useState([])
+
+  const updateQuantity=async(id,e)=>{
+    try {
+      const newQuantity = parseInt(e);
+      console.log(newQuantity);
+      const res=await axios.patch(`http://localhost:7000/sportstrack/updateCartItem/${id}`,{quantity:newQuantity})
+      console.log(res.data);
+      getPrdctDetails();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   // const [count,setCount]=useState(0)
   const getPrdctDetails = async () => {
@@ -27,7 +40,7 @@ const Cart = () => {
 
 
   useEffect(() => {
-    const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price), 0);
+    const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price * product.quantity), 0);
     setTotalPrice(totalPriceSum);
   }, [getPrdct]);
 
@@ -67,10 +80,6 @@ const Cart = () => {
   };
 
 
-  const handleQuantityChange = (productId, newQuantity) => {
-    const updatedGetPrdct=getPrdct.map((product)=>product._id===productId?{...product,quantity:newQuantity,price:product.price*newQuantity,}:product);
-    setProdct(updatedGetPrdct);
-  };
 
 
   return (
@@ -101,21 +110,21 @@ const Cart = () => {
                     <p className="item-name">{data.product_name}</p>
                     <p className="description">{data.description}</p>
                     <p className='size'>Size : {data.size}</p>
-                    <select
-                      name=""
-                      id=""
-                      onChange={(e) => handleQuantityChange(data._id, parseInt(e.target.value))}
-                      value={data.quantity}
-                    >
-                      {[...Array(10)].map((_, i) => (
-                        <option key={i + 1} value={i + 1}>
-                          Qty: {i + 1}
-                        </option>
-                      ))}
-                    </select>
+                    <select name="" id="" onChange={(e)=>{updateQuantity(data.prod_id,e.target.value)}}>
+                     <option >Qty {data.quantity}</option>
+                     <option value='1'>Qty 1</option>
+                     <option value='2'>Qty 2</option>
+                     <option value='3'>Qty 3</option>
+                     <option value='4'>Qty 4</option>
+                     <option value='5'>Qty 5</option>
+                     <option value='6'>Qty 6</option>
+                     <option value='7'>Qty 7</option>
+                     <option value='8'>Qty 8</option>
+                     <option value='9'>Qty 9</option>
+                    </select>   
                     <div className='price-div'>
 
-                      <span className='price'>₹ {data.price}</span>
+                      <span className='price'>₹ {data.price*data.quantity}</span>
                       <span className='og-price'><strike>₹ 699</strike></span>
                     </div>
                     <button className='delBtn' onClick={() => delCartPrdct(data._id)}> <RiDeleteBin5Fill className='delete' /></button>
