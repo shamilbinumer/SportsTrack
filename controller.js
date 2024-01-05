@@ -396,7 +396,7 @@ export function delwishListProduct(req,res)
     })
 }
 
-///////////////// ADD TO MY ODER BY CUSTOMER///////////// /////
+///////////////// ADD TO MY ODER BY CUSTOMER//////////////////
 
 export async function AddToMyOrder(req, res) {
   try {
