@@ -410,7 +410,7 @@ export async function AddToMyOrder(req, res) {
   }
 }
 
-///////////////// EDIT QUANTITY IN CART ///////////////////////
+///////////////// EDIT QUANTITY IN CART ////////////// /////////
 
 export async function editQuantity(req, res) {
   const { prodId } = req.params;
