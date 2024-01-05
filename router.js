@@ -17,6 +17,7 @@ router.route("/addProduct").post(controller.AddProducts);
 router.route("/delcategory/:id").delete(controller.delCategory);
 router.route("/editCategory/:id").patch(controller.editCategory);
 router.route("/getCatDetails/:id").post(controller.getCatDetails);
+router.route("/getAllCustomers").get(controller.getAllCustomers);
 router.route("/getCatWiseProducts/:category").get(controller.getCategoryWisedProduct);
 
 ///////////////admin-end///////////////
@@ -30,7 +31,6 @@ router.route("/editProdect/:id").patch(controller.editProdect);
 router.route("/delProduct/:id").delete(controller.delProduct);
 router.route("/getAllProducts").get(controller.getAllProducts);
 router.route("/addToCart").post(controller.AddToCart);
-router.route("/getAllCustomers").get(controller.getAllCustomers);
 router.route("/getCartProduct/:id").get(controller.getCartProduct);
 router.route("/delCartProduct/:id").delete(controller.delCartProduct);
 router.route("/delAlltProduct/:id").delete(controller.deleteAllProducts);
