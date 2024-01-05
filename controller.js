@@ -11,6 +11,8 @@ import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken";
 const {sign}=pkg
 
+////////////////ADMIN REGISTRATION////////////////////
+
 
 export async function AddAdmin(req,res){
     try {
@@ -38,6 +40,9 @@ export async function AddAdmin(req,res){
 }
 
 
+///////////////////ADMIN LOGIN/////////////////////
+
+
 export async function AdminLogin(req, res) {
     try {
      console.log(req.body);
@@ -60,6 +65,8 @@ export async function AdminLogin(req, res) {
 }
 }
 
+///////////////////ADMIN USER AUTHENTIVATION////////////////////
+
 export async function home(req,res)
 {
   try {
@@ -72,6 +79,8 @@ export async function home(req,res)
   }
 }
 
+////////////////ADMIN FIND EMAIL//////////////////////////
+
 export async function GetAdmin(req,res){
   const { email }=req.params;
   console.log(email);
@@ -80,6 +89,7 @@ export async function GetAdmin(req,res){
   res.status(200).send(task)
 }
 
+///////////////////ADMIN FORGOTE PASSWORD
 
 export async function forgotAdminpwd(req, res) {
   const {email,password}=req.body;
@@ -88,6 +98,8 @@ export async function forgotAdminpwd(req, res) {
   console.log(task);
   res.status(200).send(task);
 }
+
+////////////////ADD NEW CATEGORY BY ADMIN////////////////
 
 export async function AddCategory(req, res) {
   try {
@@ -105,10 +117,14 @@ export async function AddCategory(req, res) {
   }
 }
 
+////////////////////GET ALL CATEGORY BY ADMIN/////////////////
+
 export async function getCategory(req,res){
   let task=await category_schema.find()
   res.status(200).send(task)
 }
+
+///////////////ADD PRODUCT ///////////////////////
 
 export async function AddProducts(req, res) {
   try {
@@ -132,6 +148,8 @@ export async function AddProducts(req, res) {
 //   return res.sendFile(path.resolve(`./images/${filename}`))
 // }
 
+/////////////////////DELETE CATEGORY BY ADMIN///////////////////
+
 export function delCategory(req,res)
 {
     const{id}=req.params;
@@ -142,6 +160,8 @@ export function delCategory(req,res)
         res.status(404).send(error)
     })
 }
+
+//////////////////// CATEGORY EDIT/////////////////////
 
 export async function getCatDetails(req,res){
   const{id}=req.params;
@@ -163,6 +183,8 @@ export async function editCategory(req, res) {
   }
 }
 
+/////////////////////CATEGORY WISE PRODUCT LISTING////////////////////////
+
 export async function getCategoryWisedProduct(req, res) {
   try {
     const { category } = req.params;
@@ -173,6 +195,39 @@ export async function getCategoryWisedProduct(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
+////////////////////////EDIT PRODUCT BY ADMIN//////////////////////////
+
+export async function editProdect(req, res) {
+  const { id } = req.params;
+  try {
+      const updatedData = req.body;
+      const value = await product_schema.updateOne({ _id: id }, { $set: updatedData });
+      res.status(200).send(value);
+  } catch (error) {
+      res.status(404).send(error);
+  }
+}
+
+
+/////////////////DELETE PRODUCT BY ADMIN/////////////////////////////
+
+export function delProduct(req,res)
+{
+    const{id}=req.params;
+    const data=product_schema.deleteOne({_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)          
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}
+
+/////////////////////---------ADMIN END--------------////////////////////
+
+/////////////////////---------CUSTOMER---------------///////////////////
+
+////////////////////CUSTOMER REGISTRATION////////////////////////
 
 export async function AddCustomer(req, res) {
   try {
@@ -193,6 +248,8 @@ export async function AddCustomer(req, res) {
   }
 }
 
+/////////////////////////CUSTOMER LOGIN///////////////////////////////
+
 export async function CustomerLogin(req, res) {
   try {
     console.log(req.body);
@@ -212,7 +269,7 @@ export async function CustomerLogin(req, res) {
   }
 }
 
-
+//////////////////////////CUSTOMER USER AUTHENTICATION//////////////////////
 
 export async function customerHome(req,res)
 {
@@ -234,32 +291,14 @@ export async function getProduct(req,res){
   res.status(200).send(task)
 }
 
-export async function editProdect(req, res) {
-  const { id } = req.params;
-  try {
-      const updatedData = req.body;
-      const value = await product_schema.updateOne({ _id: id }, { $set: updatedData });
-      res.status(200).send(value);
-  } catch (error) {
-      res.status(404).send(error);
-  }
-}
-
-export function delProduct(req,res)
-{
-    const{id}=req.params;
-    const data=product_schema.deleteOne({_id:id})
-    data.then((resp)=>{
-        res.status(200).send(resp)          
-    }).catch((error)=>{
-        res.status(404).send(error)
-    })
-}
+/////////////////////////CUSTOMER SIDE $ ADMIN SIDE VIEW ALL PRODUCTS//////////////////////
 
 export async function getAllProducts(req,res){
   let task=await product_schema.find()
   res.status(200).send(task)
 }
+
+///////////////////////// ADD TO CART BY CUSTOMER /////////////////////
 
 
 export async function AddToCart(req, res) {
@@ -274,11 +313,15 @@ export async function AddToCart(req, res) {
   }
 }
 
+/////////////////VIEW ALL CUSTOMERS//////////////////
+
 
 export async function getAllCustomers(req,res){
   let task=await customer_schema.find()
   res.status(200).send(task)
 }
+
+//////////////////LIST CART ITEMS IN CART////////////////
 
 export async function getCartProduct(req,res){
   const { id }=req.params;
@@ -287,6 +330,8 @@ export async function getCartProduct(req,res){
   console.log(task);
   res.status(200).send(task)
 }
+
+///////////////// DELETE CART ITEMS FROM CART//////////////// 
 
 export function delCartProduct(req,res)
 {
@@ -298,6 +343,8 @@ export function delCartProduct(req,res)
         res.status(404).send(error)
     })
 }
+
+///////////////// PROCEED TO BUY IN CART///////////////////
 
 
 export function deleteAllProducts(req,res)
@@ -312,6 +359,8 @@ export function deleteAllProducts(req,res)
 }
 
 
+//////////////////ADD TO WISHLIST ////////////////////
+
 export async function AddToWishList(req, res) {
   try {
     const { ...productdetails } = req.body;
@@ -324,6 +373,8 @@ export async function AddToWishList(req, res) {
   }
 }
 
+//////////////////SEE ALL PRODUCTS IN WISHLIST
+
 export async function getWishlistProduct(req,res){
   const { id }=req.params;
   console.log(id);
@@ -331,6 +382,8 @@ export async function getWishlistProduct(req,res){
   console.log(task);
   res.status(200).send(task)
 }
+
+///////////////////DELETE PRODUCT FROM WISHLIT//////////////
 
 export function delwishListProduct(req,res)
 {
@@ -343,6 +396,7 @@ export function delwishListProduct(req,res)
     })
 }
 
+///////////////// ADD TO MY ODER BY CUSTOMER//////////////////
 
 export async function AddToMyOrder(req, res) {
   try {
@@ -356,16 +410,6 @@ export async function AddToMyOrder(req, res) {
   }
 }
 
-// export async function updateCartItem(req, res) {
-//   const { prodId } = req.params;
-//   try {
-//       const updatedData = req.body;
-//       const value = await cart_schema.updateOne({ prodId: prodId }, { $set: updatedData });
-//       res.status(200).send(value);
-//   } catch (error) {
-//       res.status(404).send(error);
-//   }
-// }
 
 export async function editQuantity(req, res) {
   const { prodId } = req.params;

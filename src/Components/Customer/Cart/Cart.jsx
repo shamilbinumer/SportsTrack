@@ -111,7 +111,7 @@ const Cart = () => {
                     <p className="description">{data.description}</p>
                     <p className='size'>Size : {data.size}</p>
                     <select name="" id="" onChange={(e)=>{updateQuantity(data.prod_id,e.target.value)}}>
-                     <option >Qty {data.quantity}</option>
+                     <option >Selected Qty {data.quantity}</option>
                      <option value='1'>Qty 1</option>
                      <option value='2'>Qty 2</option>
                      <option value='3'>Qty 3</option>
