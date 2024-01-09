@@ -148,7 +148,8 @@ const Cart = () => {
             </tr> */}
             <tr>
               <td>Estimated Delivery Fee</td>
-              <td>₹ 99</td>
+              {/* <td>₹ 99</td> */}
+              {totalPrice>=5000?(<td className='free-text'>FREE</td>):(<td>₹ 99</td>)}
             </tr>
           </table>
           <div className="table-ul"></div>

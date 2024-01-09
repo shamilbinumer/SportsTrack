@@ -47,6 +47,7 @@ const ProductDetailsCustomer = () => {
     try {
       const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${msg.id}`);
       setCartItems(res.data);
+      // console.log(res.data);
       // console.log("All prod_id in cartItems:", cartItems.map(item => item.prod_id));
       setLoading(false);
     } catch (error) {
