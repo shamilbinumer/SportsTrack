@@ -159,7 +159,7 @@ const Cart = () => {
             </tr>
           </table>
 
-          <button onClick={BuyNow}> <FaShoppingCart /> Proceed To Checkout</button>
+          {getPrdct.length==0?(<button className='yr-cart-empty'> <FaShoppingCart /> Your Cart Is Empty</button>):(<button onClick={BuyNow}> <FaShoppingCart /> Proceed To Checkout</button>)}
         </div>
       </div>
     </div>
