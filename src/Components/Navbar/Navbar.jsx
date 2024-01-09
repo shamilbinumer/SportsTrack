@@ -14,6 +14,8 @@ const Navbar = () => {
   // const naviagate = useNavigate()
   // const navigateItself = useNavigate()
   const [msg, setMsg] = useState("")
+  const [getPrdct, setProdct] = useState([])
+  const [length,setLength]=useState(0)
   const value = JSON.parse(localStorage.getItem('customer_token'));
 
   // const gotoCartOrWishList=(e)=>{
@@ -47,6 +49,23 @@ const Navbar = () => {
 
     }
   };
+
+  useEffect(() => {
+    const getPrdctDetails = async () => {
+      try {
+        const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${id}`);
+        setProdct(res.data);
+        setLength(res.data.length);  // Update the length state after fetching data
+      } catch (error) {
+        console.error("Error fetching cart products:", error);
+      }
+    };
+
+    // Call the function when the component mounts or when the id changes
+    if (id) {
+      getPrdctDetails();
+    }
+  }, [id]); 
 
   const gotoCart = () => {
     if (msg === "") {
@@ -98,13 +117,16 @@ const Navbar = () => {
               <li className="nav-item">
                 {msg === "" ? (<Link className="nav-link mx-2 text-uppercase active" onClick={gotoCart}><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>) : (<Link className="nav-link mx-2 text-uppercase active" to={`/whishList/${id}`} ><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>)}
               </li>
+              <div className="cart">
               <li className="nav-item">
                 {msg === "" ? (<Link className="nav-link mx-2 text-uppercase active" onClick={gotoCart} ><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>) : (<Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`} onClick={gotoCart} ><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>)}
               </li>
+              <div className="cart-count">{length}</div>
+              </div>
               <li className="nav-item">
                 {msg ? (
                   <>
-                    <Link className="nav-link mx-2 text-uppercase active"><FiUser className='cartIcon' />  {msg}  <button className='logout' onClick={Logout}>Logout</button></Link>
+                    <Link className="nav-link mx-2 text-uppercase active"><FiUser className='user-icon' />  {msg}  <button className='logout' onClick={Logout}>Logout</button></Link>
 
                   </>
                 ) : (

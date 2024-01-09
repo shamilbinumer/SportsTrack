@@ -34,14 +34,41 @@
         margin-left: 10px;
       }
       .cartIcon{
-        font-size: 23px;
+        font-size: 26px;
+        padding: 5px;
+        margin-right: 9px;
+        background-color: gray;
+        border-radius: 50%;
+        color: white;
       }
       .wishlist-icon{
-        font-size: 23px;
-      }
-      .fa-user{
-        font-size: 18px;
+        font-size: 26px;
+        padding: 5px;
         margin-right: 9px;
+        background-color: gray;
+        border-radius: 50%;
+        color: white;
+      }
+      .user-icon{
+        font-size: 26px;
+        padding: 5px;
+        margin-right: 9px;
+        background-color: gray;
+        border-radius: 50%;
+        color: white;
+      }
+      .cart{
+        position: relative;
+        // background-color: red;
+      }
+      .cart-count{
+        position: absolute;
+        top: 1%;
+        left: 60%;
+        font-size: 10px;
+        background-color: yellow;
+        padding: 1px 7px;
+        border-radius: 50%;
       }
     //   .form-control{
     //     border: 1px solid rgb(2, 8, 80);
