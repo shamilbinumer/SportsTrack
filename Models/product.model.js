@@ -5,12 +5,12 @@ const product_schema=new mongoose.Schema({
     description:{type:String},
     price:{type:String},
     stock:{
-        xs:{type:String},
-        s:{type:String},
-        m:{type:String},
-        l:{type:String},
-        xl:{type:String},
-        xxl:{type:String}
+        xs:{type:Number},
+        s:{type:Number},
+        m:{type:Number},
+        l:{type:Number},
+        xl:{type:Number},
+        xxl:{type:Number}
     },
     banner:{type:String},
     images:{type:Object}
