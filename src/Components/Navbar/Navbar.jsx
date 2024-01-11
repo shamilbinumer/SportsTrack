@@ -15,7 +15,9 @@ const Navbar = () => {
   // const navigateItself = useNavigate()
   const [msg, setMsg] = useState("")
   const [getPrdct, setProdct] = useState([])
+  const [getwishPrdct, setWishProdct] = useState([])
   const [length,setLength]=useState(0)
+  const [wishLength,setWishLength]=useState(0)
   const value = JSON.parse(localStorage.getItem('customer_token'));
 
   // const gotoCartOrWishList=(e)=>{
@@ -67,6 +69,18 @@ const Navbar = () => {
     }
   }, [id]); 
 
+  useEffect(()=>{
+    const getWishlistPrdctDetails = async () => {
+      const res = await axios.get(`http://localhost:7000/sportstrack/getWishlistProduct/${id}`);
+      setWishProdct(res.data);
+      setWishLength(res.data.length)
+      
+  };
+  if(id){
+    getWishlistPrdctDetails()
+  }
+  },[id])
+
   const gotoCart = () => {
     if (msg === "") {
       alert("Please Login")
@@ -114,9 +128,12 @@ const Navbar = () => {
               </li>
             </ul>
             <ul className="navbar-nav ms-auto ">
-              <li className="nav-item">
+            <div className="cart">
+            <li className="nav-item">
                 {msg === "" ? (<Link className="nav-link mx-2 text-uppercase active" onClick={gotoCart}><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>) : (<Link className="nav-link mx-2 text-uppercase active" to={`/whishList/${id}`} ><i className="fa-solid fa-cart-shopping me-1"></i><FaRegHeart className='wishlist-icon' /></Link>)}
               </li>
+              <div className="cart-count">{wishLength}</div>
+            </div>
               <div className="cart">
               <li className="nav-item">
                 {msg === "" ? (<Link className="nav-link mx-2 text-uppercase active" onClick={gotoCart} ><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>) : (<Link className="nav-link mx-2 text-uppercase active" to={`/cart/${id}`} onClick={gotoCart} ><i className="fa-solid fa-cart-shopping me-1"></i> <BsCart3 className='cartIcon' /></Link>)}
