@@ -33,11 +33,11 @@ router.route("/getAllProducts").get(controller.getAllProducts);
 router.route("/addToCart").post(controller.AddToCart);
 router.route("/getCartProduct/:id").get(controller.getCartProduct);
 router.route("/delCartProduct/:id").delete(controller.delCartProduct);
-router.route("/delAlltProduct/:id").delete(controller.deleteAllProducts);
+router.route("/placeOrder/:id").post(controller.placeOrder);
 router.route("/addToWhishList").post(controller.AddToWishList);
 router.route("/getWishlistProduct/:id").get(controller.getWishlistProduct);
 router.route("/delWishListProduct/:id").delete(controller.delwishListProduct);
-router.route("/addToMyOrder").post(controller.AddToMyOrder);
+// router.route("/addToMyOrder").post(controller.AddToMyOrder);
 router.route("/updateCartItem/:prodId").patch(controller.editQuantity);
 
 

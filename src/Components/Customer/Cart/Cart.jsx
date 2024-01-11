@@ -52,8 +52,9 @@ const Cart = () => {
       try {
 
         // console.log(res.data);
-        await axios.delete(`http://localhost:7000/sportstrack/delAlltProduct/${id}`);
+        await axios.post(`http://localhost:7000/sportstrack/placeOrder/${id}`);
         alert("Order Placed");
+        window.location.reload()
         navigate("/")
       } catch (error) {
         console.error("Error deleting products:", error);

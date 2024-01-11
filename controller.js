@@ -347,16 +347,37 @@ export function delCartProduct(req,res)
 ///////////////// PROCEED TO BUY IN CART///////////////////
 
 
-export function deleteAllProducts(req,res)
-{
-    const{id}=req.params;
-    const data=cart_schema.deleteMany({cust_id:id})
-    data.then((resp)=>{
-        res.status(200).send(resp)          
-    }).catch((error)=>{
-        res.status(404).send(error)
-    })
+export async function placeOrder(req, res) {
+  try {
+    const { id } = req.params;
+    let cart = await cart_schema.find({ cust_id: id });
+
+    const result = await Promise.all(
+      cart.map(async (item) => {
+        // Use await here to ensure the order is created before moving to the next iteration
+        const order = await myOrder_schema.create({ ...item });
+        return order;
+      })
+    );
+
+    // After all orders are created, delete the items from the cart
+    await cart_schema.deleteMany({ cust_id: id });
+
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
 }
+
+
+
+ // const data=cart_schema.deleteMany({cust_id:id})
+    // data.then((resp)=>{
+    //     res.status(200).send(resp)          
+    // }).catch((error)=>{
+    //     res.status(404).send(error)
+    // })
 
 
 //////////////////ADD TO WISHLIST ////////////////////
@@ -398,17 +419,17 @@ export function delwishListProduct(req,res)
 
 ///////////////// ADD TO MY ODER BY CUSTOMER//////////////////
 
-export async function AddToMyOrder(req, res) {
-  try {
-    const { ...productdetails } = req.body;
-    const task = await myOrder_schema.create({ ...productdetails });
-    console.log(task);
-    res.status(200).send(task);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-}
+// export async function AddToMyOrder(req, res) {
+//   try {
+//     const { ...productdetails } = req.body;
+//     const task = await myOrder_schema.create({ ...productdetails });
+//     console.log(task);
+//     res.status(200).send(task);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// }
 
 ///////////////// EDIT QUANTITY IN CART ///////////////////////
 
