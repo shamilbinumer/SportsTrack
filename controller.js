@@ -351,10 +351,10 @@ export async function placeOrder(req, res) {
   try {
     const { id } = req.params;
     let cart = await cart_schema.find({ cust_id: id });
+    const stockeResult=cart.map(dt=> product_schema.updateOne({_id:dt.prod_id},{$inc:{quantity:-(dt.quantity)}}))
 
     const result = await Promise.all(
       cart.map(async (item) => {
-        // Use await here to ensure the order is created before moving to the next iteration
         const order = await myOrder_schema.create({ ...item });
         return order;
       })
