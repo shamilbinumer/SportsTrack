@@ -351,19 +351,30 @@ export async function placeOrder(req, res) {
   try {
     const { id } = req.params;
     let cart = await cart_schema.find({ cust_id: id });
-    const stockeResult=cart.map(dt=> product_schema.updateOne({_id:dt.prod_id},{$inc:{quantity:-(dt.quantity)}}))
-
-    const result = await Promise.all(
-      cart.map(async (item) => {
-        const order = await myOrder_schema.create({ ...item });
-        return order;
+    console.log(cart);
+    let s="";
+    const stockeResult=cart.map(dt=>
+        // s=dt.size;
+        // console.log(s)  
+      product_schema.updateOne({_id:dt.prod_id},{$inc:{stock:{s:-(dt.quantity)}}})
+      )
+      Promise.all(stockeResult).then(()=>{
+        console.log("update");
       })
-    );
+      .catch(()=>{console.log("error");})
+    
 
-    // After all orders are created, delete the items from the cart
-    await cart_schema.deleteMany({ cust_id: id });
+    // const result = await Promise.all(
+    //   cart.map(async (item) => {
+    //     const order = await myOrder_schema.create({ ...item });
+    //     return order;
+    //   })
+    // );
 
-    res.status(200).json(result);
+    // // After all orders are created, delete the items from the cart
+    // await cart_schema.deleteMany({ cust_id: id });
+
+    // res.status(200).json(result);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
