@@ -20,7 +20,7 @@ const ProductDetailsCustomer = () => {
   const [msg, setMsg] = useState("")
   const [cartItems, setCartItems] = useState([])
   const [wishlistItems, setWishlistItems] = useState([])
-  const value = JSON.parse(localStorage.getItem('customer_token')) ;
+  const value = JSON.parse(localStorage.getItem('customer_token'));
   const [getProducts, setProduct] = useState({
     cust_id: "",
     prod_id: "",
