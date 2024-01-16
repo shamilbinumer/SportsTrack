@@ -8,6 +8,7 @@ import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 
 const ProductDetailsCustomer = () => {
+  let StockArray=[]
   let Size;
   // let iiiiid
   const [loading, setLoading] = useState(true);
@@ -84,7 +85,8 @@ const ProductDetailsCustomer = () => {
     const res = await axios.get(`http://localhost:7000/sportstrack/getProduct/${id}`)
     setProduct(res.data)
     product_id = res.data._id
-    console.log("prooooood", product_id);
+    StockArray.push(res.data.stock)
+    console.log(StockArray[0]);
   }
 
   useEffect(() => {
