@@ -356,7 +356,8 @@ export async function placeOrder(req, res) {
     const stockeResult=cart.map(dt=>
         // s=dt.size;
         // console.log(s)  
-      product_schema.updateOne({_id:dt.prod_id},{$inc:{stock:{s:-(dt.quantity)}}})
+      // product_schema.updateOne({_id:dt.prod_id},{$inc:{stock:{s:-(dt.quantity)}}})
+      product_schema.updateOne({_id:dt.prod_id},{ $inc: { [stock.${dt.size}]: -(dt.quantity) }})
       )
       Promise.all(stockeResult).then(()=>{
         console.log("update");
