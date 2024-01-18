@@ -352,20 +352,34 @@ export async function placeOrder(req, res) {
     const { id } = req.params;
     let cart = await cart_schema.find({ cust_id: id });
     console.log(cart);
-    let s="";
-    const stockeResult=cart.map(dt=>
-        // s=dt.size;
-        // console.log(s)  
-      // product_schema.updateOne({_id:dt.prod_id},{$inc:{stock:{s:-(dt.quantity)}}})
-      product_schema.updateOne({_id:dt.prod_id},{ $inc: { [`stock.${dt.size}`]: -(dt.quantity)}})
-      )
-      Promise.all(stockeResult).then(()=>{
-        console.log("update");
-      })
-      .catch(()=>{console.log("error");})
-    
+    let s = "";
 
-    // const result = await Promise.all(
+    const stockeResult = cart.map((dt) =>
+      product_schema.updateOne({ _id: dt.prod_id },{ $inc: { [`stock.${dt.size}`]: -(dt.quantity) } }));
+
+    await Promise.all(stockeResult);
+    console.log("Stocks updated");
+
+    const orderCreationPromises = cart.map(async (item) => {
+      const order = await myOrder_schema.create({ ...item });
+      return order;
+    });
+
+    const orders = await Promise.all(orderCreationPromises);
+    console.log("Orders created");
+
+    await cart_schema.deleteMany({ cust_id: id });
+    console.log("Cart items deleted");
+
+    res.status(200).send("Order placed successfully");
+  } catch (error) {
+    console.error("Error in placeOrder:", error);
+    res.status(500).send(error.message || "Internal Server Error");
+  }
+}
+
+
+ // const result = await Promise.all(
     //   cart.map(async (item) => {
     //     const order = await myOrder_schema.create({ ...item });
     //     return order;
@@ -376,11 +390,6 @@ export async function placeOrder(req, res) {
     // await cart_schema.deleteMany({ cust_id: id });
 
     // res.status(200).json(result);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send(error);
-  }
-}
 
 
 
