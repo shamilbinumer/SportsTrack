@@ -352,7 +352,6 @@ export async function placeOrder(req, res) {
     const { id } = req.params;
     let cart = await cart_schema.find({ cust_id: id });
     console.log(cart);
-    let s = "";
 
     const stockeResult = cart.map((dt) =>
       product_schema.updateOne({ _id: dt.prod_id },{ $inc: { [`stock.${dt.size}`]: -(dt.quantity) } }));
