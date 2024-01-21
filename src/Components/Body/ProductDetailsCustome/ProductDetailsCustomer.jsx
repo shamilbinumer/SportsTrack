@@ -11,6 +11,7 @@ const ProductDetailsCustomer = () => {
   let StockArray=[]
   let Size;
   // let iiiiid
+  // const [count,setCount]=useState(0)
   const [loading, setLoading] = useState(true);
 
 
@@ -122,6 +123,7 @@ const ProductDetailsCustomer = () => {
       console.log(res.data);
       if (res) {
         alert("Added To Cart")
+        // setCount(pre=>pre+1)
         window.location.reload();
       } else {
         alert("Error adding product to cart. Please try again.")

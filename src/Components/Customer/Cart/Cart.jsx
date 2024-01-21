@@ -157,7 +157,7 @@ const Cart = () => {
           <table>
             <tr>
               <td className='total-text' id='td'>Total</td>
-              {totalPrice>=5000?(<td className='total-text'>₹ {totalPrice}</td>):(<td>{totalPrice+99}</td>)}
+              {totalPrice>=5000?(<td className='total-text'>₹ {totalPrice}</td>):(<td className='total-text'>₹ {totalPrice+99}</td>)}
             </tr>
           </table>
 
