@@ -10,8 +10,6 @@ import { FaHeartCircleCheck } from "react-icons/fa6";
 const ProductDetailsCustomer = () => {
   let StockArray=[]
   let Size;
-  // let iiiiid
-  // const [count,setCount]=useState(0)
   const [loading, setLoading] = useState(true);
 
 
@@ -115,21 +113,21 @@ const ProductDetailsCustomer = () => {
 
   const addToCart = async () => {
     try {
-      if (!Size) {
+      if (!Size || Size.trim() === "") {
         alert("Please select the size");
         return;
       }
       const res = await axios.post("http://localhost:7000/sportstrack/addToCart", { ...getProducts, size: Size, cust_id: msg.id, quantity: 1, prod_id: getProducts._id });
       console.log(res.data);
+      
       if (res) {
         alert("Added To Cart")
-        // setCount(pre=>pre+1)
         window.location.reload();
       } else {
         alert("Error adding product to cart. Please try again.")
       }
     } catch (error) {
-      console.error("Error adding product to cart:", error);
+      console.error("Error adding product to cart12:", error);
       alert("Error adding product to cart. Please try again.");
     }
   };

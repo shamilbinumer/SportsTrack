@@ -20,10 +20,11 @@ import AllCustomers from './Components/Admin/AllCustomers/AllCustomers'
 import Cart from './Components/Customer/Cart/Cart'
 import WishList from './Components/Customer/WishList/WishList'
 import MyOrders from './Components/Customer/MyOrders/MyOrders'
+import axios from 'axios'
 
 
 function App() {
-
+  axios.defaults.baseURL = location.origin;
   return (
     <>
   <BrowserRouter>
