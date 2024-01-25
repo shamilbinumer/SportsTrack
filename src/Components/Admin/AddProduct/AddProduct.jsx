@@ -149,7 +149,9 @@ const AddProduct = () => {
     <select name="category" id="category"  className="input-field" onChange={GetData}>
      {
       getCat.map((data,index)=>
-        <option value={data.category} key={index}>{data.category}</option>
+     <>
+      <option key={index}>Select Category</option>
+        <option value={data.category}>{data.category}</option></>
      )
      }
       </select>
