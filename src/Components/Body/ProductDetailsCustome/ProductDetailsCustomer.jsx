@@ -115,6 +115,11 @@ const ProductDetailsCustomer = () => {
 
   const addToCart = async () => {
     try {
+      if(msg.length==0){
+        alert("Please login for more options")
+        return
+      }
+
       if (!Size || Size.trim() === "") {
         alert("Please select the size");
         return;
@@ -136,9 +141,15 @@ const ProductDetailsCustomer = () => {
 
   const addToWishList = async () => {
     try {
+      if(msg.length==0){
+        alert("Please login for more options")
+        return
+      }
       const res = await axios.post("http://localhost:7000/sportstrack/addToWhishList", { ...getProducts, size: Size, cust_id: msg.id, prod_id: getProducts._id });
       console.log(res.data);
+      
       if (res) {
+       
         alert("Added To Wishlist")
         window.location.reload();
       } else {
