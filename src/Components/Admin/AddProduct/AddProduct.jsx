@@ -147,11 +147,12 @@ const AddProduct = () => {
     <div className='label'><label htmlFor="">Category :</label></div>
     <div className="field">
     <select name="category" id="category"  className="input-field" onChange={GetData}>
+    <option>Select Category</option>
      {
       getCat.map((data,index)=>
      <>
-      <option key={index}>Select Category</option>
-        <option value={data.category}>{data.category}</option></>
+        <option value={data.category}>{data.category}</option>
+      </>
      )
      }
       </select>

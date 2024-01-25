@@ -29,7 +29,7 @@ const Cart = () => {
 
   // const [count,setCount]=useState(0)
   const getPrdctDetails = async () => {
-    const res = await axios.get(` http://localhost:7000/sportstrack/getCartProduct/${id}`)
+    const res = await axios.get(`http://localhost:7000/sportstrack/getCartProduct/${id}`)
     setProdct(res.data)
 
   }
