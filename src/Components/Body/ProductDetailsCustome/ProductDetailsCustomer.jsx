@@ -124,7 +124,7 @@ const ProductDetailsCustomer = () => {
         alert("Please select the size");
         return;
       }
-      const res = await axios.post("http://localhost:7000/sportstrack/addToCart", { ...getProducts, size: Size, cust_id: msg.id, quantity: 1, prod_id: product_id });
+      const res = await axios.post("http://localhost:7000/sportstrack/addToCart", { ...getProducts, size: Size, cust_id: msg.id, quantity: 1, prod_id: getProducts._id });
       console.log(res.data);
       
       if (res) {
